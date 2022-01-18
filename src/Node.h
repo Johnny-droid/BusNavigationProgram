@@ -1,9 +1,19 @@
 #ifndef BUSNAVIGATIONPROGRAM_NODE_H
 #define BUSNAVIGATIONPROGRAM_NODE_H
 
+#include <list>
 
-class Node {
+using namespace std;
 
+struct Edge {
+    int dest;   // Destination node
+    int weight; // An integer weight
+};
+
+ struct Node {
+    list<Edge> adj; // The list of outgoing edges (to adjacent nodes)
+    int distance;
+    int parent;
 };
 
 
