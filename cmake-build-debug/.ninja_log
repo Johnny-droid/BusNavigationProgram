@@ -1,13 +1,9 @@
 # ninja log v5
-0	344	1642542918530643245	CMakeFiles/BusNavigationProgram.dir/main.cpp.o	2673a4b83440aeca
-344	467	1642542918654772860	BusNavigationProgram	c82c29f696db5405
-1	115	1642543296893645961	CMakeFiles/BusNavigationProgram.dir/src/Node.cpp.o	e84a8f2399aec6aa
-1	613	1642543297385930975	CMakeFiles/BusNavigationProgram.dir/main.cpp.o	efdff8aefd6a7352
-4	1509	1642543298282449436	lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	530d8326a7855831
-1	1961	1642543298734710596	CMakeFiles/BusNavigationProgram.dir/tests/test.cpp.o	75d49d1439813615
-6	5544	1642543302312768079	lib/googletest-master/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	2d1a7ef0c9cb88db
-5545	5621	1642543302396816215	lib/libgtestd.a	ea6036ae62460679
-5621	5636	1642543302404820799	lib/libgtest_maind.a	174fccbbce4626c0
-5636	5838	1642543302612939991	BusNavigationProgram	7b125ee7ca75bcbc
 3	309	1642543404498754983	CMakeFiles/BusNavigationProgram.dir/main.cpp.o	efdff8aefd6a7352
+5621	5636	1642543302404820799	lib/libgtest_maind.a	174fccbbce4626c0
+1	1961	1642543298734710596	CMakeFiles/BusNavigationProgram.dir/tests/test.cpp.o	75d49d1439813615
+1	115	1642543296893645961	CMakeFiles/BusNavigationProgram.dir/src/Node.cpp.o	e84a8f2399aec6aa
 309	511	1642543404699019488	BusNavigationProgram	7b125ee7ca75bcbc
+4	1509	1642543298282449436	lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o	530d8326a7855831
+5545	5621	1642543302396816215	lib/libgtestd.a	ea6036ae62460679
+6	5544	1642543302312768079	lib/googletest-master/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	2d1a7ef0c9cb88db
