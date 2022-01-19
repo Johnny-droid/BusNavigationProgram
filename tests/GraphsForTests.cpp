@@ -1,9 +1,6 @@
-#include "../src/Graph.h"
+#include "GraphsForTests.h"
 
-//Desenhos dos graphicos:
-// https://moodle.up.pt/pluginfile.php/155550/mod_label/intro/aed2122_p11.pdf?time=1642503159552
-
-Graph graph1Generator() {
+Graph GraphsForTests::graph1Generator() {
     Graph g(7, false);
     g.addEdge(1, 2, 1);
     g.addEdge(1, 4, 3);
@@ -20,7 +17,7 @@ Graph graph1Generator() {
     return g;
 }
 
-Graph graph2Generator() {
+Graph GraphsForTests::graph2Generator() {
     Graph g(9, false);
     g.addEdge(1,2, 16);
     g.addEdge(1,4, 3);
@@ -41,7 +38,7 @@ Graph graph2Generator() {
     return g;
 }
 
-Graph graph3Generator() {
+Graph GraphsForTests::graph3Generator() {
     Graph g(11, false);
     g.addEdge(1, 2, 2);
     g.addEdge(1, 7, 1);
@@ -64,7 +61,7 @@ Graph graph3Generator() {
     return g;
 }
 
-Graph graph4Generator() {
+Graph GraphsForTests::graph4Generator() {
     Graph g(4, false);
     g.addEdge(1, 2, 1);
     g.addEdge(1, 3, 6);
@@ -75,7 +72,7 @@ Graph graph4Generator() {
     return g;
 }
 
-Graph graph1Dijkstra() {
+Graph GraphsForTests::graph1Dijkstra() {
     Graph g(7, false);
     g.addEdge(1, 2, 12);
     g.addEdge(1, 4, 3);
@@ -92,7 +89,7 @@ Graph graph1Dijkstra() {
     return g;
 }
 
-Graph graph2Dijkstra() {
+Graph GraphsForTests::graph2Dijkstra() {
     Graph g(9, false);
     g.addEdge(1,2, 16);
     g.addEdge(1,4, 3);
@@ -113,7 +110,7 @@ Graph graph2Dijkstra() {
     return g;
 }
 
-Graph graph3Dijkstra() {
+Graph GraphsForTests::graph3Dijkstra() {
     Graph g(11, true);
     g.addEdge(2, 1, 2);
     g.addEdge(1, 7, 1);

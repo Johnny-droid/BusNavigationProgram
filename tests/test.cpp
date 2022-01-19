@@ -1,73 +1,21 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include "GraphsForTests.cpp"
+#include "GraphsForTests.h"
 
 using testing::Eq;
 
+//Desenhos dos graphicos:
+// https://moodle.up.pt/pluginfile.php/155550/mod_label/intro/aed2122_p11.pdf?time=1642503159552
+
 // We will have to change all this, but it's just to get a general idea
 // Tests from the class exercises
-TEST(test1, Prim) {
-    cout << "Testing 'prim'" << endl;
-    Graph graph1 = graph1Generator();
-    Graph graph2 = graph2Generator();
-    Graph graph3 = graph3Generator();
-    Graph graph4 = graph4Generator();
 
-    EXPECT_EQ(27, graph1.prim(1));
-    EXPECT_EQ(27, graph1.prim(2));
-    EXPECT_EQ(27, graph1.prim(3));
-    EXPECT_EQ(27, graph1.prim(4));
-    EXPECT_EQ(27, graph1.prim(5));
-    EXPECT_EQ(27, graph1.prim(6));
-    EXPECT_EQ(27, graph1.prim(7));
+TEST(test1, Dijkstra) {
+    std::cout << "Testando 'dijkstra'" << std::endl;
 
-    cout << "  . graph2" << endl;
-    EXPECT_EQ(38, graph2.prim(1));
-    EXPECT_EQ(38, graph2.prim(5));
-    EXPECT_EQ(38, graph2.prim(9));
-
-    cout << "  . graph3" << endl;
-    EXPECT_EQ(22, graph3.prim(1));
-    EXPECT_EQ(22, graph3.prim(2));
-    EXPECT_EQ(22, graph3.prim(3));
-    EXPECT_EQ(22, graph3.prim(9));
-    EXPECT_EQ(22, graph3.prim(10));
-    EXPECT_EQ(22, graph3.prim(11));
-
-    cout << "  . graph4" << endl;
-    EXPECT_EQ(9, graph4.prim(1));
-    EXPECT_EQ(9, graph4.prim(2));
-    EXPECT_EQ(9, graph4.prim(3));
-    EXPECT_EQ(9, graph4.prim(4));
-}
-
-TEST(test2, kruskal) {
-    cout << "Testando 'kruskal'" << endl;
-
-    Graph graph1 = graph1Generator();
-    Graph graph2 = graph2Generator();
-    Graph graph3 = graph3Generator();
-    Graph graph4 = graph4Generator();
-
-    cout << " graph1" << endl;
-    EXPECT_EQ(27, graph1.kruskal());
-
-    cout << " graph2" << endl;
-    EXPECT_EQ(38, graph2.kruskal());
-
-    cout << " graph3" << endl;
-    EXPECT_EQ(22, graph3.kruskal());
-
-    cout << " graph4" << endl;
-    EXPECT_EQ(9, graph4.kruskal());
-}
-
-TEST(test3, Dijkstra) {
-    cout << "Testando 'dijkstra_distance'" << endl;
-
-    Graph graph1 = graph1Dijkstra();
-    Graph graph2 = graph2Dijkstra();
-    Graph graph3 = graph3Dijkstra();
+    Graph graph1 = GraphsForTests::graph1Dijkstra();
+    Graph graph2 = GraphsForTests::graph2Dijkstra();
+    Graph graph3 = GraphsForTests::graph3Dijkstra();
 
     cout << "  . graph1" << endl;
     EXPECT_EQ(9,graph1.dijkstra(1, 2));
@@ -104,3 +52,111 @@ TEST(test3, Dijkstra) {
     EXPECT_EQ(-1, graph3.dijkstra(6, 11));
     EXPECT_EQ(-1, graph3.dijkstra(1, 11));
 }
+
+TEST(test1, Dijkstra_path) {
+    cout << "Testando 'dijkstra_path'" << endl;
+
+    // For these examples there is only one shortest path, so we can compare
+    // directly, but on a general case, for accepting any shortest path,
+    // the verification would need to take that into account
+
+    Graph graph1 = GraphsForTests::graph1Dijkstra();
+    Graph graph2 = GraphsForTests::graph2Dijkstra();
+    Graph graph3 = GraphsForTests::graph3Dijkstra();
+
+    list<int> ans;
+
+    cout << "  . graph1" << endl;
+
+    ans = {1,4,5,2}; EXPECT_EQ(ans,graph1.dijkstra_path(1, 2));
+    ans = {2,5,4,1}; EXPECT_EQ(ans,graph1.dijkstra_path(2, 1));
+    ans = {1,4,5}; EXPECT_EQ(ans,graph1.dijkstra_path(1, 5));
+    ans = {5,4,1}; EXPECT_EQ(ans,graph1.dijkstra_path(5, 1));
+    ans = {1,4,6,3}; EXPECT_EQ(ans,graph1.dijkstra_path(1, 3));
+    ans = {3,6,4,1}; EXPECT_EQ(ans,graph1.dijkstra_path(3, 1));
+    ans = {1,4,6,7}; EXPECT_EQ(ans,graph1.dijkstra_path(1, 7));
+    ans = {7,6,4,1}; EXPECT_EQ(ans,graph1.dijkstra_path(7, 1));
+    ans = {4,6,3}; EXPECT_EQ(ans,graph1.dijkstra_path(4, 3));
+    ans = {3,6,4}; EXPECT_EQ(ans,graph1.dijkstra_path(3, 4));
+    ans = {4,5,2}; EXPECT_EQ(ans,graph1.dijkstra_path(4, 2));
+    ans = {2,5,4}; EXPECT_EQ(ans,graph1.dijkstra_path(2, 4));
+
+    cout << "  . graph2" << endl;
+    ans = {1,5,6,9}; EXPECT_EQ(ans,graph2.dijkstra_path(1, 9));
+    ans = {9,6,5,1}; EXPECT_EQ(ans,graph2.dijkstra_path(9, 1));
+    ans = {1,5,6,3}; EXPECT_EQ(ans,graph2.dijkstra_path(1, 3));
+    ans = {3,6,5,1}; EXPECT_EQ(ans,graph2.dijkstra_path(3, 1));
+    ans = {2,6,3}; EXPECT_EQ(ans,graph2.dijkstra_path(2, 3));
+    ans = {3,6,2}; EXPECT_EQ(ans,graph2.dijkstra_path(3, 2));
+    ans = {6,5,8}; EXPECT_EQ(ans,graph2.dijkstra_path(6, 8));
+    ans = {8,5,6}; EXPECT_EQ(ans,graph2.dijkstra_path(8, 6));
+
+    cout << "  . graph3" << endl;
+    ans = {}; EXPECT_EQ(ans,graph3.dijkstra_path(8, 11));
+    ans = {11,6,4,3,2,1,7,8}; EXPECT_EQ(ans,graph3.dijkstra_path(11, 8));
+    ans = {3,2,1,7,8}; EXPECT_EQ(ans,graph3.dijkstra_path(3, 8));
+    ans = {8,4,3}; EXPECT_EQ(ans,graph3.dijkstra_path(8, 3));
+    ans = {10,5}; EXPECT_EQ(ans,graph3.dijkstra_path(10, 5));
+    ans = {5,4,3,2,1,7,9,10}; EXPECT_EQ(ans,graph3.dijkstra_path(5, 10));
+    ans = {10,6,4}; EXPECT_EQ(ans,graph3.dijkstra_path(10, 4));
+    ans = {}; EXPECT_EQ(ans,graph3.dijkstra_path(6, 11));
+    ans = {}; EXPECT_EQ(ans,graph3.dijkstra_path(1, 11));
+}
+
+/*
+TEST(test2, Prim) {
+    cout << "Testing 'prim'" << endl;
+    Graph graph1 = GraphsForTests::graph1Generator();
+    Graph graph2 = GraphsForTests::graph2Generator();
+    Graph graph3 = GraphsForTests::graph3Generator();
+    Graph graph4 = GraphsForTests::graph4Generator();
+
+    EXPECT_EQ(27, graph1.prim(1));
+    EXPECT_EQ(27, graph1.prim(2));
+    EXPECT_EQ(27, graph1.prim(3));
+    EXPECT_EQ(27, graph1.prim(4));
+    EXPECT_EQ(27, graph1.prim(5));
+    EXPECT_EQ(27, graph1.prim(6));
+    EXPECT_EQ(27, graph1.prim(7));
+
+    cout << "  . graph2" << endl;
+    EXPECT_EQ(38, graph2.prim(1));
+    EXPECT_EQ(38, graph2.prim(5));
+    EXPECT_EQ(38, graph2.prim(9));
+
+    cout << "  . graph3" << endl;
+    EXPECT_EQ(22, graph3.prim(1));
+    EXPECT_EQ(22, graph3.prim(2));
+    EXPECT_EQ(22, graph3.prim(3));
+    EXPECT_EQ(22, graph3.prim(9));
+    EXPECT_EQ(22, graph3.prim(10));
+    EXPECT_EQ(22, graph3.prim(11));
+
+    cout << "  . graph4" << endl;
+    EXPECT_EQ(9, graph4.prim(1));
+    EXPECT_EQ(9, graph4.prim(2));
+    EXPECT_EQ(9, graph4.prim(3));
+    EXPECT_EQ(9, graph4.prim(4));
+}
+
+TEST(test3, kruskal) {
+    cout << "Testando 'kruskal'" << endl;
+
+    Graph graph1 = GraphsForTests::graph1Generator();
+    Graph graph2 = GraphsForTests::graph2Generator();
+    Graph graph3 = GraphsForTests::graph3Generator();
+    Graph graph4 = GraphsForTests::graph4Generator();
+
+    cout << " graph1" << endl;
+    EXPECT_EQ(27, graph1.kruskal());
+
+    cout << " graph2" << endl;
+    EXPECT_EQ(38, graph2.kruskal());
+
+    cout << " graph3" << endl;
+    EXPECT_EQ(22, graph3.kruskal());
+
+    cout << " graph4" << endl;
+    EXPECT_EQ(9, graph4.kruskal());
+}
+*/

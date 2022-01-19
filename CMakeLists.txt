@@ -7,6 +7,6 @@ add_subdirectory(lib/googletest-master)
 include_directories(lib/googletest-master/googletest/include)
 include_directories(lib/googletest-master/googlemock/include)
 
-add_executable(BusNavigationProgram main.cpp src/Node.h tests/test.cpp src/Graph.cpp src/Graph.h tests/GraphsForTests.cpp src/MinHeap.h)
+add_executable(BusNavigationProgram main.cpp src/Node.h tests/test.cpp src/Graph.cpp src/Graph.h src/MinHeap.h tests/GraphsForTests.cpp tests/GraphsForTests.h)
 
 target_link_libraries(BusNavigationProgram gtest gtest_main)

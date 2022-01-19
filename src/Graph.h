@@ -1,8 +1,8 @@
 #ifndef BUSNAVIGATIONPROGRAM_GRAPH_H
-
 #include <list>
 #include <vector>
 #include "Node.h"
+#include "MinHeap.h"
 
 using namespace std;
 
@@ -10,6 +10,9 @@ class Graph {
     int n;              // Graph size (vertices are numbered from 1 to n)
     bool hasDir;        // false: undirect; true: directed
     vector<Node> nodes; // The list of nodes being represented
+
+
+    bool allNodesVisited();
 
 public:
     // Constructor: nr nodes and direction (default: undirected)
@@ -20,7 +23,8 @@ public:
 
     int prim(int v);
     int kruskal();
-    int dijkstra(int startNode, int endNode);
+    int dijkstra(int a, int b);
+    list<int> dijkstra_path(int a, int b);
 };
 
 
