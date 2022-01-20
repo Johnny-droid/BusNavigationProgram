@@ -12,8 +12,6 @@ class Graph {
     vector<Node> nodes; // The list of nodes being represented
 
 
-    bool allNodesVisited();
-
 public:
     // Constructor: nr nodes and direction (default: undirected)
     Graph(int nodes, bool dir = false);

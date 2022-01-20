@@ -9,11 +9,6 @@ void Graph::addEdge(int src, int dest, int weight) {
     if (!hasDir) nodes[dest].adj.push_back({src, weight});
 }
 
-bool Graph::allNodesVisited() {
-    for (int i = 1; i < nodes.size(); i++) if (!nodes[i].visited) return false;
-    return true;
-};
-
 int Graph::prim(int v) {
     return 0;
 }
@@ -24,7 +19,7 @@ int Graph::kruskal() {
 
 int Graph::dijkstra(int a, int b) {
     MinHeap<int, int> heap(nodes.size(), -1);
-    for (int i = 1; i < nodes.size(); i++) {
+    for (int i = 1; i < nodes.size(); i++) { // i < n
         heap.insert(i, INT32_MAX);
         nodes[i].distance = INT32_MAX;
         nodes[i].visited = false;
@@ -34,12 +29,12 @@ int Graph::dijkstra(int a, int b) {
     nodes[a].distance = 0;
     nodes[a].parent = a;
 
-    while (!allNodesVisited()) {
+    while (heap.getSize() != 0) {
         int min = heap.removeMin();
         nodes[min].visited = true;
         for (Edge edge : nodes[min].adj) {
             int newWeight = edge.weight + nodes[min].distance;
-            if (!nodes[edge.dest].visited && heap.getValue(edge.dest) > newWeight) {
+            if (!nodes[edge.dest].visited && nodes[edge.dest].distance > newWeight) {
                 heap.decreaseKey(edge.dest, newWeight);
                 nodes[edge.dest].distance = newWeight;
                 nodes[edge.dest].parent = min;
