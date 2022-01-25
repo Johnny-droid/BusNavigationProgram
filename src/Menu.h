@@ -22,6 +22,7 @@ public:
     void createGraphLines();
     void createGraphLine(string line);
 
+
     static vector<string> split(string line, string delimeter);
 };
 
