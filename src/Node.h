@@ -6,6 +6,11 @@
 
 using namespace std;
 
+struct Coordinates {
+    double latitude;
+    double longitude;
+};
+
 struct Edge {
     int dest;   // Destination node
     int weight; // An integer weight
@@ -17,6 +22,10 @@ struct Edge {
     int distance;
     int parent;
     bool visited;
+    string code;
+    string local;
+    string zone;
+    Coordinates coordinates;
 };
 
 

@@ -75,31 +75,38 @@ build cmake_object_order_depends_target_BusNavigationProgram: phony || cmake_obj
 
 build CMakeFiles/BusNavigationProgram.dir/main.cpp.o: CXX_COMPILER__BusNavigationProgram_Debug /home/johnny/CLionProjects/BusNavigationProgram/main.cpp || cmake_object_order_depends_target_BusNavigationProgram
   DEP_FILE = CMakeFiles/BusNavigationProgram.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googlemock/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest
   OBJECT_DIR = CMakeFiles/BusNavigationProgram.dir
   OBJECT_FILE_DIR = CMakeFiles/BusNavigationProgram.dir
 
 build CMakeFiles/BusNavigationProgram.dir/tests/test.cpp.o: CXX_COMPILER__BusNavigationProgram_Debug /home/johnny/CLionProjects/BusNavigationProgram/tests/test.cpp || cmake_object_order_depends_target_BusNavigationProgram
   DEP_FILE = CMakeFiles/BusNavigationProgram.dir/tests/test.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googlemock/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest
   OBJECT_DIR = CMakeFiles/BusNavigationProgram.dir
   OBJECT_FILE_DIR = CMakeFiles/BusNavigationProgram.dir/tests
 
 build CMakeFiles/BusNavigationProgram.dir/src/Graph.cpp.o: CXX_COMPILER__BusNavigationProgram_Debug /home/johnny/CLionProjects/BusNavigationProgram/src/Graph.cpp || cmake_object_order_depends_target_BusNavigationProgram
   DEP_FILE = CMakeFiles/BusNavigationProgram.dir/src/Graph.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googlemock/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest
   OBJECT_DIR = CMakeFiles/BusNavigationProgram.dir
   OBJECT_FILE_DIR = CMakeFiles/BusNavigationProgram.dir/src
 
 build CMakeFiles/BusNavigationProgram.dir/tests/GraphsForTests.cpp.o: CXX_COMPILER__BusNavigationProgram_Debug /home/johnny/CLionProjects/BusNavigationProgram/tests/GraphsForTests.cpp || cmake_object_order_depends_target_BusNavigationProgram
   DEP_FILE = CMakeFiles/BusNavigationProgram.dir/tests/GraphsForTests.cpp.o.d
-  FLAGS = -g -std=gnu++14
+  FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googlemock/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest
   OBJECT_DIR = CMakeFiles/BusNavigationProgram.dir
   OBJECT_FILE_DIR = CMakeFiles/BusNavigationProgram.dir/tests
+
+build CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.o: CXX_COMPILER__BusNavigationProgram_Debug /home/johnny/CLionProjects/BusNavigationProgram/src/Menu.cpp || cmake_object_order_depends_target_BusNavigationProgram
+  DEP_FILE = CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googlemock/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest
+  OBJECT_DIR = CMakeFiles/BusNavigationProgram.dir
+  OBJECT_FILE_DIR = CMakeFiles/BusNavigationProgram.dir/src
 
 
 # =============================================================================
@@ -109,7 +116,7 @@ build CMakeFiles/BusNavigationProgram.dir/tests/GraphsForTests.cpp.o: CXX_COMPIL
 #############################################
 # Link the executable BusNavigationProgram
 
-build BusNavigationProgram: CXX_EXECUTABLE_LINKER__BusNavigationProgram_Debug CMakeFiles/BusNavigationProgram.dir/main.cpp.o CMakeFiles/BusNavigationProgram.dir/tests/test.cpp.o CMakeFiles/BusNavigationProgram.dir/src/Graph.cpp.o CMakeFiles/BusNavigationProgram.dir/tests/GraphsForTests.cpp.o | lib/libgtestd.a lib/libgtest_maind.a lib/libgtestd.a || lib/libgtest_maind.a lib/libgtestd.a
+build BusNavigationProgram: CXX_EXECUTABLE_LINKER__BusNavigationProgram_Debug CMakeFiles/BusNavigationProgram.dir/main.cpp.o CMakeFiles/BusNavigationProgram.dir/tests/test.cpp.o CMakeFiles/BusNavigationProgram.dir/src/Graph.cpp.o CMakeFiles/BusNavigationProgram.dir/tests/GraphsForTests.cpp.o CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.o | lib/libgtestd.a lib/libgtest_maind.a lib/libgtestd.a || lib/libgtest_maind.a lib/libgtestd.a
   FLAGS = -g
   LINK_LIBRARIES = lib/libgtestd.a  lib/libgtest_maind.a  lib/libgtestd.a  -lpthread
   OBJECT_DIR = CMakeFiles/BusNavigationProgram.dir
@@ -287,7 +294,7 @@ build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_
 
 build lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_Debug /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
   DEP_FILE = lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.d
-  FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++14
+  FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
   INCLUDES = -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googlemock/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googlemock -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest
   OBJECT_DIR = lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir
   OBJECT_FILE_DIR = lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src
@@ -319,7 +326,7 @@ build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depen
 
 build lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_Debug /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
   DEP_FILE = lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.d
-  FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++14
+  FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
   INCLUDES = -I/home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googlemock/include -I/home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googlemock -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest
   OBJECT_DIR = lib/googletest-master/googlemock/CMakeFiles/gmock.dir
   OBJECT_FILE_DIR = lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src
@@ -421,7 +428,7 @@ build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_
 
 build lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_Debug /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
   DEP_FILE = lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d
-  FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++14
+  FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
   INCLUDES = -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest
   OBJECT_DIR = lib/googletest-master/googletest/CMakeFiles/gtest_main.dir
   OBJECT_FILE_DIR = lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src
@@ -464,7 +471,7 @@ build cmake_object_order_depends_target_gtest: phony || lib/googletest-master/go
 
 build lib/googletest-master/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_Debug /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
   DEP_FILE = lib/googletest-master/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d
-  FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++14
+  FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
   INCLUDES = -I/home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest/include -I/home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest
   OBJECT_DIR = lib/googletest-master/googletest/CMakeFiles/gtest.dir
   OBJECT_FILE_DIR = lib/googletest-master/googletest/CMakeFiles/gtest.dir/src

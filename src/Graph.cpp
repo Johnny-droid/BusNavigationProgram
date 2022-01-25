@@ -3,11 +3,50 @@
 
 Graph::Graph(int num, bool dir) : n(num), hasDir(dir), nodes(num+1) {}
 
+Graph::Graph(vector<Node> nodes, unordered_map<string, int> positions, bool dir) {
+    this->n = nodes.size() - 1;
+    this->hasDir = dir;
+    this->positions = positions;
+    this->nodes = nodes;
+}
+
+void Graph::addEdge(string src, string dest, string line) {
+    int start, end;
+    try {
+        start = positions.at(src);
+        end = positions.at(dest);
+        addEdge(start, end, line);
+    } catch (out_of_range) {
+        cout << "Failed to add an edge" << endl;
+    }
+}
+
+void Graph::addEdge(int src, int dest, string line) {
+    if (src<1 || src>n || dest<1 || dest>n) return;
+    nodes[src].adj.push_back({dest, calculateDistance(src, dest), line});
+    if (!hasDir) nodes[dest].adj.push_back({dest, calculateDistance(src, dest), line});
+}
+
 void Graph::addEdge(int src, int dest, int weight) {
     if (src<1 || src>n || dest<1 || dest>n) return;
     nodes[src].adj.push_back({dest, weight});
     if (!hasDir) nodes[dest].adj.push_back({src, weight});
 }
+
+int Graph::calculateDistance(int src, int dest) {
+    Coordinates c1 = nodes[src].coordinates;
+    Coordinates c2 = nodes[dest].coordinates;
+    double dLat = (c2.latitude - c1.latitude) * M_PI / 180.0;
+    double dLon = (c2.longitude - c1.longitude) * M_PI / 180.0;
+    double lat1 = c1.latitude * M_PI / 180.0;
+    double lat2 = c2.latitude * M_PI / 180.0;
+    double a = pow(sin(dLat / 2), 2) + pow(sin(dLon / 2), 2) * cos(lat1) * cos(lat2);
+    double rad = 6371;
+    double c = 2 * asin(sqrt(a));
+    return (int) round((rad * c) * 1000);
+}
+
+
 
 int Graph::prim(int v) {
     return 0;
@@ -62,3 +101,19 @@ list<int> Graph::dijkstra_path(int a, int b) {
     }
     return path;
 }
+
+//Used only for tests
+void Graph::printNodes() {
+    for (int i = 1; i < nodes.size(); i++) {
+        cout << "Code :" << nodes[i].code << "\tPosition: " << positions[nodes[i].code] << "\tLocal: " << nodes[i].local << endl;
+        int j = 1;
+        for (Edge edge : nodes[i].adj) {
+            cout << j << " Dest: " << nodes[edge.dest].code << "\tDistance: " << edge.weight << " m\t Line: " << edge.line << endl;
+            j++;
+        }
+    }
+}
+
+
+
+

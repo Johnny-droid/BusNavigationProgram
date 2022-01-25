@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
+#include "../src/Menu.h"
 #include "GraphsForTests.h"
 
 using testing::Eq;
@@ -7,11 +8,10 @@ using testing::Eq;
 //Desenhos dos graphicos:
 // https://moodle.up.pt/pluginfile.php/155550/mod_label/intro/aed2122_p11.pdf?time=1642503159552
 
-// We will have to change all this, but it's just to get a general idea
 // Tests from the class exercises
 
 TEST(test1, Dijkstra) {
-    std::cout << "Testando 'dijkstra'" << std::endl;
+    std::cout << "Testing 'dijkstra'" << std::endl;
 
     Graph graph1 = GraphsForTests::graph1Dijkstra();
     Graph graph2 = GraphsForTests::graph2Dijkstra();
@@ -54,7 +54,7 @@ TEST(test1, Dijkstra) {
 }
 
 TEST(test1, Dijkstra_path) {
-    cout << "Testando 'dijkstra_path'" << endl;
+    cout << "Testing 'dijkstra_path'" << endl;
 
     // For these examples there is only one shortest path, so we can compare
     // directly, but on a general case, for accepting any shortest path,
@@ -102,6 +102,13 @@ TEST(test1, Dijkstra_path) {
     ans = {}; EXPECT_EQ(ans,graph3.dijkstra_path(6, 11));
     ans = {}; EXPECT_EQ(ans,graph3.dijkstra_path(1, 11));
 }
+
+TEST(test4, PrintNodes) {
+    cout << "Testing PrintNodes" << endl;
+    Menu menu("dataset");
+    menu.getGraph().printNodes();
+}
+
 
 /*
 TEST(test2, Prim) {
