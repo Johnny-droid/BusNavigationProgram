@@ -18,12 +18,20 @@ public:
     Menu(string directory);
     Graph& getGraph();
 
+    void run();
+    static void showMenu();
+
+    static int readInputMenu();
+    static string readString();
+
     void createGraphStops();
     void createGraphLines();
     void createGraphLine(string line);
 
+    void bestPathDijkstra();
 
     static vector<string> split(string line, string delimeter);
+    static void clear();
 };
 
 

@@ -6,6 +6,87 @@ Menu::Menu(string directory) {
     createGraphLines();
 }
 
+Graph &Menu::getGraph() {
+    return this->graph;
+}
+
+
+void Menu::run() {
+    int option;
+    do {
+        clear();
+        showMenu();
+        option = readInputMenu();
+        if (option == 1) {bestPathDijkstra();}
+    } while (option != 0);
+}
+
+void Menu::showMenu() {
+    cout << "\n\t\t\t\t Bus Navigation Program " << endl;
+    cout << "\tThe best app to help you find the path you are looking for" << endl;
+    cout << "\n\n\t1) Caminho mais rápido de autocarro" << endl;
+    cout << "\t2) Outras opções... " << endl;
+    cout << "\t0) Exit " << endl;
+}
+
+/**
+ * Reads input from the user in the main menu
+ * @return choice of the user
+ */
+int Menu::readInputMenu() {
+    // gets the option number
+    int chosenOption;
+    bool notValid;
+    do {
+        cout << "\n   Enter option: ";
+        cin >> chosenOption;
+        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 0 ;
+        if ( notValid || cin.fail()) {
+            if (cin.eof()) {
+                exit(0);
+            }
+            cin.clear();
+            cin.ignore(100000, '\n');
+            cout << "\t\tInvalid input!\n";
+        }
+    } while (notValid);
+    cin.ignore(100000, '\n');
+    return chosenOption;
+}
+
+
+
+/**
+ * It clears the console by calling system()
+ * (It might have problems in Clion, but it works well in the terminal)
+ */
+void Menu::clear() {
+#if defined _WIN32
+    system("cls");
+#elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
+    system("clear");
+#elif defined (__APPLE__)
+    system("clear");
+#endif
+}
+
+string Menu::readString() {
+    string str; bool fail;
+    // para conseguir ler um nome com mais do que uma palavra
+    do {
+        getline(cin, str);
+        fail = cin.fail();
+        if (fail)  {
+            if (cin.eof()) {
+                exit(0);
+            }
+            cin.clear();
+            cout << "Invalid Input Try again: \t" << endl;
+        }
+    } while (fail);
+    return str;
+}
+
 void Menu::createGraphStops() {
     ifstream fileStops;
     string line;
@@ -103,9 +184,23 @@ vector<string> Menu::split(string line, string delimeter) {
     return v;
 }
 
-Graph &Menu::getGraph() {
-    return this->graph;
+void Menu::bestPathDijkstra() {
+    int distance;
+    string begin, end;
+    cout << "\n\tIn which Bus Stop will your trip start at? "; begin = readString();
+    cout << "\tAnd where will it end? "; end = readString();
+    distance = graph.dijkstra(begin, end);
+    if (distance == -1) {
+        cout << "\tI'm sorry, but there aren't stops with that code." << endl;
+    } else {
+        cout << "\tYou will have to travel " << distance << "m " << endl;
+        graph.dijkstra_pathPrint(begin, end);
+    }
 }
+
+
+
+
 
 
 

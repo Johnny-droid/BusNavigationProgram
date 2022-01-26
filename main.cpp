@@ -1,12 +1,13 @@
 #include <iostream>
 #include "gtest/gtest.h"
+#include "src/Menu.h"
+
 
 int main(int argc, char* argv[]) {
-    std::cout << "Hello, World of Graphs!" << std::endl;
-    std::cout << "We love you Graphs!" << std::endl;
-    std::cout << "(Well, we need to)" << std::endl;
-
+    Menu menu("dataset");
+    menu.run();
+    /*
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
-
+    */
 }

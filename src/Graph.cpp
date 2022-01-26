@@ -56,6 +56,18 @@ int Graph::kruskal() {
     return 0;
 }
 
+int Graph::dijkstra(string src, string dest) {
+    int start, end;
+    try {
+        start = positions.at(src);
+        end = positions.at(dest);
+        return dijkstra(start, end);
+    } catch (out_of_range) {
+        return -1;
+    }
+}
+
+
 int Graph::dijkstra(int a, int b) {
     MinHeap<int, int> heap(nodes.size(), -1);
     for (int i = 1; i < nodes.size(); i++) { // i < n
@@ -84,22 +96,64 @@ int Graph::dijkstra(int a, int b) {
     return nodes[b].distance != INT32_MAX ? nodes[b].distance : -1;
 }
 
-list<int> Graph::dijkstra_path(int a, int b) {
-    list<int> path;
+void Graph::dijkstra_pathPrint(string src, string dest) {
+    int start, end;
+    try {
+        start = positions.at(src);
+        end = positions.at(dest);
+        dijkstra_pathPrint(start, end);
+    } catch (out_of_range) {
+        cout << "Something went wrong in print path" << endl;
+        return;
+    }
+}
+
+
+
+void Graph::dijkstra_pathPrint(int a, int b) {
+    stack<int> path;
 
     dijkstra(a, b);
 
     int lastNode = b;
     int parentNode = nodes[lastNode].parent;
-    if (parentNode == -1) return path;
-    path.push_front(lastNode);
+    if (parentNode == -1) return;
+    path.push(lastNode);
 
     while (lastNode != parentNode) {
-        path.push_front(parentNode);
+        path.push(parentNode);
         lastNode = parentNode;
         parentNode = nodes[parentNode].parent;
     }
-    return path;
+
+    cout << "\n";
+    int i, distance;
+    string line = "";
+    while (!path.empty()) {
+        i = path.top();
+        path.pop();
+
+        if (path.empty()) break;
+
+        if (existsEdgeLine(i, line)) {
+            for (Edge edge : nodes[i].adj) {
+                if (edge.line == line) {
+                    distance = edge.weight;
+                    break;
+                }
+            }
+        } else {
+            for (Edge edge : nodes[i].adj) {
+                if (edge.dest == path.top()) {
+                    distance = edge.weight;
+                    line = edge.line;
+                    break;
+                }
+            }
+        }
+
+        cout << "\t" << nodes[i].code << " -----  line:" << line << " | distance: " << distance << "m ----> " << nodes[path.top()].code << endl;
+    }
 }
 
 //Used only for tests
@@ -113,6 +167,18 @@ void Graph::printNodes() {
         }
     }
 }
+
+bool Graph::existsEdgeLine(int node, string line) {
+    for (Edge edge : nodes[node].adj) {
+        if (edge.line == line) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 #pragma once
 #ifndef BUSNAVIGATIONPROGRAM_GRAPH_H
 #include <list>
+#include <stack>
 #include <vector>
 #include <iostream>
 #include <unordered_map>
@@ -30,10 +31,15 @@ public:
 
     int prim(int v);
     int kruskal();
+    int dijkstra(string src, string dest);
     int dijkstra(int a, int b);
-    list<int> dijkstra_path(int a, int b);
+    void dijkstra_pathPrint(string src, string dest);
+    void dijkstra_pathPrint(int a, int b);
 
     void printNodes();
+
+private:
+    bool existsEdgeLine(int node, string line);
 };
 
 
