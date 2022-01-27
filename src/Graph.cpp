@@ -113,26 +113,26 @@ double Graph::dijkstra(int a, int b) {
     return nodes[b].distance != DBL_MAX ? nodes[b].distance : -1;
 }
 
-void Graph::dijkstra_pathPrint(string src, string dest) {
+stack<int> Graph::dijkstra_path(string src, string dest) {
     int start, end;
     try {
         start = positions.at(src);
         end = positions.at(dest);
-        dijkstra_pathPrint(start, end);
+        return dijkstra_path(start, end);
     } catch (out_of_range) {
         cout << "Something went wrong in print path" << endl;
-        return;
+        return stack<int>();
     }
 }
 
 
 
-void Graph::dijkstra_pathPrint(int a, int b) {
+stack<int> Graph::dijkstra_path(int a, int b) {
     stack<int> path;
 
     int lastNode = b;
     int parentNode = nodes[lastNode].parent;
-    if (parentNode == -1) return;
+    if (parentNode == -1) return {};
     path.push(lastNode);
 
     while (lastNode != parentNode) {
@@ -141,6 +141,11 @@ void Graph::dijkstra_pathPrint(int a, int b) {
         parentNode = nodes[parentNode].parent;
     }
 
+    return path;
+}
+
+
+void Graph::dijkstra_pathPrint(stack<int> path) {
     cout << "\n";
     int i;
     double distance;
@@ -167,7 +172,6 @@ void Graph::dijkstra_pathPrint(int a, int b) {
                 }
             }
         }
-
         cout << "\t" << nodes[i].code << " -----  line:" << line << " | distance: " << distance << "km ----> " << nodes[path.top()].code << endl;
     }
 }
@@ -250,6 +254,10 @@ void Graph::removeTemporaryNodes() {
     }
     nodes.erase(nodes.begin() + positions["-end-"]);
     positions.erase("-end-");
+}
+
+unordered_map<string, int> Graph::getPositions() {
+    return this->positions;
 }
 
 

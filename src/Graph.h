@@ -19,12 +19,12 @@ class Graph {
     unordered_map<string, int> positions;
 
 
-
 public:
     // Constructor: nr nodes and direction (default: directed)
     Graph(int nodes = 0, bool dir = true);
     Graph(vector<Node> nodes, unordered_map<string, int> positions, bool dir = true);
     double getWalkingDistance();
+    unordered_map<string, int> getPositions();
     void setWalkingDistance(double walkingDistance);
 
     // Add edge from source to destination with a certain weight
@@ -35,15 +35,14 @@ public:
     double calculateDistance(int src, int dest);
 
 
-
-
     int prim(int v);
     int kruskal();
     double dijkstra(string src, string dest);
     double dijkstra(int a, int b);
-    void dijkstra_pathPrint(string src, string dest);
-    void dijkstra_pathPrint(int a, int b);
+    stack<int> dijkstra_path(string src, string dest);
+    stack<int> dijkstra_path(int a, int b);
 
+    void dijkstra_pathPrint(stack<int> path);
     void printNodes();
 
     void insertTemporaryNode(Coordinates c, bool startType);
