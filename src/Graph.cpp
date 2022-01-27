@@ -14,6 +14,10 @@ double Graph::getWalkingDistance() {
     return this->walkingDistance;
 }
 
+unordered_map<string, int> Graph::getPositions() {
+    return this->positions;
+}
+
 void Graph::setWalkingDistance(double walkingDistance) {
     removeTemporaryNodes();
     // talvez remover todos as edges walking
@@ -256,9 +260,7 @@ void Graph::removeTemporaryNodes() {
     positions.erase("-end-");
 }
 
-unordered_map<string, int> Graph::getPositions() {
-    return this->positions;
-}
+
 
 
 

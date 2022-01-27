@@ -8,7 +8,8 @@ using testing::Eq;
 //Desenhos dos graphicos:
 // https://moodle.up.pt/pluginfile.php/155550/mod_label/intro/aed2122_p11.pdf?time=1642503159552
 
-// Tests from the class exercises
+
+
 
 TEST(SmallMapDistances, travelling1stop) {
     Menu menu("dataset-small");
@@ -56,15 +57,28 @@ TEST(SmallMapPaths, travelling4stops) {
     EXPECT_EQ(74113, round(graphS1.dijkstra("R", "H") * 100000));
 }
 
+bool compareStacks(stack<int> stack1, stack<int> stack2) {
+    if (stack1.size() != stack2.size()) return false;
+    while (!stack1.empty()) {
+        if (stack1.top() != stack2.top()) return false;
+        stack1.pop();
+        stack2.pop();
+    }
+    return true;
+}
+
 TEST(CopyMapDistances, travelling1stop) {
-    Menu menu("dataset-copy");
+    Menu menu("dataset-small");
     Graph graphS1 = menu.getGraph();
     //graphS1.printNodes();
     stack<int> testStack;
-    testStack.push("A");
+    int n;
+    unordered_map<string, int> positions = graphS1.getPositions();
+    n = positions["B"]; testStack.push(n);
+    n = positions["A"]; testStack.push(n);
+    //poe todas as positions por ordem contraria
     graphS1.dijkstra("A", "B");
-    EXPECT_EQ(testStack, graphS1.dijkstra_path("A", "B");
-    while (!testStack.empty()) testStack.pop();
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.dijkstra_path("A", "B")));
 }
 
 
