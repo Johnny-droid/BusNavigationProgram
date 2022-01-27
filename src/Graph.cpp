@@ -1,5 +1,5 @@
 #include "Graph.h"
-
+#include "float.h"
 
 Graph::Graph(int num, bool dir) : n(num), hasDir(dir), nodes(num+1) {}
 
@@ -10,7 +10,11 @@ Graph::Graph(vector<Node> nodes, unordered_map<string, int> positions, bool dir)
     this->nodes = nodes;
 }
 
-void Graph::setWalkingDistance(int walkingDistance) {
+double Graph::getWalkingDistance() {
+    return this->walkingDistance;
+}
+
+void Graph::setWalkingDistance(double walkingDistance) {
     removeTemporaryNodes();
     // talvez remover todos as edges walking
     this->walkingDistance = walkingDistance;
@@ -36,19 +40,19 @@ void Graph::addEdge(int src, int dest, string line) {
     if (!hasDir) nodes[dest].adj.push_back({dest, calculateDistance(src, dest), line});
 }
 
-void Graph::addEdge(int src, int dest, int weight) {
+void Graph::addEdge(int src, int dest, double weight) {
     if (src<1 || src>n || dest<1 || dest>n) return;
     nodes[src].adj.push_back({dest, weight});
     if (!hasDir) nodes[dest].adj.push_back({src, weight});
 }
 
-int Graph::calculateDistance(int src, int dest) {
+double Graph::calculateDistance(int src, int dest) {
     Coordinates c1 = nodes[src].coordinates;
     Coordinates c2 = nodes[dest].coordinates;
     return calculateDistance(c1, c2);
 }
 
-int Graph::calculateDistance(Coordinates c1, Coordinates c2) {
+double Graph::calculateDistance(Coordinates c1, Coordinates c2) {
     double dLat = (c2.latitude - c1.latitude) * M_PI / 180.0;
     double dLon = (c2.longitude - c1.longitude) * M_PI / 180.0;
     double lat1 = c1.latitude * M_PI / 180.0;
@@ -56,7 +60,7 @@ int Graph::calculateDistance(Coordinates c1, Coordinates c2) {
     double a = pow(sin(dLat / 2), 2) + pow(sin(dLon / 2), 2) * cos(lat1) * cos(lat2);
     double rad = 6371;
     double c = 2 * asin(sqrt(a));
-    return (int) round((rad * c) * 1000);
+    return rad * c;
 }
 
 
@@ -68,36 +72,36 @@ int Graph::kruskal() {
     return 0;
 }
 
-int Graph::dijkstra(string src, string dest) {
+double Graph::dijkstra(string src, string dest) {
     int start, end;
     try {
         start = positions.at(src);
         end = positions.at(dest);
         return dijkstra(start, end);
     } catch (out_of_range) {
-        cout << "There aren't any stops with that code" << endl;
+        cout << "\tThere aren't any stops with that code" << endl;
         return -1;
     }
 }
 
 
-int Graph::dijkstra(int a, int b) {
-    MinHeap<int, int> heap(nodes.size(), -1);
+double Graph::dijkstra(int a, int b) {
+    MinHeap<int, double> heap(nodes.size(), -1.0);
     for (int i = 1; i < nodes.size(); i++) { // i < n
-        heap.insert(i, INT32_MAX);
-        nodes[i].distance = INT32_MAX;
+        heap.insert(i, DBL_MAX);
+        nodes[i].distance = DBL_MAX;
         nodes[i].visited = false;
         nodes[i].parent = -1;
     }
     heap.decreaseKey(a, 0);
-    nodes[a].distance = 0;
+    nodes[a].distance = 0.0;
     nodes[a].parent = a;
 
     while (heap.getSize() != 0) {
         int min = heap.removeMin();
         nodes[min].visited = true;
         for (Edge edge : nodes[min].adj) {
-            int newWeight = edge.weight + nodes[min].distance;
+            double newWeight = edge.weight + nodes[min].distance;
             if (!nodes[edge.dest].visited && nodes[edge.dest].distance > newWeight) {
                 heap.decreaseKey(edge.dest, newWeight);
                 nodes[edge.dest].distance = newWeight;
@@ -106,7 +110,7 @@ int Graph::dijkstra(int a, int b) {
         }
     }
 
-    return nodes[b].distance != INT32_MAX ? nodes[b].distance : -1;
+    return nodes[b].distance != DBL_MAX ? nodes[b].distance : -1;
 }
 
 void Graph::dijkstra_pathPrint(string src, string dest) {
@@ -138,7 +142,8 @@ void Graph::dijkstra_pathPrint(int a, int b) {
     }
 
     cout << "\n";
-    int i, distance;
+    int i;
+    double distance;
     string line = "";
     while (!path.empty()) {
         i = path.top();
@@ -163,7 +168,7 @@ void Graph::dijkstra_pathPrint(int a, int b) {
             }
         }
 
-        cout << "\t" << nodes[i].code << " -----  line:" << line << " | distance: " << distance << "m ----> " << nodes[path.top()].code << endl;
+        cout << "\t" << nodes[i].code << " -----  line:" << line << " | distance: " << distance << "km ----> " << nodes[path.top()].code << endl;
     }
 }
 
@@ -173,7 +178,7 @@ void Graph::printNodes() {
         cout << "Code :" << nodes[i].code << "\tPosition: " << positions[nodes[i].code] << "\tLocal: " << nodes[i].local << endl;
         int j = 1;
         for (Edge edge : nodes[i].adj) {
-            cout << j << " Dest: " << nodes[edge.dest].code << "\tDistance: " << edge.weight << " m\t Line: " << edge.line << endl;
+            cout << j << " Dest: " << nodes[edge.dest].code << "\tDistance: " << edge.weight << " km\t Line: " << edge.line << endl;
             j++;
         }
     }
@@ -189,7 +194,7 @@ bool Graph::existsEdgeLine(int node, string line) {
 }
 
 void Graph::insertTemporaryNode(Coordinates c, bool startType) {
-    if (walkingDistance == 0) return;
+    if (walkingDistance <= 0) return;
 
     Node node;
     node.coordinates = c;
@@ -228,8 +233,26 @@ void Graph::insertTemporaryNode(Coordinates c, bool startType) {
 }
 
 void Graph::removeTemporaryNodes() {
+    //remove -start-
+    nodes.erase(nodes.begin() + positions["-start-"]);
+    positions.erase("-start-");
 
+    //remove -end-
+    for (int i = 1; i < nodes.size(); i++) {
+        auto it = nodes[i].adj.begin();
+        while (it != nodes[i].adj.end()) {
+            if (it->dest == positions["-end-"]) {
+                nodes[i].adj.erase(it);
+            } else {
+                it++;
+            }
+        }
+    }
+    nodes.erase(nodes.begin() + positions["-end-"]);
+    positions.erase("-end-");
 }
+
+
 
 
 

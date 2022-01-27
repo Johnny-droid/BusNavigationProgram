@@ -10,6 +10,47 @@ using testing::Eq;
 
 // Tests from the class exercises
 
+TEST(SMdist1stop, creationGraph) {
+    Menu menu("dataset-small");
+    Graph graphS1 = menu.getGraph();
+    graphS1.printNodes();
+    EXPECT_EQ(0.0, graphS1.dijkstra("U", "U"));
+    EXPECT_EQ(182.0, round(graphS1.dijkstra("A", "B")));
+    EXPECT_EQ(106.0, round(graphS1.dijkstra("R", "E")));
+    EXPECT_EQ(443.0, round(graphS1.dijkstra("F", "E")));
+    EXPECT_EQ(63.0, round(graphS1.dijkstra("G", "F")));
+    EXPECT_EQ(128.0, round(graphS1.dijkstra("G", "H")));
+    EXPECT_EQ(208.0, round(graphS1.dijkstra("P", "J")));
+    EXPECT_EQ(146.0, round(graphS1.dijkstra("J", "I")));
+    EXPECT_EQ(164.0, round(graphS1.dijkstra("I", "B")));
+}
+
+TEST(SMdist2stops, creationGraph) {
+    Menu menu("dataset-small");
+    Graph graphS1 = menu.getGraph();
+    graphS1.printNodes();
+    EXPECT_EQ(406.0, round(graphS1.dijkstra("C", "E")));
+    EXPECT_EQ(354.0, round(graphS1.dijkstra("P", "I")));
+    EXPECT_EQ(310.0, round(graphS1.dijkstra("J", "B")));
+}
+
+TEST(SMdist3stops, creationGraph) {
+    Menu menu("dataset-small");
+    Graph graphS1 = menu.getGraph();
+    graphS1.printNodes();
+    EXPECT_EQ(501.0, round(graphS1.dijkstra("G", "J")));
+    EXPECT_EQ(518.0,round(graphS1.dijkstra("P", "B")));
+}
+
+TEST(SMdist4stops, creationGraph) {
+    Menu menu("dataset-small");
+    Graph graphS1 = menu.getGraph();
+    graphS1.printNodes();
+    EXPECT_EQ(740.0, round(graphS1.dijkstra("R", "H")));
+}
+
+
+
 TEST(test1, Dijkstra) {
     std::cout << "Testing 'dijkstra'" << std::endl;
 

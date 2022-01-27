@@ -24,10 +24,10 @@ void Menu::run() {
 
 void Menu::showMenu() {
     cout << "\n\t\t\t\t Bus Navigation Program " << endl;
-    cout << "\tThe best app to help you find the path you are looking for" << endl;
+    cout << "\tThe best app to help you find the path you are looking for!" << endl;
     cout << "\n\n\t1) Caminho mais rápido de autocarro" << endl;
     cout << "\t2) Outras opções... " << endl;
-    cout << "\t3) Definir distancia a andar entre paragens " << endl;
+    cout << "\t3) Definir distância a andar entre paragens " << endl;
     cout << "\t0) Exit " << endl;
 }
 
@@ -232,6 +232,10 @@ int Menu::askStartEnd(string &stopBegin, string &stopEnd, Coordinates &cBegin, C
         cout << "\n\tIn which Bus Stop will your trip start at? "; stopBegin = readString();
         cout << "\tAnd where will it end? "; stopEnd = readString();
     } else {
+        if (graph.getWalkingDistance() == 0) {
+            cout << "If you don't want to walk, then, instead of giving such precisive coordinates, you should insert the code of the stop" << endl;
+            return 3;
+        }
         cout << "\n\tCoordinates of starting place" << endl;
         cout << "\tLatitude: "; cBegin.latitude = readDouble();
         cout << "\tLongitude: "; cBegin.longitude = readDouble();
@@ -269,26 +273,38 @@ vector<string> Menu::split(string line, string delimeter) {
 }
 
 void Menu::bestPathDijkstra() {
-    int option, distance;
+    int option;
+    double distance;
     string stopBegin, stopEnd;
     Coordinates cBegin, cEnd;
     option = askStartEnd(stopBegin, stopEnd, cBegin, cEnd);
     if (option == 1) {
         distance = graph.dijkstra(stopBegin, stopEnd);
-        if (distance != -1) {
-            cout << "\tYou will have to travel " << distance << "m " << endl;
+        if (distance != -1.0) {
+            cout << "\tYou will have to travel " << distance << "km " << endl;
             graph.dijkstra_pathPrint(stopBegin, stopEnd);
+        } else {
+            cout << "\n\tNo path available" << endl;
         }
-    } else {
-
-    }
+    } else if (option == 2) {
+        graph.insertTemporaryNode(cBegin, true);
+        graph.insertTemporaryNode(cEnd, false);
+        distance = graph.dijkstra("-start-", "-end-");
+        if (distance != -1.0) {
+            cout << "\tYou will have to travel " << distance << "km " << endl;
+            graph.dijkstra_pathPrint(stopBegin, stopEnd);
+        } else {
+            cout << "\n\tNo path available" << endl;
+        }
+        graph.removeTemporaryNodes();
+    } else {return;}
 
 
 }
 
 void Menu::askWalkingDistance() {
-    int walkDist;
-    cout << "\n\tSet a limit to how much you can walk between stops (meters): ";  walkDist = readInt();
+    double walkDist;
+    cout << "\n\tSet a limit to how much you can walk between stops (kilometers): ";  walkDist = readDouble();
     graph.setWalkingDistance(walkDist);
 }
 

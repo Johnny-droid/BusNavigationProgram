@@ -24,22 +24,23 @@ public:
     // Constructor: nr nodes and direction (default: directed)
     Graph(int nodes = 0, bool dir = true);
     Graph(vector<Node> nodes, unordered_map<string, int> positions, bool dir = true);
-    void setWalkingDistance(int walkingDistance);
+    double getWalkingDistance();
+    void setWalkingDistance(double walkingDistance);
 
     // Add edge from source to destination with a certain weight
     void addEdge(string src, string dest, string line);
     void addEdge(int src, int dest, string line);
-    void addEdge(int src, int dest, int weight = 1);
-    int calculateDistance(Coordinates c1, Coordinates c2);
-    int calculateDistance(int src, int dest);
+    void addEdge(int src, int dest, double weight = 1.0);
+    double calculateDistance(Coordinates c1, Coordinates c2);
+    double calculateDistance(int src, int dest);
 
 
 
 
     int prim(int v);
     int kruskal();
-    int dijkstra(string src, string dest);
-    int dijkstra(int a, int b);
+    double dijkstra(string src, string dest);
+    double dijkstra(int a, int b);
     void dijkstra_pathPrint(string src, string dest);
     void dijkstra_pathPrint(int a, int b);
 

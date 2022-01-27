@@ -13,13 +13,13 @@ struct Coordinates {
 
 struct Edge {
     int dest;   // Destination node
-    int weight; // An integer weight
+    double weight; // An integer weight
     string line;
 };
 
  struct Node {
     list<Edge> adj; // The list of outgoing edges (to adjacent nodes)
-    int distance;
+    double distance;
     int parent;
     bool visited;
     string code;
