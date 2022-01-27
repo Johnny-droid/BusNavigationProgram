@@ -10,6 +10,15 @@ Graph::Graph(vector<Node> nodes, unordered_map<string, int> positions, bool dir)
     this->nodes = nodes;
 }
 
+void Graph::setWalkingDistance(int walkingDistance) {
+    removeTemporaryNodes();
+    // talvez remover todos as edges walking
+    this->walkingDistance = walkingDistance;
+    // colocar as respetivas arestas com a nova distância
+
+}
+
+
 void Graph::addEdge(string src, string dest, string line) {
     int start, end;
     try {
@@ -36,6 +45,10 @@ void Graph::addEdge(int src, int dest, int weight) {
 int Graph::calculateDistance(int src, int dest) {
     Coordinates c1 = nodes[src].coordinates;
     Coordinates c2 = nodes[dest].coordinates;
+    return calculateDistance(c1, c2);
+}
+
+int Graph::calculateDistance(Coordinates c1, Coordinates c2) {
     double dLat = (c2.latitude - c1.latitude) * M_PI / 180.0;
     double dLon = (c2.longitude - c1.longitude) * M_PI / 180.0;
     double lat1 = c1.latitude * M_PI / 180.0;
@@ -45,7 +58,6 @@ int Graph::calculateDistance(int src, int dest) {
     double c = 2 * asin(sqrt(a));
     return (int) round((rad * c) * 1000);
 }
-
 
 
 int Graph::prim(int v) {
@@ -175,6 +187,50 @@ bool Graph::existsEdgeLine(int node, string line) {
     }
     return false;
 }
+
+void Graph::insertTemporaryNode(Coordinates c, bool startType) {
+    if (walkingDistance == 0) return;
+
+    Node node;
+    node.coordinates = c;
+    if (startType) {
+        node.code = "-start-";
+        try {
+            positions.at(node.code);
+            cout << "There is another starting point. Development error." << endl;
+            return;
+        } catch (out_of_range) {
+            nodes.push_back(node);
+            positions[node.code] = nodes.size() - 1;
+        }
+        for (int i = 1; i < nodes.size()-1; i++) {
+            if (calculateDistance(c, nodes[i].coordinates) <= walkingDistance) {
+                addEdge(nodes.size() - 1, i, "walk");
+            }
+        }
+    } else {
+        node.code = "-end-";
+        try {
+            positions.at(node.code);
+            cout << "There is another ending point. Development error." << endl;
+            return;
+        } catch (out_of_range) {
+            nodes.push_back(node);
+            positions[node.code] = nodes.size() - 1;
+        }
+        for (int i = 1; i < nodes.size()-1; i++) {
+            if (calculateDistance(c, nodes[i].coordinates) <= walkingDistance) {
+                addEdge(i, nodes.size() - 1, "walk");
+            }
+        }
+    }
+
+}
+
+void Graph::removeTemporaryNodes() {
+
+}
+
 
 
 

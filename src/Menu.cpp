@@ -18,6 +18,7 @@ void Menu::run() {
         showMenu();
         option = readInputMenu();
         if (option == 1) {bestPathDijkstra();}
+        else if (option == 3) {askWalkingDistance();}
     } while (option != 0);
 }
 
@@ -26,6 +27,7 @@ void Menu::showMenu() {
     cout << "\tThe best app to help you find the path you are looking for" << endl;
     cout << "\n\n\t1) Caminho mais rápido de autocarro" << endl;
     cout << "\t2) Outras opções... " << endl;
+    cout << "\t3) Definir distancia a andar entre paragens " << endl;
     cout << "\t0) Exit " << endl;
 }
 
@@ -46,7 +48,7 @@ int Menu::readInputMenu() {
     do {
         cout << "\n   Enter option: ";
         cin >> chosenOption;
-        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 0 ;
+        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 0 ;
         if ( notValid || cin.fail()) {
             if (cin.eof()) {
                 exit(0);
@@ -282,6 +284,12 @@ void Menu::bestPathDijkstra() {
     }
 
 
+}
+
+void Menu::askWalkingDistance() {
+    int walkDist;
+    cout << "\n\tSet a limit to how much you can walk between stops (meters): ";  walkDist = readInt();
+    graph.setWalkingDistance(walkDist);
 }
 
 

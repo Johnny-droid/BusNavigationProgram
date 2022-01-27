@@ -19,3 +19,14 @@
 1965	2388	1643283477145361069	BusNavigationProgram	4d4cd10289f29bb0
 2	1877	1643283523509226177	CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.o	7431f95da0c5e1b0
 1877	2160	1643283523789225409	BusNavigationProgram	4d4cd10289f29bb0
+18	1527	1643294654656894735	CMakeFiles/BusNavigationProgram.dir/tests/GraphsForTests.cpp.o	1a62abad4c6f91ca
+18	2020	1643294655152899751	CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.o	7431f95da0c5e1b0
+18	2241	1643294655372901971	CMakeFiles/BusNavigationProgram.dir/src/Graph.cpp.o	843f7884f5f6e36f
+17	2619	1643294655748905768	CMakeFiles/BusNavigationProgram.dir/main.cpp.o	f3e952ba354f35d
+17	3016	1643294656148909802	CMakeFiles/BusNavigationProgram.dir/tests/test.cpp.o	bdb65bfb89cf0613
+3017	3287	1643294656416912502	BusNavigationProgram	4d4cd10289f29bb0
+7	2515	1643295600160691866	CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.o	7431f95da0c5e1b0
+6	2698	1643295600344691989	CMakeFiles/BusNavigationProgram.dir/src/Graph.cpp.o	843f7884f5f6e36f
+5	3074	1643295600720692242	CMakeFiles/BusNavigationProgram.dir/main.cpp.o	f3e952ba354f35d
+6	3908	1643295601556692802	CMakeFiles/BusNavigationProgram.dir/tests/test.cpp.o	bdb65bfb89cf0613
+3908	4237	1643295601884693022	BusNavigationProgram	4d4cd10289f29bb0
