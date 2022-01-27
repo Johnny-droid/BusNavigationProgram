@@ -13,7 +13,9 @@ Graph &Menu::getGraph() {
 
 void Menu::run() {
     int option;
+
     do {
+        graph.printNodes();
         clear();
         showMenu();
         option = readInputMenu();
@@ -273,16 +275,19 @@ vector<string> Menu::split(string line, string delimeter) {
 }
 
 void Menu::bestPathDijkstra() {
+    stack<int> path;
     int option;
     double distance;
     string stopBegin, stopEnd;
     Coordinates cBegin, cEnd;
+
     option = askStartEnd(stopBegin, stopEnd, cBegin, cEnd);
     if (option == 1) {
         distance = graph.dijkstra(stopBegin, stopEnd);
         if (distance != -1.0) {
             cout << "\tYou will have to travel " << distance << "km " << endl;
-            graph.dijkstra_pathPrint(stopBegin, stopEnd);
+            path = graph.dijkstra_path(stopBegin, stopEnd);
+            graph.dijkstra_pathPrint(path);
         } else {
             cout << "\n\tNo path available" << endl;
         }
@@ -292,7 +297,8 @@ void Menu::bestPathDijkstra() {
         distance = graph.dijkstra("-start-", "-end-");
         if (distance != -1.0) {
             cout << "\tYou will have to travel " << distance << "km " << endl;
-            graph.dijkstra_pathPrint(stopBegin, stopEnd);
+            path = graph.dijkstra_path(stopBegin, stopEnd);
+            graph.dijkstra_pathPrint(path);
         } else {
             cout << "\n\tNo path available" << endl;
         }

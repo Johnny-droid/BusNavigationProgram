@@ -150,24 +150,24 @@ stack<int> Graph::dijkstra_path(int a, int b) {
 
 
 void Graph::dijkstra_pathPrint(stack<int> path) {
-    cout << "\n";
-    int i;
-    double distance;
+    int i; double distance; bool found = false;
     string line = "";
+    cout << "\n";
     while (!path.empty()) {
         i = path.top();
         path.pop();
 
         if (path.empty()) break;
 
-        if (existsEdgeLine(i, line)) {
-            for (Edge edge : nodes[i].adj) {
-                if (edge.line == line) {
-                    distance = edge.weight;
-                    break;
-                }
+        for (Edge edge : nodes[i].adj) {
+            if (edge.line == line && edge.dest == path.top()) {
+                distance = edge.weight;
+                found = true;
+                break;
             }
-        } else {
+        }
+
+        if (!found) {
             for (Edge edge : nodes[i].adj) {
                 if (edge.dest == path.top()) {
                     distance = edge.weight;
@@ -192,14 +192,6 @@ void Graph::printNodes() {
     }
 }
 
-bool Graph::existsEdgeLine(int node, string line) {
-    for (Edge edge : nodes[node].adj) {
-        if (edge.line == line) {
-            return true;
-        }
-    }
-    return false;
-}
 
 void Graph::insertTemporaryNode(Coordinates c, bool startType) {
     if (walkingDistance <= 0) return;

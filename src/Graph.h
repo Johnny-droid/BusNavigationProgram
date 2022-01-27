@@ -47,8 +47,6 @@ public:
 
     void insertTemporaryNode(Coordinates c, bool startType);
     void removeTemporaryNodes();
-private:
-    bool existsEdgeLine(int node, string line);
 };
 
 
