@@ -11,3 +11,11 @@
 6047	6105	1643118647112194059	lib/libgtestd.a	ea6036ae62460679
 6	6047	1643118647048156530	lib/googletest-master/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o	f7659c4fd56b80cc
 0	116	1643241925554220308	build.ninja	49084c9b5bc12348
+22	1622	1643283065635493394	CMakeFiles/BusNavigationProgram.dir/tests/GraphsForTests.cpp.o	1a62abad4c6f91ca
+21	2351	1643283066363487630	CMakeFiles/BusNavigationProgram.dir/src/Graph.cpp.o	843f7884f5f6e36f
+20	2839	1643283066851483770	CMakeFiles/BusNavigationProgram.dir/main.cpp.o	f3e952ba354f35d
+21	3360	1643283067371479663	CMakeFiles/BusNavigationProgram.dir/tests/test.cpp.o	bdb65bfb89cf0613
+2	1965	1643283476725362364	CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.o	7431f95da0c5e1b0
+1965	2388	1643283477145361069	BusNavigationProgram	4d4cd10289f29bb0
+2	1877	1643283523509226177	CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.o	7431f95da0c5e1b0
+1877	2160	1643283523789225409	BusNavigationProgram	4d4cd10289f29bb0

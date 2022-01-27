@@ -63,6 +63,7 @@ int Graph::dijkstra(string src, string dest) {
         end = positions.at(dest);
         return dijkstra(start, end);
     } catch (out_of_range) {
+        cout << "There aren't any stops with that code" << endl;
         return -1;
     }
 }
@@ -112,8 +113,6 @@ void Graph::dijkstra_pathPrint(string src, string dest) {
 
 void Graph::dijkstra_pathPrint(int a, int b) {
     stack<int> path;
-
-    dijkstra(a, b);
 
     int lastNode = b;
     int parentNode = nodes[lastNode].parent;

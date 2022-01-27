@@ -20,13 +20,19 @@ public:
 
     void run();
     static void showMenu();
+    static void showPathVariationsOptions();
 
     static int readInputMenu();
+    static int readInputVariationsPath();
+    static double readDouble();
+    static int readInt();
     static string readString();
 
     void createGraphStops();
     void createGraphLines();
     void createGraphLine(string line);
+
+    int askStartEnd(string& stopBegin, string& stopEnd, Coordinates& cBegin, Coordinates& cEnd);
 
     void bestPathDijkstra();
 

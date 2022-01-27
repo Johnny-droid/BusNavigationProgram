@@ -29,6 +29,12 @@ void Menu::showMenu() {
     cout << "\t0) Exit " << endl;
 }
 
+void Menu::showPathVariationsOptions() {
+    cout << "\n\n\t1) Indicar paragens de autocarro" << endl;
+    cout << "\t2) Indicar coordenadas " << endl;
+}
+
+
 /**
  * Reads input from the user in the main menu
  * @return choice of the user
@@ -54,7 +60,26 @@ int Menu::readInputMenu() {
     return chosenOption;
 }
 
-
+int Menu::readInputVariationsPath() {
+    // gets the option number
+    int chosenOption;
+    bool notValid;
+    do {
+        cout << "\n   Enter option: ";
+        cin >> chosenOption;
+        notValid = chosenOption != 1 && chosenOption != 2;
+        if ( notValid || cin.fail()) {
+            if (cin.eof()) {
+                exit(0);
+            }
+            cin.clear();
+            cin.ignore(100000, '\n');
+            cout << "\t\tInvalid input!\n";
+        }
+    } while (notValid);
+    cin.ignore(100000, '\n');
+    return chosenOption;
+}
 
 /**
  * It clears the console by calling system()
@@ -68,6 +93,46 @@ void Menu::clear() {
 #elif defined (__APPLE__)
     system("clear");
 #endif
+}
+
+/**
+ * Reads integer from the user (General use)
+ * @return value given by the user
+ */
+int Menu::readInt() {
+    int x; bool fail;
+    do {
+        cin >> x;
+        fail = cin.fail();
+        if (fail)  {
+            cout << "it failed \t" << endl;
+            if (cin.eof()) {
+                exit(0);
+            }
+            cin.clear();
+            cin.ignore(100000, '\n');
+            cout << "Invalid Input Try again: \t" << endl;
+        }
+    } while (fail);
+    return x;
+}
+
+double Menu::readDouble() {
+    double x; bool fail;
+    do {
+        cin >> x;
+        fail = cin.fail();
+        if (fail)  {
+            cout << "it failed \t" << endl;
+            if (cin.eof()) {
+                exit(0);
+            }
+            cin.clear();
+            cin.ignore(100000, '\n');
+            cout << "Invalid Input Try again: \t" << endl;
+        }
+    } while (fail);
+    return x;
 }
 
 string Menu::readString() {
@@ -157,7 +222,24 @@ void Menu::createGraphLine(string line) {
     }
 }
 
+int Menu::askStartEnd(string &stopBegin, string &stopEnd, Coordinates &cBegin, Coordinates &cEnd) {
+    int option;
+    showPathVariationsOptions();
+    option = readInputVariationsPath();
+    if (option == 1) {
+        cout << "\n\tIn which Bus Stop will your trip start at? "; stopBegin = readString();
+        cout << "\tAnd where will it end? "; stopEnd = readString();
+    } else {
+        cout << "\n\tCoordinates of starting place" << endl;
+        cout << "\tLatitude: "; cBegin.latitude = readDouble();
+        cout << "\tLongitude: "; cBegin.longitude = readDouble();
 
+        cout << "\n\tCoordinates of ending place" << endl;
+        cout << "\tLatitude: "; cEnd.latitude = readDouble();
+        cout << "\tLongitude: "; cEnd.longitude = readDouble();
+    }
+    return option;
+}
 
 
 
@@ -185,18 +267,25 @@ vector<string> Menu::split(string line, string delimeter) {
 }
 
 void Menu::bestPathDijkstra() {
-    int distance;
-    string begin, end;
-    cout << "\n\tIn which Bus Stop will your trip start at? "; begin = readString();
-    cout << "\tAnd where will it end? "; end = readString();
-    distance = graph.dijkstra(begin, end);
-    if (distance == -1) {
-        cout << "\tI'm sorry, but there aren't stops with that code." << endl;
+    int option, distance;
+    string stopBegin, stopEnd;
+    Coordinates cBegin, cEnd;
+    option = askStartEnd(stopBegin, stopEnd, cBegin, cEnd);
+    if (option == 1) {
+        distance = graph.dijkstra(stopBegin, stopEnd);
+        if (distance != -1) {
+            cout << "\tYou will have to travel " << distance << "m " << endl;
+            graph.dijkstra_pathPrint(stopBegin, stopEnd);
+        }
     } else {
-        cout << "\tYou will have to travel " << distance << "m " << endl;
-        graph.dijkstra_pathPrint(begin, end);
+
     }
+
+
 }
+
+
+
 
 
 

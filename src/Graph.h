@@ -16,6 +16,7 @@ class Graph {
     bool hasDir;        // false: undirect; true: directed
     vector<Node> nodes; // The list of nodes being represented
     unordered_map<string, int> positions;
+    
 
 
 public:
