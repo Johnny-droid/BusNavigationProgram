@@ -13,7 +13,7 @@ using namespace std;
 
 class Graph {
     int n;              // Graph size (vertices are numbered from 1 to n)
-    int walkingDistance = 0;
+    double walkingDistance = 1.0;
     bool hasDir;        // false: undirect; true: directed
     vector<Node> nodes; // The list of nodes being represented
     unordered_map<string, int> positions;
@@ -25,7 +25,7 @@ public:
     Graph(vector<Node> nodes, unordered_map<string, int> positions, bool dir = true);
     double getWalkingDistance();
     unordered_map<string, int> getPositions();
-    void setWalkingDistance(double walkingDistance);
+    void setWalkingDistance(double walkingDist);
 
     // Add edge from source to destination with a certain weight
     void addEdge(string src, string dest, string line);

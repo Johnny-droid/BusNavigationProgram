@@ -18,10 +18,10 @@ unordered_map<string, int> Graph::getPositions() {
     return this->positions;
 }
 
-void Graph::setWalkingDistance(double walkingDistance) {
+void Graph::setWalkingDistance(double walkingDist) {
     removeTemporaryNodes();
     // talvez remover todos as edges walking
-    this->walkingDistance = walkingDistance;
+    this->walkingDistance = walkingDist;
     // colocar as respetivas arestas com a nova distância
 
 }
@@ -39,13 +39,13 @@ void Graph::addEdge(string src, string dest, string line) {
 }
 
 void Graph::addEdge(int src, int dest, string line) {
-    if (src<1 || src>n || dest<1 || dest>n) return;
+    if (src<1 || src>nodes.size() || dest<1 || dest>nodes.size()) return;
     nodes[src].adj.push_back({dest, calculateDistance(src, dest), line});
     if (!hasDir) nodes[dest].adj.push_back({dest, calculateDistance(src, dest), line});
 }
 
 void Graph::addEdge(int src, int dest, double weight) {
-    if (src<1 || src>n || dest<1 || dest>n) return;
+    if (src<1 || src>nodes.size() || dest<1 || dest>nodes.size()) return;
     nodes[src].adj.push_back({dest, weight});
     if (!hasDir) nodes[dest].adj.push_back({src, weight});
 }
@@ -124,7 +124,7 @@ stack<int> Graph::dijkstra_path(string src, string dest) {
         end = positions.at(dest);
         return dijkstra_path(start, end);
     } catch (out_of_range) {
-        cout << "Something went wrong in print path" << endl;
+        cout << "Something went wrong in print path..." << endl;
         return stack<int>();
     }
 }
@@ -176,6 +176,7 @@ void Graph::dijkstra_pathPrint(stack<int> path) {
                 }
             }
         }
+        found = false;
         cout << "\t" << nodes[i].code << " -----  line:" << line << " | distance: " << distance << "km ----> " << nodes[path.top()].code << endl;
     }
 }
@@ -210,7 +211,7 @@ void Graph::insertTemporaryNode(Coordinates c, bool startType) {
         }
         for (int i = 1; i < nodes.size()-1; i++) {
             if (calculateDistance(c, nodes[i].coordinates) <= walkingDistance) {
-                addEdge(nodes.size() - 1, i, "walk");
+                addEdge(node.code, nodes[i].code, "walk");
             }
         }
     } else {
@@ -225,7 +226,7 @@ void Graph::insertTemporaryNode(Coordinates c, bool startType) {
         }
         for (int i = 1; i < nodes.size()-1; i++) {
             if (calculateDistance(c, nodes[i].coordinates) <= walkingDistance) {
-                addEdge(i, nodes.size() - 1, "walk");
+                addEdge(nodes[i].code, node.code, "walk");
             }
         }
     }

@@ -15,12 +15,13 @@ void Menu::run() {
     int option;
 
     do {
-        graph.printNodes();
+        //graph.printNodes();
         clear();
         showMenu();
         option = readInputMenu();
         if (option == 1) {bestPathDijkstra();}
         else if (option == 3) {askWalkingDistance();}
+        else if (option == 4) {graph.printNodes();}
     } while (option != 0);
 }
 
@@ -30,6 +31,7 @@ void Menu::showMenu() {
     cout << "\n\n\t1) Caminho mais rápido de autocarro" << endl;
     cout << "\t2) Outras opções... " << endl;
     cout << "\t3) Definir distância a andar entre paragens " << endl;
+    cout << "\t4) Imprimir Paragens (Teste) " << endl;
     cout << "\t0) Exit " << endl;
 }
 
@@ -50,7 +52,7 @@ int Menu::readInputMenu() {
     do {
         cout << "\n   Enter option: ";
         cin >> chosenOption;
-        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 0 ;
+        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 4 && chosenOption != 0 ;
         if ( notValid || cin.fail()) {
             if (cin.eof()) {
                 exit(0);
@@ -297,12 +299,12 @@ void Menu::bestPathDijkstra() {
         distance = graph.dijkstra("-start-", "-end-");
         if (distance != -1.0) {
             cout << "\tYou will have to travel " << distance << "km " << endl;
-            path = graph.dijkstra_path(stopBegin, stopEnd);
+            path = graph.dijkstra_path("-start-", "-end-");
             graph.dijkstra_pathPrint(path);
         } else {
-            cout << "\n\tNo path available" << endl;
+            cout << "\n\tOnly walking that far won't be enough" << endl;
         }
-        graph.removeTemporaryNodes();
+        //graph.removeTemporaryNodes();
     } else {return;}
 
 
