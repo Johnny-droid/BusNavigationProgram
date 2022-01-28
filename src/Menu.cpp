@@ -375,7 +375,7 @@ void Menu::askSwapWalkDistance() {
     int option;
     cout << "\n\t1) Definir distância a andar até uma paragem" << endl;
     cout << "\t2) Definir distância a andar entre paragens (mudar de linha)" << endl;
-    option = readInt();
+    cout << "\n   Enter option: "; option = readInt();
     if (option == 1) askWalkingDistance();
     else if (option == 2) askSwapDistance();
 }
