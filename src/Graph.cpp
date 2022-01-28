@@ -76,6 +76,47 @@ int Graph::kruskal() {
     return 0;
 }
 
+
+double Graph::bfs(string src, string dest) {
+    int start, end;
+    try {
+        start = positions.at(src);
+        end = positions.at(dest);
+        return bfs(start, end);
+    } catch (out_of_range) {
+        cout << "\tThere aren't any stops with that code" << endl;
+        return -1;
+    }
+}
+
+double Graph::bfs(int a, int b) {
+    for (int v=1; v<=n; v++) nodes[v].visited = false;
+    queue<int> q; // queue of unvisited nodes
+    q.push(a);
+    nodes[a].visited = true;
+    nodes[a].distance = 0;
+    nodes[a].parent = a;
+    while (!q.empty()) { // while there are still unvisited nodes
+        int u = q.front(); q.pop();
+        cout << u << " "; // show node order
+        for (auto e : nodes[u].adj) {
+            int w = e.dest;
+            if (!nodes[w].visited) {
+                nodes[w].distance = nodes[u].distance + e.weight;
+                nodes[w].parent = u;
+                q.push(w);
+                nodes[w].visited = true;
+
+                if (w == b) {return nodes[w].distance;}
+            }
+        }
+    }
+
+    return -1.0;
+}
+
+
+
 double Graph::dijkstra(string src, string dest) {
     int start, end;
     try {
@@ -258,6 +299,17 @@ void Graph::removeTemporaryNodes() {
     positions.erase("-end-");
 }
 
+/*
+void Graph::dfs(int v) {
+    cout << v << " "; // show node order
+    nodes[v].visited = true;
+    for (auto e : nodes[v].adj) {
+        int w = e.dest;
+        if (!nodes[w].visited)
+            dfs(w);
+    }
+}
+ */
 
 
 

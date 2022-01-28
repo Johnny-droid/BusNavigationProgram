@@ -311,10 +311,12 @@ void Menu::bestPathDijkstra() {
         showAlgorithmOptions();
         optionAlgorithm = readInputBestAlgorithm();
 
-        if (option == 1) {
+        if (optionAlgorithm == 1) {
             distance = graph.dijkstra(stopBegin, stopEnd);
+        } else if (optionAlgorithm == 2) {
+            distance = graph.bfs(stopBegin, stopEnd);
         } else {
-              //to complete
+            distance = -1;  ////////////////////////////////////////////////////
         }
 
         if (distance != -1.0) {
@@ -334,10 +336,12 @@ void Menu::bestPathDijkstra() {
         showAlgorithmOptions();
         optionAlgorithm = readInputBestAlgorithm();
 
-        if (option == 1) {
+        if (optionAlgorithm == 1) {
             distance = graph.dijkstra("-start-", "-end-");
+        } else if (optionAlgorithm == 2) {
+            distance = graph.bfs("-start-", "-end-");
         } else {
-            //to complete
+            distance = -1; ///////////////////////////////////////////////////
         }
 
         if (distance != -1.0) {

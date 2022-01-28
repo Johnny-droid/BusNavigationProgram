@@ -3,6 +3,7 @@
 #include <list>
 #include <stack>
 #include <vector>
+#include <queue>
 #include <iostream>
 #include <unordered_map>
 #include <cmath>
@@ -34,11 +35,14 @@ public:
     double calculateDistance(Coordinates c1, Coordinates c2);
     double calculateDistance(int src, int dest);
 
-
     int prim(int v);
     int kruskal();
+
+    double bfs(string src, string dest);
+    double bfs(int a, int b);
     double dijkstra(string src, string dest);
     double dijkstra(int a, int b);
+
     stack<int> getPathFromGraph(string src, string dest);
     stack<int> getPathFromGraph(int a, int b);
 
