@@ -240,10 +240,11 @@ void Graph::removeTemporaryNodes() {
 
     //remove -end-
     for (int i = 1; i < nodes.size(); i++) {
+        if (nodes[i].code == "-end-") continue;
         auto it = nodes[i].adj.begin();
         while (it != nodes[i].adj.end()) {
             if (it->dest == positions["-end-"]) {
-                nodes[i].adj.erase(it);
+                it = nodes[i].adj.erase(it);
             } else {
                 it++;
             }

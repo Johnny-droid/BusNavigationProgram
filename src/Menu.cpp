@@ -304,7 +304,7 @@ void Menu::bestPathDijkstra() {
         } else {
             cout << "\n\tOnly walking that far won't be enough" << endl;
         }
-        //graph.removeTemporaryNodes();
+        graph.removeTemporaryNodes();
     } else {return;}
 
 
