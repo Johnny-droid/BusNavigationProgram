@@ -38,7 +38,9 @@ public:
 
     void bestPathDijkstra();
 
+    void askSwapWalkDistance();
     void askWalkingDistance();
+    void askSwapDistance();
 
     static vector<string> split(string line, string delimeter);
     static void clear();

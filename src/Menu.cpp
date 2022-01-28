@@ -20,7 +20,7 @@ void Menu::run() {
         showMenu();
         option = readInputMenu();
         if (option == 1) {bestPathDijkstra();}
-        else if (option == 2) {askWalkingDistance();}
+        else if (option == 2) {askSwapWalkDistance();}
         else if (option == 3) {graph.printNodes();}
     } while (option != 0);
 }
@@ -29,7 +29,7 @@ void Menu::showMenu() {
     cout << "\n\t\t\t\t Bus Navigation Program " << endl;
     cout << "\tThe best app to help you find the path you are looking for!" << endl;
     cout << "\n\n\t1) Calcular trajeto de autocarro" << endl;
-    cout << "\t2) Definir distância a andar entre paragens " << endl;
+    cout << "\t2) Definir distância a andar" << endl;
     cout << "\t3) Imprimir Paragens (Teste) " << endl;
     cout << "\t0) Exit " << endl;
 }
@@ -316,7 +316,7 @@ void Menu::bestPathDijkstra() {
         } else if (optionAlgorithm == 2) {
             distance = graph.bfs(stopBegin, stopEnd);
         } else {
-            distance = -1;  ////////////////////////////////////////////////////
+            distance = -1;  ////////////////////////////////////////////////////////
         }
 
         if (distance != -1.0) {
@@ -361,8 +361,23 @@ void Menu::bestPathDijkstra() {
 
 void Menu::askWalkingDistance() {
     double walkDist;
-    cout << "\n\tSet a limit to how much you can walk between stops (kilometers): ";  walkDist = readDouble();
+    cout << "\n\tSet a limit to how much you want to walk to/from a stop (kilometers): ";  walkDist = readDouble();
     graph.setWalkingDistance(walkDist);
+}
+
+void Menu::askSwapDistance() {
+    double swapDist;
+    cout << "\n\tSet a limit to how much you want to swap between stops (kilometers): ";  swapDist = readDouble();
+    graph.setSwapDistance(swapDist);
+}
+
+void Menu::askSwapWalkDistance() {
+    int option;
+    cout << "\n\t1) Definir distância a andar até uma paragem" << endl;
+    cout << "\t2) Definir distância a andar entre paragens (mudar de linha)" << endl;
+    option = readInt();
+    if (option == 1) askWalkingDistance();
+    else if (option == 2) askSwapDistance();
 }
 
 

@@ -10,8 +10,16 @@ Graph::Graph(vector<Node> nodes, unordered_map<string, int> positions, bool dir)
     this->nodes = nodes;
 }
 
+vector<Node>& Graph::getNodes() {
+    return nodes;
+}
+
 double Graph::getWalkingDistance() {
     return this->walkingDistance;
+}
+
+double Graph::getSwapDistance() {
+    return this->swapDistance;
 }
 
 unordered_map<string, int> Graph::getPositions() {
@@ -19,13 +27,34 @@ unordered_map<string, int> Graph::getPositions() {
 }
 
 void Graph::setWalkingDistance(double walkingDist) {
-    removeTemporaryNodes();
-    // talvez remover todos as edges walking
     this->walkingDistance = walkingDist;
-    // colocar as respetivas arestas com a nova distância
-
 }
 
+void Graph::setSwapDistance(double swapDist) {
+    //remover todos as edges walking "antigas"
+    for (int i = 1; i < nodes.size(); i++) {
+        auto it = nodes[i].adj.begin();
+        while (it != nodes[i].adj.end()) {
+            if (it->line == "walk") {
+                it = nodes[i].adj.erase(it);
+            } else {
+                it++;
+            }
+        }
+    }
+
+    this->swapDistance = swapDist;
+
+    // colocar as respetivas arestas com a nova distância
+    for (int src = 1; src < nodes.size()-1; src++) {
+        for (int dest = src + 1; dest < nodes.size(); dest++) {
+            if (calculateDistance(src, dest) <= swapDistance) {
+                addEdge(src, dest, "walk");
+                addEdge(dest, src, "walk");
+            }
+        }
+    }
+}
 
 void Graph::addEdge(string src, string dest, string line) {
     int start, end;
@@ -171,7 +200,6 @@ stack<int> Graph::getPathFromGraph(string src, string dest) {
 }
 
 
-
 stack<int> Graph::getPathFromGraph(int a, int b) {
     stack<int> path;
 
@@ -275,7 +303,6 @@ void Graph::insertTemporaryNode(Coordinates c, bool startType) {
             }
         }
     }
-
 }
 
 void Graph::removeTemporaryNodes() {
@@ -298,6 +325,8 @@ void Graph::removeTemporaryNodes() {
     nodes.erase(nodes.begin() + positions["-end-"]);
     positions.erase("-end-");
 }
+
+
 
 /*
 void Graph::dfs(int v) {

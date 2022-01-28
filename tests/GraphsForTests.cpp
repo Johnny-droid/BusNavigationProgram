@@ -132,3 +132,4 @@ Graph GraphsForTests::graph3Dijkstra() {
     g.addEdge(11, 10, 5);
     return g;
 }
+

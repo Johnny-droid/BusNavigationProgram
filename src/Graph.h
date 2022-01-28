@@ -14,7 +14,8 @@ using namespace std;
 
 class Graph {
     int n;              // Graph size (vertices are numbered from 1 to n)
-    double walkingDistance = 0.1; //km
+    double walkingDistance = 0.4; //km
+    double swapDistance = 0.0;
     bool hasDir;        // false: undirect; true: directed
     vector<Node> nodes; // The list of nodes being represented
     unordered_map<string, int> positions;
@@ -24,9 +25,12 @@ public:
     // Constructor: nr nodes and direction (default: directed)
     Graph(int nodes = 0, bool dir = true);
     Graph(vector<Node> nodes, unordered_map<string, int> positions, bool dir = true);
+    vector<Node>& getNodes();
     double getWalkingDistance();
+    double getSwapDistance();
     unordered_map<string, int> getPositions();
     void setWalkingDistance(double walkingDist);
+    void setSwapDistance(double swapDist);
 
     // Add edge from source to destination with a certain weight
     void addEdge(string src, string dest, string line);

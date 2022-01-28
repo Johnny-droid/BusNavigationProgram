@@ -49,10 +49,26 @@ TEST(SmallMapDistances, travelling4stops) {
     //graphS1.printNodes();
     EXPECT_EQ(74113, round(graphS1.dijkstra("R", "H") * 100000));
 }
-
-bool compareStacks(stack<int> stack1, stack<int> stack2) {
+/*
+bool compareStacks(stack<int> stack1, stack<int> stack2, Graph& g1) {
     if (stack1.size() != stack2.size()) return false;
+    cout << "-----------------" << endl;
     while (!stack1.empty()) {
+        cout << stack2.top() << endl;
+        if (stack1.top() != stack2.top()) return false;
+        stack1.pop();
+        stack2.pop();
+    }
+    return true;
+}
+*/
+bool compareStacks(stack<int> stack1, stack<int> stack2, Graph& g1) {
+    if (stack1.size() != stack2.size()) return false;
+    vector<Node> nodes = g1.getNodes();
+    cout << "-----------------" << endl;
+    cout << "  Test  |  Real  " << endl;
+    while (!stack1.empty() && !stack2.empty()) {
+        cout << nodes[stack1.top()].code << " | " <<  nodes[stack2.top()].code << endl;
         if (stack1.top() != stack2.top()) return false;
         stack1.pop();
         stack2.pop();
@@ -72,46 +88,46 @@ TEST(SmallMapPaths, itineraries) {
 
     n = positions["E"]; testStack.push(n);
     graphS1.dijkstra("E", "E");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("E", "E")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("E", "E"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["B"]; testStack.push(n);
     n = positions["A"]; testStack.push(n);
     graphS1.dijkstra("A", "B");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("A", "B")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("A", "B"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["L"]; testStack.push(n);
     n = positions["N"]; testStack.push(n);
     graphS1.dijkstra("N", "L");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("N", "L")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("N", "L"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["T"]; testStack.push(n);
     n = positions["O"]; testStack.push(n);
     graphS1.dijkstra("O", "T");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("O", "T")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("O", "T"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["B"]; testStack.push(n);
     n = positions["A"]; testStack.push(n);
     n = positions["L"]; testStack.push(n);
     graphS1.dijkstra("L", "B");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("L", "B")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("L", "B"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["L"]; testStack.push(n);
     n = positions["A"]; testStack.push(n);
     n = positions["B"]; testStack.push(n);
     graphS1.dijkstra("B", "L");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("B", "L")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("B", "L"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["O"]; testStack.push(n);
     n = positions["M"]; testStack.push(n);
     n = positions["A"]; testStack.push(n);
     graphS1.dijkstra("A", "O");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("A", "O")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("A", "O"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["A"]; testStack.push(n);
@@ -119,7 +135,7 @@ TEST(SmallMapPaths, itineraries) {
     n = positions["M"]; testStack.push(n);
     n = positions["O"]; testStack.push(n);
     graphS1.dijkstra("O", "A");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("O", "A")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("O", "A"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["B"]; testStack.push(n);
@@ -127,7 +143,7 @@ TEST(SmallMapPaths, itineraries) {
     n = positions["J"]; testStack.push(n);
     n = positions["P"]; testStack.push(n);
     graphS1.dijkstra("P", "B");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("P", "B")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("P", "B"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["P"]; testStack.push(n);
@@ -136,7 +152,7 @@ TEST(SmallMapPaths, itineraries) {
     n = positions["A"]; testStack.push(n);
     n = positions["B"]; testStack.push(n);
     graphS1.dijkstra("B", "P");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("B", "P")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("B", "P"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["B"]; testStack.push(n);
@@ -144,7 +160,7 @@ TEST(SmallMapPaths, itineraries) {
     n = positions["J"]; testStack.push(n);
     n = positions["K"]; testStack.push(n);
     graphS1.dijkstra("K", "B");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("K", "B")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("K", "B"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["K"]; testStack.push(n);
@@ -152,7 +168,7 @@ TEST(SmallMapPaths, itineraries) {
     n = positions["A"]; testStack.push(n);
     n = positions["B"]; testStack.push(n);
     graphS1.dijkstra("B", "K");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("B", "K")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("B", "K"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["K"]; testStack.push(n);
@@ -160,30 +176,29 @@ TEST(SmallMapPaths, itineraries) {
     n = positions["O"]; testStack.push(n);
     n = positions["N"]; testStack.push(n);
     graphS1.dijkstra("N", "K");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("N", "K")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("N", "K"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["N"]; testStack.push(n);
     n = positions["M"]; testStack.push(n);
     n = positions["K"]; testStack.push(n);
-    n = positions["P"]; testStack.push(n);
     graphS1.dijkstra("K", "N");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("K", "N")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("K", "N"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["G"]; testStack.push(n);
     n = positions["F"]; testStack.push(n);
     n = positions["O"]; testStack.push(n);
     graphS1.dijkstra("O", "G");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("O", "G")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("O", "G"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
+    n = positions["Q"]; testStack.push(n);
     n = positions["O"]; testStack.push(n);
-    n = positions["T"]; testStack.push(n);
-    n = positions["H"]; testStack.push(n);
+    n = positions["F"]; testStack.push(n);
     n = positions["G"]; testStack.push(n);
-    graphS1.dijkstra("G", "O");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("G", "O")));
+    graphS1.dijkstra("G", "Q");
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("G", "Q"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["C"]; testStack.push(n);
@@ -191,7 +206,7 @@ TEST(SmallMapPaths, itineraries) {
     n = positions["E"]; testStack.push(n);
     n = positions["F"]; testStack.push(n);
     graphS1.dijkstra("F", "C");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("F", "C")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("F", "C"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["K"]; testStack.push(n);
@@ -199,7 +214,7 @@ TEST(SmallMapPaths, itineraries) {
     n = positions["O"]; testStack.push(n);
     n = positions["T"]; testStack.push(n);
     graphS1.dijkstra("T", "K");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("T", "K")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("T", "K"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["B"]; testStack.push(n);
@@ -208,7 +223,7 @@ TEST(SmallMapPaths, itineraries) {
     n = positions["R"]; testStack.push(n);
     n = positions["S"]; testStack.push(n);
     graphS1.dijkstra("S", "B");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("R", "Q")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("S", "B"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["S"]; testStack.push(n);
@@ -217,27 +232,26 @@ TEST(SmallMapPaths, itineraries) {
     n = positions["C"]; testStack.push(n);
     n = positions["B"]; testStack.push(n);
     graphS1.dijkstra("B", "S");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("B", "S")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("B", "S"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["Q"]; testStack.push(n);
     n = positions["O"]; testStack.push(n);
-    n = positions["P"]; testStack.push(n);
-    n = positions["K"]; testStack.push(n);
+    n = positions["F"]; testStack.push(n);
     n = positions["E"]; testStack.push(n);
     n = positions["R"]; testStack.push(n);
     graphS1.dijkstra("R", "Q");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("R", "Q")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("R", "Q"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["R"]; testStack.push(n);
     n = positions["E"]; testStack.push(n);
-    n = positions["F"]; testStack.push(n);
-    n = positions["G"]; testStack.push(n);
-    n = positions["H"]; testStack.push(n);
+    n = positions["K"]; testStack.push(n);
+    n = positions["P"]; testStack.push(n);
+    n = positions["O"]; testStack.push(n);
     n = positions["T"]; testStack.push(n);
     graphS1.dijkstra("T", "R");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("T", "R")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("T", "R"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["U"]; testStack.push(n);
@@ -248,7 +262,7 @@ TEST(SmallMapPaths, itineraries) {
     n = positions["R"]; testStack.push(n);
     n = positions["S"]; testStack.push(n);
     graphS1.dijkstra("S", "U");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("S", "U")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("S", "U"), graphS1));
     while (!testStack.empty()) testStack.pop();
 
     n = positions["T"]; testStack.push(n);
@@ -259,7 +273,7 @@ TEST(SmallMapPaths, itineraries) {
     n = positions["D"]; testStack.push(n);
     n = positions["C"]; testStack.push(n);
     graphS1.dijkstra("C", "T");
-    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("C", "T")));
+    EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("C", "T"), graphS1));
     while (!testStack.empty()) testStack.pop();
 }
 
