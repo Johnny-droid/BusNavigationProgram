@@ -20,10 +20,12 @@ public:
 
     void run();
     static void showMenu();
-    static void showPathVariationsOptions();
+    static void showStopsOrLocation();
+    static void showAlgorithmOptions();
 
     static int readInputMenu();
-    static int readInputVariationsPath();
+    static int readInputStopsOrLocation();
+    static int readInputBestAlgorithm();
     static double readDouble();
     static int readInt();
     static string readString();

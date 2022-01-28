@@ -13,7 +13,7 @@ using namespace std;
 
 class Graph {
     int n;              // Graph size (vertices are numbered from 1 to n)
-    double walkingDistance = 1.0;
+    double walkingDistance = 0.1; //km
     bool hasDir;        // false: undirect; true: directed
     vector<Node> nodes; // The list of nodes being represented
     unordered_map<string, int> positions;
@@ -39,10 +39,10 @@ public:
     int kruskal();
     double dijkstra(string src, string dest);
     double dijkstra(int a, int b);
-    stack<int> dijkstra_path(string src, string dest);
-    stack<int> dijkstra_path(int a, int b);
+    stack<int> getPathFromGraph(string src, string dest);
+    stack<int> getPathFromGraph(int a, int b);
 
-    void dijkstra_pathPrint(stack<int> path);
+    void printPath(stack<int> path);
     void printNodes();
 
     void insertTemporaryNode(Coordinates c, bool startType);

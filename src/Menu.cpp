@@ -20,39 +20,43 @@ void Menu::run() {
         showMenu();
         option = readInputMenu();
         if (option == 1) {bestPathDijkstra();}
-        else if (option == 3) {askWalkingDistance();}
-        else if (option == 4) {graph.printNodes();}
+        else if (option == 2) {askWalkingDistance();}
+        else if (option == 3) {graph.printNodes();}
     } while (option != 0);
 }
 
 void Menu::showMenu() {
     cout << "\n\t\t\t\t Bus Navigation Program " << endl;
     cout << "\tThe best app to help you find the path you are looking for!" << endl;
-    cout << "\n\n\t1) Caminho mais rápido de autocarro" << endl;
-    cout << "\t2) Outras opções... " << endl;
-    cout << "\t3) Definir distância a andar entre paragens " << endl;
-    cout << "\t4) Imprimir Paragens (Teste) " << endl;
+    cout << "\n\n\t1) Calcular trajeto de autocarro" << endl;
+    cout << "\t2) Definir distância a andar entre paragens " << endl;
+    cout << "\t3) Imprimir Paragens (Teste) " << endl;
     cout << "\t0) Exit " << endl;
 }
 
-void Menu::showPathVariationsOptions() {
+void Menu::showStopsOrLocation() {
     cout << "\n\n\t1) Indicar paragens de autocarro" << endl;
     cout << "\t2) Indicar coordenadas " << endl;
 }
 
+void Menu::showAlgorithmOptions() {
+    cout << "\n\n\t1) Trajeto mais rápido" << endl;
+    cout << "\t2) Trajeto com menos paragens" << endl;
+    cout << "\t3) Trajeto com menos mudancas de linha " << endl;
+    cout << "\t4) Outras opcões ..." << endl;
+}
 
 /**
  * Reads input from the user in the main menu
  * @return choice of the user
  */
 int Menu::readInputMenu() {
-    // gets the option number
     int chosenOption;
     bool notValid;
     do {
         cout << "\n   Enter option: ";
         cin >> chosenOption;
-        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 4 && chosenOption != 0 ;
+        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 0 ;
         if ( notValid || cin.fail()) {
             if (cin.eof()) {
                 exit(0);
@@ -66,14 +70,33 @@ int Menu::readInputMenu() {
     return chosenOption;
 }
 
-int Menu::readInputVariationsPath() {
-    // gets the option number
+int Menu::readInputStopsOrLocation() {
     int chosenOption;
     bool notValid;
     do {
         cout << "\n   Enter option: ";
         cin >> chosenOption;
         notValid = chosenOption != 1 && chosenOption != 2;
+        if ( notValid || cin.fail()) {
+            if (cin.eof()) {
+                exit(0);
+            }
+            cin.clear();
+            cin.ignore(100000, '\n');
+            cout << "\t\tInvalid input!\n";
+        }
+    } while (notValid);
+    cin.ignore(100000, '\n');
+    return chosenOption;
+}
+
+int Menu::readInputBestAlgorithm() {
+    int chosenOption;
+    bool notValid;
+    do {
+        cout << "\n   Enter option: ";
+        cin >> chosenOption;
+        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3;
         if ( notValid || cin.fail()) {
             if (cin.eof()) {
                 exit(0);
@@ -230,8 +253,8 @@ void Menu::createGraphLine(string line) {
 
 int Menu::askStartEnd(string &stopBegin, string &stopEnd, Coordinates &cBegin, Coordinates &cEnd) {
     int option;
-    showPathVariationsOptions();
-    option = readInputVariationsPath();
+    showStopsOrLocation();
+    option = readInputStopsOrLocation();
     if (option == 1) {
         cout << "\n\tIn which Bus Stop will your trip start at? "; stopBegin = readString();
         cout << "\tAnd where will it end? "; stopEnd = readString();
@@ -278,43 +301,67 @@ vector<string> Menu::split(string line, string delimeter) {
 
 void Menu::bestPathDijkstra() {
     stack<int> path;
-    int option;
+    int option, optionAlgorithm;
     double distance;
     string stopBegin, stopEnd;
     Coordinates cBegin, cEnd;
 
     option = askStartEnd(stopBegin, stopEnd, cBegin, cEnd);
     if (option == 1) {
-        distance = graph.dijkstra(stopBegin, stopEnd);
+        showAlgorithmOptions();
+        optionAlgorithm = readInputBestAlgorithm();
+
+        if (option == 1) {
+            distance = graph.dijkstra(stopBegin, stopEnd);
+        } else {
+              //to complete
+        }
+
         if (distance != -1.0) {
             cout << "\tYou will have to travel " << distance << "km " << endl;
-            path = graph.dijkstra_path(stopBegin, stopEnd);
-            graph.dijkstra_pathPrint(path);
+            path = graph.getPathFromGraph(stopBegin, stopEnd);
+            graph.printPath(path);
         } else {
             cout << "\n\tNo path available" << endl;
         }
+
+
+
     } else if (option == 2) {
         graph.insertTemporaryNode(cBegin, true);
         graph.insertTemporaryNode(cEnd, false);
-        distance = graph.dijkstra("-start-", "-end-");
+
+        showAlgorithmOptions();
+        optionAlgorithm = readInputBestAlgorithm();
+
+        if (option == 1) {
+            distance = graph.dijkstra("-start-", "-end-");
+        } else {
+            //to complete
+        }
+
         if (distance != -1.0) {
             cout << "\tYou will have to travel " << distance << "km " << endl;
-            path = graph.dijkstra_path("-start-", "-end-");
-            graph.dijkstra_pathPrint(path);
+            path = graph.getPathFromGraph("-start-", "-end-");
+            graph.printPath(path);
         } else {
             cout << "\n\tOnly walking that far won't be enough" << endl;
         }
         graph.removeTemporaryNodes();
+
+
+
     } else {return;}
-
-
 }
+
 
 void Menu::askWalkingDistance() {
     double walkDist;
     cout << "\n\tSet a limit to how much you can walk between stops (kilometers): ";  walkDist = readDouble();
     graph.setWalkingDistance(walkDist);
 }
+
+
 
 
 

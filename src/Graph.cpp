@@ -117,12 +117,12 @@ double Graph::dijkstra(int a, int b) {
     return nodes[b].distance != DBL_MAX ? nodes[b].distance : -1;
 }
 
-stack<int> Graph::dijkstra_path(string src, string dest) {
+stack<int> Graph::getPathFromGraph(string src, string dest) {
     int start, end;
     try {
         start = positions.at(src);
         end = positions.at(dest);
-        return dijkstra_path(start, end);
+        return getPathFromGraph(start, end);
     } catch (out_of_range) {
         cout << "Something went wrong in print path..." << endl;
         return stack<int>();
@@ -131,7 +131,7 @@ stack<int> Graph::dijkstra_path(string src, string dest) {
 
 
 
-stack<int> Graph::dijkstra_path(int a, int b) {
+stack<int> Graph::getPathFromGraph(int a, int b) {
     stack<int> path;
 
     int lastNode = b;
@@ -149,7 +149,7 @@ stack<int> Graph::dijkstra_path(int a, int b) {
 }
 
 
-void Graph::dijkstra_pathPrint(stack<int> path) {
+void Graph::printPath(stack<int> path) {
     int i; double distance; bool found = false;
     string line = "";
     cout << "\n";
@@ -180,6 +180,10 @@ void Graph::dijkstra_pathPrint(stack<int> path) {
         cout << "\t" << nodes[i].code << " -----  line:" << line << " | distance: " << distance << "km ----> " << nodes[path.top()].code << endl;
     }
 }
+
+
+
+
 
 //Used only for tests
 void Graph::printNodes() {
