@@ -21,8 +21,21 @@ void Menu::run() {
         option = readInputMenu();
         if (option == 1) {bestPathDijkstra();}
         else if (option == 2) {askSwapWalkDistance();}
-        else if (option == 3) {graph.printNodes();}
+        else if (option == 3) {askMSTPrim();}
+        else if (option == 4) {askMSTKruskal();}
+        else if (option == 5) {graph.printNodes();}
+
+        if (option != 0) pressEnterToContinue();
     } while (option != 0);
+}
+
+/**
+ * Waits for user to press enter to continue
+ */
+void Menu::pressEnterToContinue() {
+    cout << "\n\tPress enter to continue \t" << endl;
+    cin.ignore(10000, '\n');
+    getchar();
 }
 
 void Menu::showMenu() {
@@ -30,7 +43,9 @@ void Menu::showMenu() {
     cout << "\tThe best app to help you find the path you are looking for!" << endl;
     cout << "\n\n\t1) Calcular trajeto de autocarro" << endl;
     cout << "\t2) Definir distância a andar" << endl;
-    cout << "\t3) Imprimir Paragens (Teste) " << endl;
+    cout << "\t3) Obter o valor da MST usando Prim" << endl;
+    cout << "\t4) Obter o valor da MST usando Kruskal" << endl;
+    cout << "\t5) Imprimir Paragens (Teste) " << endl;
     cout << "\t0) Exit " << endl;
 }
 
@@ -56,7 +71,7 @@ int Menu::readInputMenu() {
     do {
         cout << "\n   Enter option: ";
         cin >> chosenOption;
-        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 0 ;
+        notValid = chosenOption != 1 && chosenOption != 2 && chosenOption != 3 && chosenOption != 4 && chosenOption != 5 && chosenOption != 0 ;
         if ( notValid || cin.fail()) {
             if (cin.eof()) {
                 exit(0);
@@ -374,6 +389,24 @@ void Menu::askSwapWalkDistance() {
     cout << "\n   Enter option: "; option = readInt();
     if (option == 1) askWalkingDistance();
     else if (option == 2) askSwapDistance();
+}
+
+void Menu::askMSTPrim() {
+    string stop;
+    cout << "\n\tSelect a Bus Stop to start to calculations: "; stop = readString();
+
+    unordered_map<string, int> pos = graph.getPositions();
+    try {
+        int n = pos.at(stop);
+        cout << "\n\tThe MST of this graph of stops is, according to Prim's Algorithm: " << graph.prim(n) << "km" << endl;
+    } catch (out_of_range) {
+        cout << "\n\tSorry, but there is no Bus Stop with that code" << endl;
+    }
+
+}
+
+void Menu::askMSTKruskal() {
+    cout << "\n\tThe MST of this graph of stops is, according to Kruskal's Algorithm: " << graph.kruskal();
 }
 
 

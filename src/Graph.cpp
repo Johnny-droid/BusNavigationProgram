@@ -97,11 +97,32 @@ double Graph::calculateDistance(Coordinates c1, Coordinates c2) {
 }
 
 
-int Graph::prim(int v) {
-    return 0;
+double Graph::prim(int r) {
+    double sum = 0;
+    MinHeap<int, double> heap(nodes.size(), -1);
+    for (int i = 1; i < nodes.size(); i++) {
+        heap.insert(i, DBL_MAX);
+        nodes[i].distance = DBL_MAX;
+        nodes[i].parent = 0;
+    }
+    heap.decreaseKey(r, 0);
+    nodes[r].distance = 0;
+    while (heap.getSize() != 0) {
+        int u = heap.removeMin();
+        sum += nodes[u].distance;
+        for (Edge edge : nodes[u].adj) {
+            int w = edge.dest;
+            if (heap.hasKey(w) && edge.weight < nodes[w].distance) {
+                heap.decreaseKey(w, edge.weight);
+                nodes[w].distance = edge.weight;
+                nodes[w].parent = u;
+            }
+        }
+    }
+    return sum;
 }
 
-int Graph::kruskal() {
+double Graph::kruskal() {
     return 0;
 }
 

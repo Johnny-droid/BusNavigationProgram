@@ -39,8 +39,8 @@ public:
     double calculateDistance(Coordinates c1, Coordinates c2);
     double calculateDistance(int src, int dest);
 
-    int prim(int v);
-    int kruskal();
+    double prim(int r);
+    double kruskal();
 
     double bfs(string src, string dest);
     double bfs(int a, int b);

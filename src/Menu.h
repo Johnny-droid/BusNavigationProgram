@@ -29,6 +29,7 @@ public:
     static double readDouble();
     static int readInt();
     static string readString();
+    static void pressEnterToContinue();
 
     void createGraphStops();
     void createGraphLines();
@@ -37,6 +38,8 @@ public:
     int askStartEnd(string& stopBegin, string& stopEnd, Coordinates& cBegin, Coordinates& cEnd);
 
     void bestPathDijkstra();
+    void askMSTPrim();
+    void askMSTKruskal();
 
     void askSwapWalkDistance();
     void askWalkingDistance();
