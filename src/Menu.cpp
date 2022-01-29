@@ -45,7 +45,7 @@ void Menu::showMenu() {
     cout << "\t2) Definir distância a andar" << endl;
     cout << "\t3) Obter o valor da MST usando Prim" << endl;
     cout << "\t4) Obter o valor da MST usando Kruskal" << endl;
-    cout << "\t5) Imprimir Paragens (Teste) " << endl;
+    cout << "\t5) Imprimir Paragens" << endl;
     cout << "\t0) Exit " << endl;
 }
 
@@ -55,10 +55,9 @@ void Menu::showStopsOrLocation() {
 }
 
 void Menu::showAlgorithmOptions() {
-    cout << "\n\n\t1) Trajeto mais rápido" << endl;
+    cout << "\n\n\t1) Trajeto mais rápido (menor distância)" << endl;
     cout << "\t2) Trajeto com menos paragens" << endl;
-    cout << "\t3) Trajeto com menos mudancas de linha " << endl;
-    cout << "\t4) Outras opcões ..." << endl;
+    cout << "\t3) Trajeto com menos mudanças de linha " << endl;
 }
 
 /**
@@ -338,7 +337,6 @@ void Menu::bestPathDijkstra() {
                 graph.printPath(path);
             } else {
                 path = graph.getPathFromGraph(stopBegin, stopEnd);
-                cout << "Its: " << path.size() <<  endl;
                 graph.printPathLinesAlgorithm(path);
             }
 

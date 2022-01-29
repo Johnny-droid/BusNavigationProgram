@@ -1,5 +1,6 @@
 #include "Graph.h"
 #include "float.h"
+#include "set"
 
 Graph::Graph(int num, bool dir) : n(num), hasDir(dir), nodes(num+1) {}
 
@@ -123,7 +124,27 @@ double Graph::prim(int r) {
 }
 
 double Graph::kruskal() {
-    return 0;
+
+    DisjointSets<int> disjoinSets;
+    set<Edge> edges;
+    int total = 0;
+    /*
+    for (int i = 1; i <= n; i++) {
+        disjoinSets.makeSet(i);
+    }
+
+    for (Node x: nodes) {
+        edges.insert(x.adj.begin(), x.adj.end());
+    }
+
+    for (Edge y : edges) {
+        if (disjoinSets.find(y.dest) != disjoinSets.find(y.src)) {
+            disjoinSets.unite(y.dest, y.src);
+            total += y.weight;
+        }
+    }
+     */
+    return total;
 }
 
 double Graph::bfs(string src, string dest) {
@@ -288,29 +309,7 @@ int Graph::changesInPath(vector<string> lines) {
     return changes;
 }
 
-/*
-void Graph::dfs(int v, MinHeap<int, double> &heap) {
-    nodes[v].visited2 = true;
-    for (auto e : nodes[v].adj) {
-        int w = e.dest;
-        if (!nodes[w].visited2) {
 
-            dfs(w, heap,  e.line);
-        }
-    }
-}
-
-void Graph::dfs(int v, MinHeap<int, double> &heap, double minDist, string line) {
-    nodes[v].visited2 = true;
-    for (auto e : nodes[v].adj) {
-        int w = e.dest;
-        if (!nodes[w].visited2 && e.line == line) {
-            heap.decreaseKey(w, minDist);
-            dfs(w, heap, e.line);
-        }
-    }
-}
-*/
 stack<int> Graph::getPathFromGraph(string src, string dest) {
     int start, end;
     try {
@@ -399,10 +398,10 @@ void Graph::printPathLinesAlgorithm(stack<int> path) {
 //Used only for tests
 void Graph::printNodes() {
     for (int i = 1; i < nodes.size(); i++) {
-        cout << "Code :" << nodes[i].code << "\tPosition: " << positions[nodes[i].code] << "\tLocal: " << nodes[i].local << endl;
+        cout << "\n\tCode: " << nodes[i].code << "\tPosition: " << positions[nodes[i].code] << "\tLocal: " << nodes[i].local << endl;
         int j = 1;
         for (Edge edge : nodes[i].adj) {
-            cout << j << " Dest: " << nodes[edge.dest].code << "\tDistance: " << edge.weight << " km\t Line: " << edge.line << endl;
+            cout << "\t\t" << j << " Dest: " << nodes[edge.dest].code << "\tDistance: " << edge.weight << " km\t Line: " << edge.line << endl;
             j++;
         }
     }

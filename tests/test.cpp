@@ -411,7 +411,7 @@ TEST(test2, Prim) {
     EXPECT_EQ(9, graph4.prim(3));
     EXPECT_EQ(9, graph4.prim(4));
 }
-
+*/
 TEST(test3, kruskal) {
     cout << "Testando 'kruskal'" << endl;
 
@@ -432,4 +432,4 @@ TEST(test3, kruskal) {
     cout << " graph4" << endl;
     EXPECT_EQ(9, graph4.kruskal());
 }
-*/
+

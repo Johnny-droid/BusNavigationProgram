@@ -108,6 +108,13 @@ build CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.o: CXX_COMPILER__BusNavig
   OBJECT_DIR = CMakeFiles/BusNavigationProgram.dir
   OBJECT_FILE_DIR = CMakeFiles/BusNavigationProgram.dir/src
 
+build CMakeFiles/BusNavigationProgram.dir/src/DisjointSets.cpp.o: CXX_COMPILER__BusNavigationProgram_Debug /home/johnny/CLionProjects/BusNavigationProgram/src/DisjointSets.cpp || cmake_object_order_depends_target_BusNavigationProgram
+  DEP_FILE = CMakeFiles/BusNavigationProgram.dir/src/DisjointSets.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googlemock/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest/include -isystem /home/johnny/CLionProjects/BusNavigationProgram/lib/googletest-master/googletest
+  OBJECT_DIR = CMakeFiles/BusNavigationProgram.dir
+  OBJECT_FILE_DIR = CMakeFiles/BusNavigationProgram.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target BusNavigationProgram
@@ -116,7 +123,7 @@ build CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.o: CXX_COMPILER__BusNavig
 #############################################
 # Link the executable BusNavigationProgram
 
-build BusNavigationProgram: CXX_EXECUTABLE_LINKER__BusNavigationProgram_Debug CMakeFiles/BusNavigationProgram.dir/main.cpp.o CMakeFiles/BusNavigationProgram.dir/tests/test.cpp.o CMakeFiles/BusNavigationProgram.dir/src/Graph.cpp.o CMakeFiles/BusNavigationProgram.dir/tests/GraphsForTests.cpp.o CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.o | lib/libgtestd.a lib/libgtest_maind.a lib/libgtestd.a || lib/libgtest_maind.a lib/libgtestd.a
+build BusNavigationProgram: CXX_EXECUTABLE_LINKER__BusNavigationProgram_Debug CMakeFiles/BusNavigationProgram.dir/main.cpp.o CMakeFiles/BusNavigationProgram.dir/tests/test.cpp.o CMakeFiles/BusNavigationProgram.dir/src/Graph.cpp.o CMakeFiles/BusNavigationProgram.dir/tests/GraphsForTests.cpp.o CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.o CMakeFiles/BusNavigationProgram.dir/src/DisjointSets.cpp.o | lib/libgtestd.a lib/libgtest_maind.a lib/libgtestd.a || lib/libgtest_maind.a lib/libgtestd.a
   FLAGS = -g
   LINK_LIBRARIES = lib/libgtestd.a  lib/libgtest_maind.a  lib/libgtestd.a  -lpthread
   OBJECT_DIR = CMakeFiles/BusNavigationProgram.dir

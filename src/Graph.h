@@ -9,6 +9,7 @@
 #include <cmath>
 #include "Node.h"
 #include "MinHeap.h"
+#include "DisjointSets.h"
 
 using namespace std;
 
@@ -50,8 +51,6 @@ public:
     double dijkstra(int a, int b);
     double dijkstraLine(string src, string dest);
     double dijkstraLine(int a, int b);
-    void dfs(int v, MinHeap<int, double> &heap);
-    void dfs(int v, MinHeap<int, double> &heap, int minDist, string line);
 
     stack<int> getPathFromGraph(string src, string dest);
     stack<int> getPathFromGraph(int a, int b);
