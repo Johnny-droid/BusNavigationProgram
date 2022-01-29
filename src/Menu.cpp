@@ -278,10 +278,6 @@ int Menu::askStartEnd(string &stopBegin, string &stopEnd, Coordinates &cBegin, C
 
 
 
-
-
-
-
 vector<string> Menu::split(string line, string delimeter) {
     vector<string> v;
 
@@ -302,7 +298,7 @@ vector<string> Menu::split(string line, string delimeter) {
 void Menu::bestPathDijkstra() {
     stack<int> path;
     int option, optionAlgorithm;
-    double distance;
+    double distance = -1.0;
     string stopBegin, stopEnd;
     Coordinates cBegin, cEnd;
 
@@ -315,8 +311,8 @@ void Menu::bestPathDijkstra() {
             distance = graph.dijkstra(stopBegin, stopEnd);
         } else if (optionAlgorithm == 2) {
             distance = graph.bfs(stopBegin, stopEnd);
-        } else {
-            distance = -1;  ////////////////////////////////////////////////////////
+        } else if (optionAlgorithm == 3) {
+            distance = graph.dijkstraLine(stopBegin, stopEnd);
         }
 
         if (distance != -1.0) {
@@ -340,8 +336,8 @@ void Menu::bestPathDijkstra() {
             distance = graph.dijkstra("-start-", "-end-");
         } else if (optionAlgorithm == 2) {
             distance = graph.bfs("-start-", "-end-");
-        } else {
-            distance = -1; ///////////////////////////////////////////////////
+        } else if (optionAlgorithm == 3) {
+            distance = graph.dijkstraLine("-start-", "-end-");
         }
 
         if (distance != -1.0) {
@@ -379,15 +375,5 @@ void Menu::askSwapWalkDistance() {
     if (option == 1) askWalkingDistance();
     else if (option == 2) askSwapDistance();
 }
-
-
-
-
-
-
-
-
-
-
 
 

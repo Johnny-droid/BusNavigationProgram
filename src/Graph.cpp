@@ -105,7 +105,6 @@ int Graph::kruskal() {
     return 0;
 }
 
-
 double Graph::bfs(string src, string dest) {
     int start, end;
     try {
@@ -127,7 +126,6 @@ double Graph::bfs(int a, int b) {
     nodes[a].parent = a;
     while (!q.empty()) { // while there are still unvisited nodes
         int u = q.front(); q.pop();
-        cout << u << " "; // show node order
         for (auto e : nodes[u].adj) {
             int w = e.dest;
             if (!nodes[w].visited) {
@@ -187,6 +185,71 @@ double Graph::dijkstra(int a, int b) {
     return nodes[b].distance != DBL_MAX ? nodes[b].distance : -1;
 }
 
+double Graph::dijkstraLine(string src, string dest) {
+    int start, end;
+    try {
+        start = positions.at(src);
+        end = positions.at(dest);
+        return dijkstraLine(start, end);
+    } catch (out_of_range) {
+        cout << "\tThere aren't any stops with that code" << endl;
+        return -1;
+    }
+}
+
+double Graph::dijkstraLine(int a, int b) {
+    MinHeap<int, double> heap(nodes.size(), -1.0);
+    for (int i = 1; i < nodes.size(); i++) { // i < n
+        heap.insert(i, DBL_MAX);
+        nodes[i].distance = DBL_MAX;
+        nodes[i].visited = false;
+        nodes[i].visited2 = false;
+        nodes[i].parent = -1;
+    }
+    heap.decreaseKey(a, 0);
+    nodes[a].distance = 0.0;
+    nodes[a].parent = a;
+
+    string previousLine;
+    while (heap.getSize() != 0) {
+        int min = heap.removeMin();
+        nodes[min].visited = true;
+        for (Edge edge : nodes[min].adj) {
+            double newWeight = edge.weight + nodes[min].distance;
+            if (!nodes[edge.dest].visited && nodes[edge.dest].distance > newWeight) {
+                heap.decreaseKey(edge.dest, newWeight);
+                nodes[edge.dest].distance = newWeight;
+                nodes[edge.dest].parent = min;
+            }
+        }
+    }
+
+    return nodes[b].distance != DBL_MAX ? nodes[b].distance : -1;
+}
+
+/*
+void Graph::dfs(int v, MinHeap<int, double> &heap) {
+    nodes[v].visited2 = true;
+    for (auto e : nodes[v].adj) {
+        int w = e.dest;
+        if (!nodes[w].visited2) {
+
+            dfs(w, heap,  e.line);
+        }
+    }
+}
+
+void Graph::dfs(int v, MinHeap<int, double> &heap, double minDist, string line) {
+    nodes[v].visited2 = true;
+    for (auto e : nodes[v].adj) {
+        int w = e.dest;
+        if (!nodes[w].visited2 && e.line == line) {
+            heap.decreaseKey(w, minDist);
+            dfs(w, heap, e.line);
+        }
+    }
+}
+*/
 stack<int> Graph::getPathFromGraph(string src, string dest) {
     int start, end;
     try {
@@ -325,28 +388,4 @@ void Graph::removeTemporaryNodes() {
     nodes.erase(nodes.begin() + positions["-end-"]);
     positions.erase("-end-");
 }
-
-
-
-/*
-void Graph::dfs(int v) {
-    cout << v << " "; // show node order
-    nodes[v].visited = true;
-    for (auto e : nodes[v].adj) {
-        int w = e.dest;
-        if (!nodes[w].visited)
-            dfs(w);
-    }
-}
- */
-
-
-
-
-
-
-
-
-
-
 

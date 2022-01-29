@@ -46,13 +46,16 @@ public:
     double bfs(int a, int b);
     double dijkstra(string src, string dest);
     double dijkstra(int a, int b);
+    double dijkstraLine(string src, string dest);
+    double dijkstraLine(int a, int b);
+    void dfs(int v, MinHeap<int, double> &heap);
+    void dfs(int v, MinHeap<int, double> &heap, int minDist, string line);
 
     stack<int> getPathFromGraph(string src, string dest);
     stack<int> getPathFromGraph(int a, int b);
 
     void printPath(stack<int> path);
     void printNodes();
-
     void insertTemporaryNode(Coordinates c, bool startType);
     void removeTemporaryNodes();
 };
