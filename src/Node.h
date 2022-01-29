@@ -22,11 +22,11 @@ struct Edge {
     double distance;
     int parent;
     bool visited;
-    bool visited2;
     string code;
     string local;
     string zone;
     Coordinates coordinates;
+    vector<string> lines;
 };
 
 

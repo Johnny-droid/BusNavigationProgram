@@ -226,6 +226,7 @@ void Menu::createGraphStops() {
     this->graph = graph1;
 }
 
+
 void Menu::createGraphLines() {
     ifstream fileLines;
     string str;
@@ -332,8 +333,15 @@ void Menu::bestPathDijkstra() {
 
         if (distance != -1.0) {
             cout << "\tYou will have to travel " << distance << "km " << endl;
-            path = graph.getPathFromGraph(stopBegin, stopEnd);
-            graph.printPath(path);
+            if (optionAlgorithm != 3) {
+                path = graph.getPathFromGraph(stopBegin, stopEnd);
+                graph.printPath(path);
+            } else {
+                path = graph.getPathFromGraph(stopBegin, stopEnd);
+                cout << "Its: " << path.size() <<  endl;
+                graph.printPathLinesAlgorithm(path);
+            }
+
         } else {
             cout << "\n\tNo path available" << endl;
         }
@@ -357,8 +365,13 @@ void Menu::bestPathDijkstra() {
 
         if (distance != -1.0) {
             cout << "\tYou will have to travel " << distance << "km " << endl;
-            path = graph.getPathFromGraph("-start-", "-end-");
-            graph.printPath(path);
+            if (optionAlgorithm != 3) {
+                path = graph.getPathFromGraph("-start-", "-end-");
+                graph.printPath(path);
+            } else {
+                path = graph.getPathFromGraph("-start-", "-end-");
+                graph.printPathLinesAlgorithm(path);
+            }
         } else {
             cout << "\n\tOnly walking that far won't be enough" << endl;
         }

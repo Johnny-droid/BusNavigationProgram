@@ -38,6 +38,8 @@ public:
     void addEdge(int src, int dest, double weight = 1.0);
     double calculateDistance(Coordinates c1, Coordinates c2);
     double calculateDistance(int src, int dest);
+    int changesInPath(vector<string> lines, string newLine);
+    int changesInPath(vector<string> lines);
 
     double prim(int r);
     double kruskal();
@@ -55,6 +57,7 @@ public:
     stack<int> getPathFromGraph(int a, int b);
 
     void printPath(stack<int> path);
+    void printPathLinesAlgorithm(stack<int> path);
     void printNodes();
     void insertTemporaryNode(Coordinates c, bool startType);
     void removeTemporaryNodes();
