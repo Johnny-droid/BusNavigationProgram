@@ -12,24 +12,27 @@ struct Coordinates {
     double longitude;
 };
 
+
 struct Edge {
     int dest;   // Destination node
     double weight; // An integer weight
     string line;
-    /*
-    // For Kruskal's
-    int src;
-    bool operator<(const Edge &other) const {
-        return weight < other.weight;
-    }
 
-    bool operator==(const Edge &other) const {
-        return ((src == other.src && dest == other.dest) ||
-                (src == other.dest && dest == other.src)) &&
-               weight == other.weight;
-    }
-     */
 };
+
+/*
+// For Kruskal's
+int src;
+bool operator<(const Edge &other) const {
+    return weight < other.weight;
+}
+
+bool operator==(const Edge &other) const {
+    return ((src == other.src && dest == other.dest) ||
+            (src == other.dest && dest == other.src)) &&
+           weight == other.weight;
+}
+ */
 
  struct Node {
     list<Edge> adj; // The list of outgoing edges (to adjacent nodes)

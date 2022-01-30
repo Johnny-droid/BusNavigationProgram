@@ -15,7 +15,6 @@ void Menu::run() {
     int option;
 
     do {
-        //graph.printNodes();
         clear();
         showMenu();
         option = readInputMenu();

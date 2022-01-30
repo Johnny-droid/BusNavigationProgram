@@ -273,7 +273,7 @@ TEST(SmallMapPaths, bfs) {
     //EXPECT_EQ();
 }
 
-/*
+
 TEST(test1, Dijkstra) {
     std::cout << "Testing 'dijkstra'" << std::endl;
 
@@ -315,59 +315,8 @@ TEST(test1, Dijkstra) {
     EXPECT_EQ(4, graph3.dijkstra(10, 4));
     EXPECT_EQ(-1, graph3.dijkstra(6, 11));
     EXPECT_EQ(-1, graph3.dijkstra(1, 11));
-}*/
-/*
-TEST(test1, Dijkstra_path) {
-    cout << "Testing 'dijkstra_path'" << endl;
-
-    // For these examples there is only one shortest path, so we can compare
-    // directly, but on a general case, for accepting any shortest path,
-    // the verification would need to take that into account
-
-    Graph graph1 = GraphsForTests::graph1Dijkstra();
-    Graph graph2 = GraphsForTests::graph2Dijkstra();
-    Graph graph3 = GraphsForTests::graph3Dijkstra();
-
-    list<int> ans;
-
-    cout << "  . graph1" << endl;
-
-    ans = {1,4,5,2}; EXPECT_EQ(ans,graph1.dijkstra_path(1, 2));
-    ans = {2,5,4,1}; EXPECT_EQ(ans,graph1.dijkstra_path(2, 1));
-    ans = {1,4,5}; EXPECT_EQ(ans,graph1.dijkstra_path(1, 5));
-    ans = {5,4,1}; EXPECT_EQ(ans,graph1.dijkstra_path(5, 1));
-    ans = {1,4,6,3}; EXPECT_EQ(ans,graph1.dijkstra_path(1, 3));
-    ans = {3,6,4,1}; EXPECT_EQ(ans,graph1.dijkstra_path(3, 1));
-    ans = {1,4,6,7}; EXPECT_EQ(ans,graph1.dijkstra_path(1, 7));
-    ans = {7,6,4,1}; EXPECT_EQ(ans,graph1.dijkstra_path(7, 1));
-    ans = {4,6,3}; EXPECT_EQ(ans,graph1.dijkstra_path(4, 3));
-    ans = {3,6,4}; EXPECT_EQ(ans,graph1.dijkstra_path(3, 4));
-    ans = {4,5,2}; EXPECT_EQ(ans,graph1.dijkstra_path(4, 2));
-    ans = {2,5,4}; EXPECT_EQ(ans,graph1.dijkstra_path(2, 4));
-
-    cout << "  . graph2" << endl;
-    ans = {1,5,6,9}; EXPECT_EQ(ans,graph2.dijkstra_path(1, 9));
-    ans = {9,6,5,1}; EXPECT_EQ(ans,graph2.getPathFromGraph(9, 1));
-    ans = {1,5,6,3}; EXPECT_EQ(ans,graph2.dijkstra_path(1, 3));
-    ans = {3,6,5,1}; EXPECT_EQ(ans,graph2.dijkstra_path(3, 1));
-    ans = {2,6,3}; EXPECT_EQ(ans,graph2.dijkstra_path(2, 3));
-    ans = {3,6,2}; EXPECT_EQ(ans,graph2.dijkstra_path(3, 2));
-    ans = {6,5,8}; EXPECT_EQ(ans,graph2.dijkstra_path(6, 8));
-    ans = {8,5,6}; EXPECT_EQ(ans,graph2.dijkstra_path(8, 6));
-
-    cout << "  . graph3" << endl;
-    ans = {}; EXPECT_EQ(ans,graph3.dijkstra_path(8, 11));
-    ans = {11,6,4,3,2,1,7,8}; EXPECT_EQ(ans,graph3.dijkstra_path(11, 8));
-    ans = {3,2,1,7,8}; EXPECT_EQ(ans,graph3.dijkstra_path(3, 8));
-    ans = {8,4,3}; EXPECT_EQ(ans,graph3.dijkstra_path(8, 3));
-    ans = {10,5}; EXPECT_EQ(ans,graph3.dijkstra_path(10, 5));
-    ans = {5,4,3,2,1,7,9,10}; EXPECT_EQ(ans,graph3.dijkstra_path(5, 10));
-    ans = {10,6,4}; EXPECT_EQ(ans,graph3.getPathFromGraph(10, 4));
-    ans = {}; EXPECT_EQ(ans,graph3.dijkstra_path(6, 11));
-    ans = {}; EXPECT_EQ(ans,graph3.dijkstra_path(1, 11));
-
 }
-*/
+
 /*
 TEST(test4, PrintNodes) {
     cout << "Testing PrintNodes" << endl;
@@ -376,7 +325,7 @@ TEST(test4, PrintNodes) {
 }
 */
 
-/*
+
 TEST(test2, Prim) {
     cout << "Testing 'prim'" << endl;
     Graph graph1 = GraphsForTests::graph1Generator();
@@ -411,7 +360,7 @@ TEST(test2, Prim) {
     EXPECT_EQ(9, graph4.prim(3));
     EXPECT_EQ(9, graph4.prim(4));
 }
-*/
+
 TEST(test3, kruskal) {
     cout << "Testando 'kruskal'" << endl;
 

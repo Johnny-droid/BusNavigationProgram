@@ -39,8 +39,6 @@ public:
     void addEdge(int src, int dest, double weight = 1.0);
     double calculateDistance(Coordinates c1, Coordinates c2);
     double calculateDistance(int src, int dest);
-    int changesInPath(vector<string> lines, string newLine);
-    int changesInPath(vector<string> lines);
     int calculateChangesOfLine(map<string, pair<double, int>> lines, int numPrevChangesOfLines, string newLine);
     double calculateWeightDijkstraLine(int min, double edgeWeight, string newLine);
 
@@ -53,7 +51,6 @@ public:
     double dijkstra(int a, int b);
     double dijkstraLine(string src, string dest);
     double dijkstraLine(int a, int b);
-    double dijkstraLine2(int a, int b);
 
     stack<int> getPathFromGraph(string src, string dest);
     stack<int> getPathFromGraph(int a, int b);

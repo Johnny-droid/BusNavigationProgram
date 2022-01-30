@@ -238,46 +238,8 @@ double Graph::dijkstraLine(string src, string dest) {
         return -1;
     }
 }
-/*
-double Graph::dijkstraLine2(int a, int b) {
-    MinHeap<int, int> heap(nodes.size(), -1.0);
-    for (int i = 1; i < nodes.size(); i++) { // i < n
-        vector<string> linesMax;
-        for (int i = 1; i <= 101; i++) {linesMax.push_back(to_string(i));}
-        nodes[i].lines = linesMax;
-        heap.insert(i, changesInPath(linesMax));
-        nodes[i].distance = DBL_MAX;
-        nodes[i].visited = false;
-        nodes[i].parent = -1;
 
 
-    }
-    heap.decreaseKey(a, 0);
-    nodes[a].distance = 0.0;
-    nodes[a].lines = vector<string>();
-    nodes[a].parent = a;
-
-    while (heap.getSize() != 0) {
-        int min = heap.removeMin();
-        nodes[min].visited = true;
-        for (Edge edge : nodes[min].adj) {
-            int numChangesOfLine = changesInPath(nodes[min].lines, edge.line);
-            double newWeight = edge.weight + nodes[min].distance;
-            if (!nodes[edge.dest].visited && changesInPath(nodes[edge.dest].lines) > numChangesOfLine) {
-                heap.decreaseKey(edge.dest, numChangesOfLine);
-                nodes[edge.dest].distance = newWeight;
-                nodes[edge.dest].parent = min;
-                vector<string> lines;
-                for (string line : nodes[min].lines) {lines.push_back(line);}
-                lines.push_back(edge.line);
-                nodes[edge.dest].lines = lines;
-            }
-        }
-    }
-
-    return nodes[b].distance != DBL_MAX ? nodes[b].distance : -1;
-}
-*/
 double Graph::dijkstraLine(int a, int b) {
     MinHeap<int, int> heap(nodes.size(), -1.0);
     for (int i = 1; i < nodes.size(); i++) { // i < n
@@ -307,8 +269,6 @@ double Graph::dijkstraLine(int a, int b) {
                 nodes[edge.dest].lines[edge.line] = {newWeight, min};
 
             } else if (!nodes[edge.dest].visited && nodes[edge.dest].changesOfLine == newChangesOfLine) {
-                nodes[edge.dest].lines[edge.line] = {newWeight, min};
-                /*
                 if (nodes[edge.dest].lines.find(edge.line) != nodes[edge.dest].lines.end()) {
                     double prevWeight = nodes[edge.dest].lines.at(edge.line).first;
                     if (prevWeight > newWeight) {
@@ -317,7 +277,7 @@ double Graph::dijkstraLine(int a, int b) {
                 } else {
                     nodes[edge.dest].lines[edge.line] = {newWeight, min};
                 }
-                */
+
             }
         }
     }
@@ -388,37 +348,6 @@ double Graph::calculateWeightDijkstraLine(int min, double edgeWeight, string new
         }
         return minWeight + edgeWeight;
     }
-}
-
-
-int Graph::changesInPath(vector<string> lines, string newLine) {
-    if (lines.size() == 0) return 1;
-    else if (lines.size() == 1) {
-        if (lines[0] == newLine) {
-            return 1;
-        }
-        return 2;
-    }
-    int changes = 1;
-    for (int i = 0; i < lines.size()-1; i++) {
-        if (lines[i] != lines[i+1]) {
-            changes++;
-        }
-    }
-    if (lines[lines.size()-1] != newLine) changes++;
-    return changes;
-}
-
-int Graph::changesInPath(vector<string> lines) {
-    if (lines.size() == 0) return 0;
-    else if (lines.size() == 1) return 1;
-    int changes = 1;
-    for (int i = 0; i < lines.size()-1; i++) {
-        if (lines[i] != lines[i+1]) {
-            changes++;
-        }
-    }
-    return changes;
 }
 
 

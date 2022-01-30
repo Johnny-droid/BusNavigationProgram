@@ -5,10 +5,10 @@
 
 int main(int argc, char* argv[]) {
 
-    //testing::InitGoogleTest(&argc, argv);
-    //return RUN_ALL_TESTS();
+    testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 
-    Menu menu("dataset-small");
-    menu.run();
+    //Menu menu("dataset-small");
+    //menu.run();
 
 }
