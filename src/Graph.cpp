@@ -124,11 +124,11 @@ long double Graph::prim(int r) {
     return sum;
 }
 
-double Graph::kruskal() {
+long double Graph::kruskal() {
 
     DisjointSets<int> disjoinSets;
     set<EdgeKruskal> edges;
-    int total = 0;
+    long double total = 0;
 
     for (int i = 1; i <= n; i++) {
         disjoinSets.makeSet(i);
@@ -143,7 +143,7 @@ double Graph::kruskal() {
     for (EdgeKruskal y : edges) {
         if (disjoinSets.find(y.dest) != disjoinSets.find(y.src)) {
             disjoinSets.unite(y.dest, y.src);
-            total += y.weight;
+            total += (long double) y.weight;
         }
     }
 

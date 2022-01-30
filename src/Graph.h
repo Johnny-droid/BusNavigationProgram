@@ -43,7 +43,7 @@ public:
     double calculateWeightDijkstraLine(int min, double edgeWeight, string newLine);
 
     long double prim(int r);
-    double kruskal();
+    long double kruskal();
 
     double bfs(string src, string dest);
     double bfs(int a, int b);

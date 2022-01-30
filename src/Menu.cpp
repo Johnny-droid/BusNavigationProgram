@@ -408,7 +408,7 @@ void Menu::askMSTPrim() {
     unordered_map<string, int> pos = graph.getPositions();
     try {
         int n = pos.at(stop);
-        cout << "\n\tThe MST of this graph of stops is, according to Prim's Algorithm: " << graph.prim(n) << "km" << endl;
+        cout << "\n\tThe MST of this graph of stops is, according to Prim's Algorithm: " << graph.prim(n) << " km" << endl;
     } catch (out_of_range) {
         cout << "\n\tSorry, but there is no Bus Stop with that code" << endl;
     }
@@ -416,7 +416,7 @@ void Menu::askMSTPrim() {
 }
 
 void Menu::askMSTKruskal() {
-    cout << "\n\tThe MST of this graph of stops is, according to Kruskal's Algorithm: " << graph.kruskal();
+    cout << "\n\tThe MST of this graph of stops is, according to Kruskal's Algorithm: " << graph.kruskal() << " km " << endl;
 }
 
 
