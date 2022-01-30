@@ -111,7 +111,6 @@ long double Graph::prim(int r) {
     while (heap.getSize() != 0) {
         int u = heap.removeMin();
         sum += (long double) nodes[u].distance;
-        cout << "Code: " << nodes[u].code  << "   Sum: " << sum << endl;
         for (Edge edge : nodes[u].adj) {
             int w = edge.dest;
             if (heap.hasKey(w) && edge.weight < nodes[w].distance) {
