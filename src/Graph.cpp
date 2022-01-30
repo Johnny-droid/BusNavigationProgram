@@ -238,8 +238,8 @@ double Graph::dijkstraLine(string src, string dest) {
         return -1;
     }
 }
-
-double Graph::dijkstraLine(int a, int b) {
+/*
+double Graph::dijkstraLine2(int a, int b) {
     MinHeap<int, int> heap(nodes.size(), -1.0);
     for (int i = 1; i < nodes.size(); i++) { // i < n
         vector<string> linesMax;
@@ -256,7 +256,6 @@ double Graph::dijkstraLine(int a, int b) {
     nodes[a].distance = 0.0;
     nodes[a].lines = vector<string>();
     nodes[a].parent = a;
-
 
     while (heap.getSize() != 0) {
         int min = heap.removeMin();
@@ -278,6 +277,119 @@ double Graph::dijkstraLine(int a, int b) {
 
     return nodes[b].distance != DBL_MAX ? nodes[b].distance : -1;
 }
+*/
+double Graph::dijkstraLine(int a, int b) {
+    MinHeap<int, int> heap(nodes.size(), -1.0);
+    for (int i = 1; i < nodes.size(); i++) { // i < n
+        nodes[i].changesOfLine = INT32_MAX;
+        nodes[i].lines = map<string, pair<double, int>>();
+        heap.insert(i, INT32_MAX);
+        nodes[i].distance = DBL_MAX;
+        nodes[i].visited = false;
+        nodes[i].parent = -1;
+    }
+    heap.decreaseKey(a, 0);
+    nodes[a].distance = 0.0;
+    nodes[a].parent = a;
+    nodes[a].changesOfLine = 0;
+
+    while (heap.getSize() != 0) {
+        int min = heap.removeMin();
+        nodes[min].visited = true;
+        for (Edge edge : nodes[min].adj) {
+            int newChangesOfLine = calculateChangesOfLine(nodes[min].lines, nodes[min].changesOfLine, edge.line);
+            double newWeight = calculateWeightDijkstraLine(min, edge.weight, edge.line);
+
+            if (!nodes[edge.dest].visited && nodes[edge.dest].changesOfLine > newChangesOfLine) {
+                heap.decreaseKey(edge.dest, newChangesOfLine);
+                nodes[edge.dest].changesOfLine = newChangesOfLine;
+                nodes[edge.dest].lines.clear();
+                nodes[edge.dest].lines[edge.line] = {newWeight, min};
+
+            } else if (!nodes[edge.dest].visited && nodes[edge.dest].changesOfLine == newChangesOfLine) {
+                nodes[edge.dest].lines[edge.line] = {newWeight, min};
+                /*
+                if (nodes[edge.dest].lines.find(edge.line) != nodes[edge.dest].lines.end()) {
+                    double prevWeight = nodes[edge.dest].lines.at(edge.line).first;
+                    if (prevWeight > newWeight) {
+                        nodes[edge.dest].lines[edge.line] = {newWeight, min};
+                    }
+                } else {
+                    nodes[edge.dest].lines[edge.line] = {newWeight, min};
+                }
+                */
+            }
+        }
+    }
+
+    if (nodes[b].lines.empty()) return -1;
+    int parent, lastNode = b; string line;
+    double distance, minWeight = DBL_MAX;
+    for (auto it = nodes[b].lines.begin(); it != nodes[b].lines.end(); it++) {
+        if (it->second.first < minWeight) {
+            minWeight = it->second.first;
+            parent = it->second.second;
+            nodes[lastNode].parent = it->second.second;
+            line = it->first;
+        }
+    }
+    distance = minWeight;
+    lastNode = parent;
+    while (!nodes[lastNode].lines.empty()) {
+        try {
+            nodes[lastNode].lines.at(line);
+            parent = nodes[lastNode].lines[line].second;
+            minWeight = nodes[lastNode].lines[line].first;
+            nodes[lastNode].parent = parent;
+            nodes[lastNode].lines.clear();
+            nodes[lastNode].lines[line] = {minWeight, parent};
+            lastNode = parent; //updates
+
+        } catch (out_of_range) {
+            minWeight = DBL_MAX;
+            for (auto it = nodes[lastNode].lines.begin(); it != nodes[lastNode].lines.end(); it++) {
+                if (it->second.first < minWeight) {
+                    minWeight = it->second.first;
+                    nodes[lastNode].parent = it->second.second;
+                    line = it->first;
+                    parent = it->second.second;
+                }
+            }
+            nodes[lastNode].lines.clear();
+            nodes[lastNode].lines[line] = {minWeight, parent};  //leaves only 1 line
+            lastNode = parent; //updates
+        }
+    }
+
+    return distance;
+}
+
+int Graph::calculateChangesOfLine(map<string, pair<double, int>> lines, int numPrevChangesOfLines, string newLine) {
+    try {
+        lines.at(newLine);
+        return numPrevChangesOfLines;
+    } catch (out_of_range) {
+        return numPrevChangesOfLines + 1;
+    }
+}
+
+double Graph::calculateWeightDijkstraLine(int min, double edgeWeight, string newLine) {
+    if (nodes[min].lines.empty()) return edgeWeight;
+    double minWeight;
+    try {
+        nodes[min].lines.at(newLine);
+        return nodes[min].lines[newLine].first + edgeWeight;
+    } catch (out_of_range) {
+        minWeight = DBL_MAX;
+        for (auto it = nodes[min].lines.begin(); it != nodes[min].lines.end(); it++) {
+            if (it->second.first < minWeight) {
+                minWeight = it->second.first;
+            }
+        }
+        return minWeight + edgeWeight;
+    }
+}
+
 
 int Graph::changesInPath(vector<string> lines, string newLine) {
     if (lines.size() == 0) return 1;
@@ -383,7 +495,7 @@ void Graph::printPathLinesAlgorithm(stack<int> path) {
 
         if (path.empty()) break;
 
-        line = nodes[path.top()].lines[nodes[path.top()].lines.size()-1];
+        line = nodes[path.top()].lines.begin()->first;
         for (Edge edge : nodes[i].adj) {
             if (edge.dest == path.top() && edge.line == line) {
                 distance = edge.weight;
@@ -466,5 +578,6 @@ void Graph::removeTemporaryNodes() {
     nodes.erase(nodes.begin() + positions["-end-"]);
     positions.erase("-end-");
 }
+
 
 

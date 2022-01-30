@@ -3,6 +3,7 @@
 
 #include <list>
 #include <string>
+#include <map>
 
 using namespace std;
 
@@ -39,7 +40,8 @@ struct Edge {
     string local;
     string zone;
     Coordinates coordinates;
-    vector<string> lines;
+    int changesOfLine;
+    map<string, pair<double, int>> lines; //lines {weight, and parent}
 };
 
 
