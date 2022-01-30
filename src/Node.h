@@ -20,6 +20,24 @@ struct Edge {
 
 };
 
+struct EdgeKruskal {
+    int src;    // Source node
+    int dest;   // Destination node
+    double weight; // An integer weight
+
+    // For Kruskal's
+    bool operator<(const EdgeKruskal &other) const {
+        return weight < other.weight;
+    }
+
+    bool operator==(const EdgeKruskal &other) const {
+        return ((src == other.src && dest == other.dest) ||
+                (src == other.dest && dest == other.src)) &&
+               weight == other.weight;
+    }
+};
+
+
 /*
 // For Kruskal's
 int src;

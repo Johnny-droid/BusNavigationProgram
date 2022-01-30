@@ -98,19 +98,20 @@ double Graph::calculateDistance(Coordinates c1, Coordinates c2) {
 }
 
 
-double Graph::prim(int r) {
-    double sum = 0;
+long double Graph::prim(int r) {
+    long double sum = 0;
     MinHeap<int, double> heap(nodes.size(), -1);
     for (int i = 1; i < nodes.size(); i++) {
-        heap.insert(i, DBL_MAX);
-        nodes[i].distance = DBL_MAX;
+        heap.insert(i, DBL_MAX/2);
+        nodes[i].distance = DBL_MAX/2;
         nodes[i].parent = 0;
     }
     heap.decreaseKey(r, 0);
     nodes[r].distance = 0;
     while (heap.getSize() != 0) {
         int u = heap.removeMin();
-        sum += nodes[u].distance;
+        sum += (long double) nodes[u].distance;
+        cout << "Code: " << nodes[u].code  << "   Sum: " << sum << endl;
         for (Edge edge : nodes[u].adj) {
             int w = edge.dest;
             if (heap.hasKey(w) && edge.weight < nodes[w].distance) {
@@ -126,24 +127,26 @@ double Graph::prim(int r) {
 double Graph::kruskal() {
 
     DisjointSets<int> disjoinSets;
-    set<Edge> edges;
+    set<EdgeKruskal> edges;
     int total = 0;
-    /*
+
     for (int i = 1; i <= n; i++) {
         disjoinSets.makeSet(i);
     }
 
-    for (Node x: nodes) {
-        edges.insert(x.adj.begin(), x.adj.end());
+    for (int i = 1 ; i < nodes.size(); i++) {
+        for (Edge edge : nodes[i].adj) {
+            edges.insert({i, edge.dest, edge.weight});
+        }
     }
 
-    for (Edge y : edges) {
+    for (EdgeKruskal y : edges) {
         if (disjoinSets.find(y.dest) != disjoinSets.find(y.src)) {
             disjoinSets.unite(y.dest, y.src);
             total += y.weight;
         }
     }
-     */
+
     return total;
 }
 

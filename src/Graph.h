@@ -15,7 +15,7 @@ using namespace std;
 
 class Graph {
     int n;              // Graph size (vertices are numbered from 1 to n)
-    double walkingDistance = 0.4; //km
+    double walkingDistance = 0.001; //km
     double swapDistance = 0.0;
     bool hasDir;        // false: undirect; true: directed
     vector<Node> nodes; // The list of nodes being represented
@@ -42,7 +42,7 @@ public:
     int calculateChangesOfLine(map<string, pair<double, int>> lines, int numPrevChangesOfLines, string newLine);
     double calculateWeightDijkstraLine(int min, double edgeWeight, string newLine);
 
-    double prim(int r);
+    long double prim(int r);
     double kruskal();
 
     double bfs(string src, string dest);
