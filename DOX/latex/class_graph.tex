@@ -1,0 +1,589 @@
+\hypertarget{class_graph}{}\doxysection{Graph Class Reference}
+\label{class_graph}\index{Graph@{Graph}}
+
+
+Collaboration diagram for Graph\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{class_graph__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_graph_a418ca056d1305bd9c616f2e431bf8c1b}\label{class_graph_a418ca056d1305bd9c616f2e431bf8c1b}} 
+{\bfseries Graph} (int nodes=0, bool dir=true)
+\item 
+\mbox{\Hypertarget{class_graph_ab9f91f0600e0e120a4903110dcad6ef4}\label{class_graph_ab9f91f0600e0e120a4903110dcad6ef4}} 
+{\bfseries Graph} (vector$<$ \mbox{\hyperlink{struct_node}{Node}} $>$ nodes, unordered\+\_\+map$<$ string, int $>$ positions, bool dir=true)
+\item 
+\mbox{\Hypertarget{class_graph_a87bfe4e83e37b8763298ca4f4bf17fe6}\label{class_graph_a87bfe4e83e37b8763298ca4f4bf17fe6}} 
+vector$<$ \mbox{\hyperlink{struct_node}{Node}} $>$ \& {\bfseries get\+Nodes} ()
+\item 
+\mbox{\Hypertarget{class_graph_a3c0d5ecda4916f13609c330c132b4eeb}\label{class_graph_a3c0d5ecda4916f13609c330c132b4eeb}} 
+double {\bfseries get\+Walking\+Distance} ()
+\item 
+\mbox{\Hypertarget{class_graph_a8da0ba8c0257172bb33c6cc8e451a243}\label{class_graph_a8da0ba8c0257172bb33c6cc8e451a243}} 
+double {\bfseries get\+Swap\+Distance} ()
+\item 
+\mbox{\Hypertarget{class_graph_a794f417a746ac268acd39b006b90ce66}\label{class_graph_a794f417a746ac268acd39b006b90ce66}} 
+unordered\+\_\+map$<$ string, int $>$ {\bfseries get\+Positions} ()
+\item 
+\mbox{\Hypertarget{class_graph_a03f972a0df6d5bb4b5bd482e01d83ecf}\label{class_graph_a03f972a0df6d5bb4b5bd482e01d83ecf}} 
+void {\bfseries set\+Walking\+Distance} (double walking\+Dist)
+\item 
+void \mbox{\hyperlink{class_graph_aedb02ac5403b70a0fe6ef2346b22030e}{set\+Swap\+Distance}} (double swap\+Dist)
+\item 
+void \mbox{\hyperlink{class_graph_a6330e190e5d03e7486523a24f2007dcf}{add\+Edge}} (string src, string dest, string line)
+\item 
+void \mbox{\hyperlink{class_graph_ab4f4649eb79aade23258b27a3efbbc12}{add\+Edge}} (int src, int dest, string line)
+\item 
+void \mbox{\hyperlink{class_graph_ae81a5b902a380de507b0f9174ab52ea9}{add\+Edge}} (int src, int dest, double weight=1.\+0)
+\item 
+double \mbox{\hyperlink{class_graph_ab7ab1f49dcb5d8970a048d168c0ec9f2}{calculate\+Distance}} (\mbox{\hyperlink{struct_coordinates}{Coordinates}} c1, \mbox{\hyperlink{struct_coordinates}{Coordinates}} c2)
+\item 
+double \mbox{\hyperlink{class_graph_a5793206eebec70f85125acf647f023c0}{calculate\+Distance}} (int src, int dest)
+\item 
+int \mbox{\hyperlink{class_graph_a9b37c1fd4074558bfc813342906997ce}{calculate\+Changes\+Of\+Line}} (map$<$ string, pair$<$ double, int $>$ $>$ lines, int num\+Prev\+Changes\+Of\+Lines, string new\+Line)
+\item 
+double \mbox{\hyperlink{class_graph_a711b5e72f64e63a01601e28576543402}{calculate\+Weight\+Dijkstra\+Line}} (int min, double edge\+Weight, string new\+Line)
+\item 
+long double \mbox{\hyperlink{class_graph_a407d3118abd6dbd345bb1382cc9603d3}{prim}} (int r)
+\item 
+long double \mbox{\hyperlink{class_graph_ad77f6744a69bd9c5ee1b6ee2ef9071f5}{kruskal}} ()
+\item 
+double \mbox{\hyperlink{class_graph_ad4890945c57ebfcab65628b00c7b045f}{bfs}} (string src, string dest)
+\item 
+double \mbox{\hyperlink{class_graph_a510b181593dfb1daa24fe1b4b3973d29}{bfs}} (int a, int b)
+\item 
+double \mbox{\hyperlink{class_graph_a757523ec50ef2b9caed078821c9809b8}{dijkstra}} (string src, string dest)
+\item 
+double \mbox{\hyperlink{class_graph_a43269b9028651d49b36bb710c663dbf3}{dijkstra}} (int a, int b)
+\item 
+double \mbox{\hyperlink{class_graph_abbd595bc1d0763d111feb906442c9d45}{dijkstra\+Line}} (string src, string dest)
+\item 
+double \mbox{\hyperlink{class_graph_a98a1ff1260c5f10b0bb9a06f65306541}{dijkstra\+Line}} (int a, int b)
+\item 
+stack$<$ int $>$ \mbox{\hyperlink{class_graph_ac20eb20ca85c2c870c28e69405a0b0cb}{get\+Path\+From\+Graph}} (string src, string dest)
+\item 
+stack$<$ int $>$ \mbox{\hyperlink{class_graph_af965833a770dce0116dd1256b4f2dadc}{get\+Path\+From\+Graph}} (int a, int b)
+\item 
+void \mbox{\hyperlink{class_graph_a4dd5d569fad52520e6f2962637b956eb}{print\+Path}} (stack$<$ int $>$ path)
+\item 
+void \mbox{\hyperlink{class_graph_aa0605aed3d1f52fc184084ccb1532e35}{print\+Path\+Lines\+Algorithm}} (stack$<$ int $>$ path)
+\item 
+void \mbox{\hyperlink{class_graph_ac83f6a4edf0d503d387f59093692d719}{print\+Nodes}} ()
+\item 
+void \mbox{\hyperlink{class_graph_a1a5836deb8bfa4124caf584e8a9ab1ff}{insert\+Temporary\+Node}} (\mbox{\hyperlink{struct_coordinates}{Coordinates}} c, bool start\+Type)
+\item 
+void \mbox{\hyperlink{class_graph_ad5172b4ad9a6121adffed3b669eb952b}{remove\+Temporary\+Nodes}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph_ae81a5b902a380de507b0f9174ab52ea9}\label{class_graph_ae81a5b902a380de507b0f9174ab52ea9}} 
+\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{src,  }\item[{int}]{dest,  }\item[{double}]{weight = {\ttfamily 1.0} }\end{DoxyParamCaption})}
+
+Adds an edge to the list of outgoing edges to adjacent nodes of the origin node. It does the same for the destiny node, if the graph is undirected. 
+\begin{DoxyParams}{Parameters}
+{\em src} & The origin\textquotesingle{}s position \\
+\hline
+{\em dest} & The destiny\textquotesingle{}s position \\
+\hline
+{\em weight} & The predetermined weight \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_ab4f4649eb79aade23258b27a3efbbc12}\label{class_graph_ab4f4649eb79aade23258b27a3efbbc12}} 
+\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{src,  }\item[{int}]{dest,  }\item[{string}]{line }\end{DoxyParamCaption})}
+
+Adds an edge to the list of outgoing edges to adjacent nodes of the origin node. It does the same for the destiny node, if the graph is undirected. It also calculates the weight of the edge (distance) based on the origin and destiny and includes the line that covers this edge. 
+\begin{DoxyParams}{Parameters}
+{\em src} & The origin\textquotesingle{}s position \\
+\hline
+{\em dest} & The destiny\textquotesingle{}s position \\
+\hline
+{\em line} & The line\textquotesingle{}s code \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{class_graph_ab4f4649eb79aade23258b27a3efbbc12_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_a6330e190e5d03e7486523a24f2007dcf}\label{class_graph_a6330e190e5d03e7486523a24f2007dcf}} 
+\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{string}]{src,  }\item[{string}]{dest,  }\item[{string}]{line }\end{DoxyParamCaption})}
+
+Gets the position of an origin and destiny from their station names, and uses them on the other add\+Edge method. 
+\begin{DoxyParams}{Parameters}
+{\em src} & The origin code \\
+\hline
+{\em dest} & The destiny code \\
+\hline
+{\em line} & The line\textquotesingle{}s code \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{class_graph_a6330e190e5d03e7486523a24f2007dcf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_a6330e190e5d03e7486523a24f2007dcf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_a510b181593dfb1daa24fe1b4b3973d29}\label{class_graph_a510b181593dfb1daa24fe1b4b3973d29}} 
+\index{Graph@{Graph}!bfs@{bfs}}
+\index{bfs@{bfs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{bfs()}{bfs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Graph\+::bfs (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+Time Complexity\+: O($\vert$\+V$\vert$ + $\vert$\+E$\vert$) 
+\begin{DoxyParams}{Parameters}
+{\em Beginning} & node a \\
+\hline
+{\em Ending} & node b \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the distance of the path with the least amount of stops 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_ad4890945c57ebfcab65628b00c7b045f}\label{class_graph_ad4890945c57ebfcab65628b00c7b045f}} 
+\index{Graph@{Graph}!bfs@{bfs}}
+\index{bfs@{bfs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{bfs()}{bfs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Graph\+::bfs (\begin{DoxyParamCaption}\item[{string}]{src,  }\item[{string}]{dest }\end{DoxyParamCaption})}
+
+Determines the positions of an origin and destiny to use on the other bfs method. 
+\begin{DoxyParams}{Parameters}
+{\em src} & The origin\textquotesingle{}s code \\
+\hline
+{\em dest} & The destiny\textquotesingle{}s code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the distance of the path with the least amount of stops 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{class_graph_ad4890945c57ebfcab65628b00c7b045f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_ad4890945c57ebfcab65628b00c7b045f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_a9b37c1fd4074558bfc813342906997ce}\label{class_graph_a9b37c1fd4074558bfc813342906997ce}} 
+\index{Graph@{Graph}!calculateChangesOfLine@{calculateChangesOfLine}}
+\index{calculateChangesOfLine@{calculateChangesOfLine}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{calculateChangesOfLine()}{calculateChangesOfLine()}}
+{\footnotesize\ttfamily int Graph\+::calculate\+Changes\+Of\+Line (\begin{DoxyParamCaption}\item[{map$<$ string, pair$<$ double, int $>$ $>$}]{lines,  }\item[{int}]{num\+Prev\+Changes\+Of\+Lines,  }\item[{string}]{new\+Line }\end{DoxyParamCaption})}
+
+Calculates the number of line changes in the new node. 
+\begin{DoxyParams}{Parameters}
+{\em lines} & The bus lines that reached the previous node \\
+\hline
+{\em num\+Prev\+Changes\+Of\+Lines} & The number of line changes of the previous node \\
+\hline
+{\em new\+Line} & The line of the edge that we are currently analysing \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of line changes 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_a9b37c1fd4074558bfc813342906997ce_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_ab7ab1f49dcb5d8970a048d168c0ec9f2}\label{class_graph_ab7ab1f49dcb5d8970a048d168c0ec9f2}} 
+\index{Graph@{Graph}!calculateDistance@{calculateDistance}}
+\index{calculateDistance@{calculateDistance}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{calculateDistance()}{calculateDistance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Graph\+::calculate\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_coordinates}{Coordinates}}}]{c1,  }\item[{\mbox{\hyperlink{struct_coordinates}{Coordinates}}}]{c2 }\end{DoxyParamCaption})}
+
+Uses the mathematical formula to calculate the distance between two points 
+\begin{DoxyParams}{Parameters}
+{\em c1} & The origin\textquotesingle{}s coordinates \\
+\hline
+{\em c2} & The destiny\textquotesingle{}s coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance between two nodes 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_ab7ab1f49dcb5d8970a048d168c0ec9f2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_a5793206eebec70f85125acf647f023c0}\label{class_graph_a5793206eebec70f85125acf647f023c0}} 
+\index{Graph@{Graph}!calculateDistance@{calculateDistance}}
+\index{calculateDistance@{calculateDistance}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{calculateDistance()}{calculateDistance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Graph\+::calculate\+Distance (\begin{DoxyParamCaption}\item[{int}]{src,  }\item[{int}]{dest }\end{DoxyParamCaption})}
+
+Determines the coordinates of a the origin and destiny and uses them on the other method with this name 
+\begin{DoxyParams}{Parameters}
+{\em src} & The origin\textquotesingle{}s position \\
+\hline
+{\em dest} & The destiny\textquotesingle{}s position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance between two nodes 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_a5793206eebec70f85125acf647f023c0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_a711b5e72f64e63a01601e28576543402}\label{class_graph_a711b5e72f64e63a01601e28576543402}} 
+\index{Graph@{Graph}!calculateWeightDijkstraLine@{calculateWeightDijkstraLine}}
+\index{calculateWeightDijkstraLine@{calculateWeightDijkstraLine}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{calculateWeightDijkstraLine()}{calculateWeightDijkstraLine()}}
+{\footnotesize\ttfamily double Graph\+::calculate\+Weight\+Dijkstra\+Line (\begin{DoxyParamCaption}\item[{int}]{min,  }\item[{double}]{edge\+Weight,  }\item[{string}]{new\+Line }\end{DoxyParamCaption})}
+
+Calculates the distance of the new node according to the line of the edge. 
+\begin{DoxyParams}{Parameters}
+{\em min} & previous\+Node \\
+\hline
+{\em edge\+Weight} & \\
+\hline
+{\em new\+Line} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+distance 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_a711b5e72f64e63a01601e28576543402_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_a43269b9028651d49b36bb710c663dbf3}\label{class_graph_a43269b9028651d49b36bb710c663dbf3}} 
+\index{Graph@{Graph}!dijkstra@{dijkstra}}
+\index{dijkstra@{dijkstra}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{dijkstra()}{dijkstra()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Graph\+::dijkstra (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+Time Complexity\+: O($\vert$\+E$\vert$ long($\vert$\+V$\vert$)) 
+\begin{DoxyParams}{Parameters}
+{\em Beginning} & node a \\
+\hline
+{\em Ending} & node b \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the distance of the shortest path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a757523ec50ef2b9caed078821c9809b8}\label{class_graph_a757523ec50ef2b9caed078821c9809b8}} 
+\index{Graph@{Graph}!dijkstra@{dijkstra}}
+\index{dijkstra@{dijkstra}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{dijkstra()}{dijkstra()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Graph\+::dijkstra (\begin{DoxyParamCaption}\item[{string}]{src,  }\item[{string}]{dest }\end{DoxyParamCaption})}
+
+Determines the positions of an origin and destiny to use on the other dijkstra method. 
+\begin{DoxyParams}{Parameters}
+{\em src} & The origin\textquotesingle{}s code \\
+\hline
+{\em dest} & The destiny\textquotesingle{}s code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the distance of the shortest path 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_graph_a757523ec50ef2b9caed078821c9809b8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_a757523ec50ef2b9caed078821c9809b8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_a98a1ff1260c5f10b0bb9a06f65306541}\label{class_graph_a98a1ff1260c5f10b0bb9a06f65306541}} 
+\index{Graph@{Graph}!dijkstraLine@{dijkstraLine}}
+\index{dijkstraLine@{dijkstraLine}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{dijkstraLine()}{dijkstraLine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Graph\+::dijkstra\+Line (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+Time Complexity\+: O($\vert$\+E$\vert$ long($\vert$\+V$\vert$)) (overlapping lines make it hard to tell time complexity) 
+\begin{DoxyParams}{Parameters}
+{\em Beginning} & node a \\
+\hline
+{\em Ending} & node b \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the distance of the path with the fewest changes in lines 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_a98a1ff1260c5f10b0bb9a06f65306541_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_abbd595bc1d0763d111feb906442c9d45}\label{class_graph_abbd595bc1d0763d111feb906442c9d45}} 
+\index{Graph@{Graph}!dijkstraLine@{dijkstraLine}}
+\index{dijkstraLine@{dijkstraLine}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{dijkstraLine()}{dijkstraLine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Graph\+::dijkstra\+Line (\begin{DoxyParamCaption}\item[{string}]{src,  }\item[{string}]{dest }\end{DoxyParamCaption})}
+
+Determines the positions of an origin and destiny to use on the other dijkstra\+Line method. 
+\begin{DoxyParams}{Parameters}
+{\em src} & The origin\textquotesingle{}s code \\
+\hline
+{\em dest} & The destiny\textquotesingle{}s code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the distance of the path with the fewest changes in lines 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{class_graph_abbd595bc1d0763d111feb906442c9d45_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_abbd595bc1d0763d111feb906442c9d45_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_af965833a770dce0116dd1256b4f2dadc}\label{class_graph_af965833a770dce0116dd1256b4f2dadc}} 
+\index{Graph@{Graph}!getPathFromGraph@{getPathFromGraph}}
+\index{getPathFromGraph@{getPathFromGraph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getPathFromGraph()}{getPathFromGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily stack$<$ int $>$ Graph\+::get\+Path\+From\+Graph (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+Stores the path in a stack and then returns it. 
+\begin{DoxyParams}{Parameters}
+{\em a} & The origin\textquotesingle{}s position \\
+\hline
+{\em b} & The destinty\textquotesingle{}s position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The positions of every node on the way between two nodes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_ac20eb20ca85c2c870c28e69405a0b0cb}\label{class_graph_ac20eb20ca85c2c870c28e69405a0b0cb}} 
+\index{Graph@{Graph}!getPathFromGraph@{getPathFromGraph}}
+\index{getPathFromGraph@{getPathFromGraph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getPathFromGraph()}{getPathFromGraph()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily stack$<$ int $>$ Graph\+::get\+Path\+From\+Graph (\begin{DoxyParamCaption}\item[{string}]{src,  }\item[{string}]{dest }\end{DoxyParamCaption})}
+
+Determines the positions of an origin and destiny to use them in the other method of this name. 
+\begin{DoxyParams}{Parameters}
+{\em src} & The origin\textquotesingle{}s code \\
+\hline
+{\em dest} & The destiny\textquotesingle{}s code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The positions of every node on the way between two nodes 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_graph_ac20eb20ca85c2c870c28e69405a0b0cb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_ac20eb20ca85c2c870c28e69405a0b0cb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_a1a5836deb8bfa4124caf584e8a9ab1ff}\label{class_graph_a1a5836deb8bfa4124caf584e8a9ab1ff}} 
+\index{Graph@{Graph}!insertTemporaryNode@{insertTemporaryNode}}
+\index{insertTemporaryNode@{insertTemporaryNode}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{insertTemporaryNode()}{insertTemporaryNode()}}
+{\footnotesize\ttfamily void Graph\+::insert\+Temporary\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_coordinates}{Coordinates}}}]{c,  }\item[{bool}]{start\+Type }\end{DoxyParamCaption})}
+
+Inserts a temporary node that are at the coordinates. 
+\begin{DoxyParams}{Parameters}
+{\em c} & \mbox{\hyperlink{struct_coordinates}{Coordinates}} of origin or destiny \\
+\hline
+{\em start\+Type} & True if the coordinates refer to the origin, false if they refer to the destiny \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_a1a5836deb8bfa4124caf584e8a9ab1ff_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_a1a5836deb8bfa4124caf584e8a9ab1ff_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_ad77f6744a69bd9c5ee1b6ee2ef9071f5}\label{class_graph_ad77f6744a69bd9c5ee1b6ee2ef9071f5}} 
+\index{Graph@{Graph}!kruskal@{kruskal}}
+\index{kruskal@{kruskal}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{kruskal()}{kruskal()}}
+{\footnotesize\ttfamily long double Graph\+::kruskal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Time Complexity\+: $\vert$\+E$\vert$ log($\vert$\+E$\vert$) \begin{DoxyReturn}{Returns}
+The value of the minimum spanning tree 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_ad77f6744a69bd9c5ee1b6ee2ef9071f5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_a407d3118abd6dbd345bb1382cc9603d3}\label{class_graph_a407d3118abd6dbd345bb1382cc9603d3}} 
+\index{Graph@{Graph}!prim@{prim}}
+\index{prim@{prim}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{prim()}{prim()}}
+{\footnotesize\ttfamily long double Graph\+::prim (\begin{DoxyParamCaption}\item[{int}]{r }\end{DoxyParamCaption})}
+
+Time Complexity\+: $\vert$\+E$\vert$ log($\vert$\+V$\vert$) \begin{DoxyReturn}{Returns}
+The value of the minimum spanning tree 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_a407d3118abd6dbd345bb1382cc9603d3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_ac83f6a4edf0d503d387f59093692d719}\label{class_graph_ac83f6a4edf0d503d387f59093692d719}} 
+\index{Graph@{Graph}!printNodes@{printNodes}}
+\index{printNodes@{printNodes}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{printNodes()}{printNodes()}}
+{\footnotesize\ttfamily void Graph\+::print\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Prints the code, position, and local of every node. It also prints the code of every adjacent node and its distance from it, and line that links them. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{class_graph_ac83f6a4edf0d503d387f59093692d719_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_a4dd5d569fad52520e6f2962637b956eb}\label{class_graph_a4dd5d569fad52520e6f2962637b956eb}} 
+\index{Graph@{Graph}!printPath@{printPath}}
+\index{printPath@{printPath}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{printPath()}{printPath()}}
+{\footnotesize\ttfamily void Graph\+::print\+Path (\begin{DoxyParamCaption}\item[{stack$<$ int $>$}]{path }\end{DoxyParamCaption})}
+
+Prints every edge in the path between two nodes. It also shows the line and distance of each edge. 
+\begin{DoxyParams}{Parameters}
+{\em path} & The positions of every node on the way between two nodes \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_a4dd5d569fad52520e6f2962637b956eb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_aa0605aed3d1f52fc184084ccb1532e35}\label{class_graph_aa0605aed3d1f52fc184084ccb1532e35}} 
+\index{Graph@{Graph}!printPathLinesAlgorithm@{printPathLinesAlgorithm}}
+\index{printPathLinesAlgorithm@{printPathLinesAlgorithm}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{printPathLinesAlgorithm()}{printPathLinesAlgorithm()}}
+{\footnotesize\ttfamily void Graph\+::print\+Path\+Lines\+Algorithm (\begin{DoxyParamCaption}\item[{stack$<$ int $>$}]{path }\end{DoxyParamCaption})}
+
+Prints every edge in the path between two nodes. It also shows the line and distance of each edge. This works for the dijkstra\+Line algorithm 
+\begin{DoxyParams}{Parameters}
+{\em path} & The positions of every node on the way between two nodes \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_aa0605aed3d1f52fc184084ccb1532e35_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_ad5172b4ad9a6121adffed3b669eb952b}\label{class_graph_ad5172b4ad9a6121adffed3b669eb952b}} 
+\index{Graph@{Graph}!removeTemporaryNodes@{removeTemporaryNodes}}
+\index{removeTemporaryNodes@{removeTemporaryNodes}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeTemporaryNodes()}{removeTemporaryNodes()}}
+{\footnotesize\ttfamily void Graph\+::remove\+Temporary\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Removes every temporary starting and ending nodes. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_ad5172b4ad9a6121adffed3b669eb952b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_graph_aedb02ac5403b70a0fe6ef2346b22030e}\label{class_graph_aedb02ac5403b70a0fe6ef2346b22030e}} 
+\index{Graph@{Graph}!setSwapDistance@{setSwapDistance}}
+\index{setSwapDistance@{setSwapDistance}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{setSwapDistance()}{setSwapDistance()}}
+{\footnotesize\ttfamily void Graph\+::set\+Swap\+Distance (\begin{DoxyParamCaption}\item[{double}]{swap\+Dist }\end{DoxyParamCaption})}
+
+Sets a new value for swap\+Distance. But it also cleans every walking edge that existed before and creates new edges according to this new value. 
+\begin{DoxyParams}{Parameters}
+{\em swap\+Dist} & The distance the user is willing to walk to swap buses \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_aedb02ac5403b70a0fe6ef2346b22030e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_aedb02ac5403b70a0fe6ef2346b22030e_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/clion-\/projetos/\+Bus\+Navigation\+Program/\+Bus\+Navigation\+Program/src/Graph.\+h\item 
+C\+:/clion-\/projetos/\+Bus\+Navigation\+Program/\+Bus\+Navigation\+Program/src/Graph.\+cpp\end{DoxyCompactItemize}

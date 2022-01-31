@@ -1,0 +1,59 @@
+\hypertarget{_menu_8h_source}{}\doxysection{Menu.\+h}
+\label{_menu_8h_source}\index{C:/clion-\/projetos/BusNavigationProgram/BusNavigationProgram/src/Menu.h@{C:/clion-\/projetos/BusNavigationProgram/BusNavigationProgram/src/Menu.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BUSNAVIGATIONPROGRAM\_MENU\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BUSNAVIGATIONPROGRAM\_MENU\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}Graph.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_menu}{Menu}} \{}
+\DoxyCodeLine{14     \textcolor{keywordtype}{string} directory;}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_graph}{Graph}} graph;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_menu}{Menu}}(\textcolor{keywordtype}{string} directory);}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_graph}{Graph}}\& getGraph();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a35656cd130e24d69383a5c9d0a73a38c}{run}}();}
+\DoxyCodeLine{22     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_ab19f32f8deac0f6c6960f04be8612067}{showMenu}}();}
+\DoxyCodeLine{23     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a6261fe20d9de128de80d798842b0ddb9}{showStopsOrLocation}}();}
+\DoxyCodeLine{24     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_aa85ffbcb05f93485cd20d1c78da8e211}{showAlgorithmOptions}}();}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_menu_a1d4000e0c707fc038343a57f9b43bc45}{readInputMenu}}();}
+\DoxyCodeLine{27     \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_menu_af18e46d45ecd770a26b402c553a3bd94}{readInputStopsOrLocation}}();}
+\DoxyCodeLine{28     \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_menu_a737b112dda7349c6d86d709c14f3462d}{readInputBestAlgorithm}}();}
+\DoxyCodeLine{29     \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_menu_a1c473929e003d2ae3a05614029213e69}{readDouble}}();}
+\DoxyCodeLine{30     \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_menu_a6e291e64d873000550cee5c9c8125c63}{readInt}}();}
+\DoxyCodeLine{31     \textcolor{keyword}{static} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_menu_a84a0e7874b733fb95db1606bfe4eefcc}{readString}}();}
+\DoxyCodeLine{32     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a80117d3e6e7adc501358545098f6fdba}{pressEnterToContinue}}();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a167c19644a46f74adf52bce8aa7fb329}{createGraphStops}}();}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a0f2e1c2f1e50deb9c2c3cace04e9caec}{createGraphLines}}();}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a29b5aba3db445a7e1cdb887284fba957}{createGraphLine}}(\textcolor{keywordtype}{string} line);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_menu_a29c92a17c6ae2e9b8ea570e5fa0eb81b}{askStartEnd}}(\textcolor{keywordtype}{string}\& stopBegin, \textcolor{keywordtype}{string}\& stopEnd, \mbox{\hyperlink{struct_coordinates}{Coordinates}}\& cBegin, \mbox{\hyperlink{struct_coordinates}{Coordinates}}\& cEnd);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_ae66b5ec82ed65a10c2e46a5187602508}{bestPathDijkstra}}();}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a9c3d04b9a6f44d66beb7630658ab648d}{askMSTPrim}}();}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a60fd43adf8b8a0e3a83bb602c09f849b}{askMSTKruskal}}();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_ac80f8448305b145adf74af5e9e571035}{askSwapWalkDistance}}();}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a9c781d6cd1f320ee3c8010a6ba544695}{askWalkingDistance}}();}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_aea3fc8c6eb7f6b248237e11e6159e2ac}{askSwapDistance}}();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keyword}{static} vector<string> \mbox{\hyperlink{class_menu_a25f924bbbf87f322e3a80ee53fd72169}{split}}(\textcolor{keywordtype}{string} line, \textcolor{keywordtype}{string} delimeter);}
+\DoxyCodeLine{49     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a3630ce145aab68961ec535762d928558}{clear}}();}
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//BUSNAVIGATIONPROGRAM\_MENU\_H}}
+
+\end{DoxyCode}

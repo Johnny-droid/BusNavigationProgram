@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/spark/CLionProjects/BusNavigationProgram/BusNavigationProgram/lib/googletest-master/googletest/src/gtest_main.cc" "C:/Users/spark/CLionProjects/BusNavigationProgram/BusNavigationProgram/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj"
+  "C:/clion-projetos/BusNavigationProgram/BusNavigationProgram/lib/googletest-master/googletest/src/gtest_main.cc" "C:/clion-projetos/BusNavigationProgram/BusNavigationProgram/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -24,7 +24,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "C:/Users/spark/CLionProjects/BusNavigationProgram/BusNavigationProgram/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "C:/clion-projetos/BusNavigationProgram/BusNavigationProgram/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

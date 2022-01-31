@@ -43,19 +43,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram
+CMAKE_SOURCE_DIR = C:\clion-projetos\BusNavigationProgram\BusNavigationProgram
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug
+CMAKE_BINARY_DIR = C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/depend.make
@@ -68,16 +68,16 @@ include lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/flags.make
 lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj: lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/flags.make
 lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj: lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/includes_CXX.rsp
 lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj: ../lib/googletest-master/googletest/src/gtest_main.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj"
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\gtest_main.dir\src\gtest_main.cc.obj -c C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googletest\src\gtest_main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj"
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\gtest_main.dir\src\gtest_main.cc.obj -c C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googletest\src\gtest_main.cc
 
 lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_main.dir/src/gtest_main.cc.i"
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googletest\src\gtest_main.cc > CMakeFiles\gtest_main.dir\src\gtest_main.cc.i
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googletest\src\gtest_main.cc > CMakeFiles\gtest_main.dir\src\gtest_main.cc.i
 
 lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_main.dir/src/gtest_main.cc.s"
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googletest\src\gtest_main.cc -o CMakeFiles\gtest_main.dir\src\gtest_main.cc.s
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googletest\src\gtest_main.cc -o CMakeFiles\gtest_main.dir\src\gtest_main.cc.s
 
 # Object files for target gtest_main
 gtest_main_OBJECTS = \
@@ -89,19 +89,19 @@ gtest_main_EXTERNAL_OBJECTS =
 lib/libgtest_maind.a: lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj
 lib/libgtest_maind.a: lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build.make
 lib/libgtest_maind.a: lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ..\..\libgtest_maind.a"
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest && $(CMAKE_COMMAND) -P CMakeFiles\gtest_main.dir\cmake_clean_target.cmake
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\gtest_main.dir\link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ..\..\libgtest_maind.a"
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest && $(CMAKE_COMMAND) -P CMakeFiles\gtest_main.dir\cmake_clean_target.cmake
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\gtest_main.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build: lib/libgtest_maind.a
 .PHONY : lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build
 
 lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/clean:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest && $(CMAKE_COMMAND) -P CMakeFiles\gtest_main.dir\cmake_clean.cmake
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest && $(CMAKE_COMMAND) -P CMakeFiles\gtest_main.dir\cmake_clean.cmake
 .PHONY : lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/clean
 
 lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googletest C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest\CMakeFiles\gtest_main.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\clion-projetos\BusNavigationProgram\BusNavigationProgram C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googletest C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googletest\CMakeFiles\gtest_main.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/depend
 

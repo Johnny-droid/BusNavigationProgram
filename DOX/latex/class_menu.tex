@@ -1,0 +1,480 @@
+\hypertarget{class_menu}{}\doxysection{Menu Class Reference}
+\label{class_menu}\index{Menu@{Menu}}
+
+
+Collaboration diagram for Menu\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{class_menu__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_menu_a1920f84097d8a34817086a01781d9748}\label{class_menu_a1920f84097d8a34817086a01781d9748}} 
+{\bfseries Menu} (string directory)
+\item 
+\mbox{\Hypertarget{class_menu_ae98f3ca464de7da7a4d8648199c654f4}\label{class_menu_ae98f3ca464de7da7a4d8648199c654f4}} 
+\mbox{\hyperlink{class_graph}{Graph}} \& {\bfseries get\+Graph} ()
+\item 
+void \mbox{\hyperlink{class_menu_a35656cd130e24d69383a5c9d0a73a38c}{run}} ()
+\item 
+void \mbox{\hyperlink{class_menu_a167c19644a46f74adf52bce8aa7fb329}{create\+Graph\+Stops}} ()
+\item 
+void \mbox{\hyperlink{class_menu_a0f2e1c2f1e50deb9c2c3cace04e9caec}{create\+Graph\+Lines}} ()
+\item 
+void \mbox{\hyperlink{class_menu_a29b5aba3db445a7e1cdb887284fba957}{create\+Graph\+Line}} (string line)
+\item 
+int \mbox{\hyperlink{class_menu_a29c92a17c6ae2e9b8ea570e5fa0eb81b}{ask\+Start\+End}} (string \&stop\+Begin, string \&stop\+End, \mbox{\hyperlink{struct_coordinates}{Coordinates}} \&c\+Begin, \mbox{\hyperlink{struct_coordinates}{Coordinates}} \&c\+End)
+\item 
+void \mbox{\hyperlink{class_menu_ae66b5ec82ed65a10c2e46a5187602508}{best\+Path\+Dijkstra}} ()
+\item 
+void \mbox{\hyperlink{class_menu_a9c3d04b9a6f44d66beb7630658ab648d}{ask\+MSTPrim}} ()
+\item 
+void \mbox{\hyperlink{class_menu_a60fd43adf8b8a0e3a83bb602c09f849b}{ask\+MSTKruskal}} ()
+\item 
+void \mbox{\hyperlink{class_menu_ac80f8448305b145adf74af5e9e571035}{ask\+Swap\+Walk\+Distance}} ()
+\item 
+void \mbox{\hyperlink{class_menu_a9c781d6cd1f320ee3c8010a6ba544695}{ask\+Walking\+Distance}} ()
+\item 
+void \mbox{\hyperlink{class_menu_aea3fc8c6eb7f6b248237e11e6159e2ac}{ask\+Swap\+Distance}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_menu_ab19f32f8deac0f6c6960f04be8612067}{show\+Menu}} ()
+\item 
+static void \mbox{\hyperlink{class_menu_a6261fe20d9de128de80d798842b0ddb9}{show\+Stops\+Or\+Location}} ()
+\item 
+static void \mbox{\hyperlink{class_menu_aa85ffbcb05f93485cd20d1c78da8e211}{show\+Algorithm\+Options}} ()
+\item 
+static int \mbox{\hyperlink{class_menu_a1d4000e0c707fc038343a57f9b43bc45}{read\+Input\+Menu}} ()
+\item 
+static int \mbox{\hyperlink{class_menu_af18e46d45ecd770a26b402c553a3bd94}{read\+Input\+Stops\+Or\+Location}} ()
+\item 
+static int \mbox{\hyperlink{class_menu_a737b112dda7349c6d86d709c14f3462d}{read\+Input\+Best\+Algorithm}} ()
+\item 
+static double \mbox{\hyperlink{class_menu_a1c473929e003d2ae3a05614029213e69}{read\+Double}} ()
+\item 
+static int \mbox{\hyperlink{class_menu_a6e291e64d873000550cee5c9c8125c63}{read\+Int}} ()
+\item 
+static string \mbox{\hyperlink{class_menu_a84a0e7874b733fb95db1606bfe4eefcc}{read\+String}} ()
+\item 
+static void \mbox{\hyperlink{class_menu_a80117d3e6e7adc501358545098f6fdba}{press\+Enter\+To\+Continue}} ()
+\item 
+static vector$<$ string $>$ \mbox{\hyperlink{class_menu_a25f924bbbf87f322e3a80ee53fd72169}{split}} (string line, string delimeter)
+\item 
+static void \mbox{\hyperlink{class_menu_a3630ce145aab68961ec535762d928558}{clear}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_menu_a60fd43adf8b8a0e3a83bb602c09f849b}\label{class_menu_a60fd43adf8b8a0e3a83bb602c09f849b}} 
+\index{Menu@{Menu}!askMSTKruskal@{askMSTKruskal}}
+\index{askMSTKruskal@{askMSTKruskal}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{askMSTKruskal()}{askMSTKruskal()}}
+{\footnotesize\ttfamily void Menu\+::ask\+MSTKruskal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Shows the user the resultant MST from Kruskal\textquotesingle{}s Algorithm. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{class_menu_a60fd43adf8b8a0e3a83bb602c09f849b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{class_menu_a60fd43adf8b8a0e3a83bb602c09f849b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a9c3d04b9a6f44d66beb7630658ab648d}\label{class_menu_a9c3d04b9a6f44d66beb7630658ab648d}} 
+\index{Menu@{Menu}!askMSTPrim@{askMSTPrim}}
+\index{askMSTPrim@{askMSTPrim}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{askMSTPrim()}{askMSTPrim()}}
+{\footnotesize\ttfamily void Menu\+::ask\+MSTPrim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Asks the user the origin stop to start with Prim\textquotesingle{} Algorithm. It also shows the resultant MST from that algorithm. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{class_menu_a9c3d04b9a6f44d66beb7630658ab648d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{class_menu_a9c3d04b9a6f44d66beb7630658ab648d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a29c92a17c6ae2e9b8ea570e5fa0eb81b}\label{class_menu_a29c92a17c6ae2e9b8ea570e5fa0eb81b}} 
+\index{Menu@{Menu}!askStartEnd@{askStartEnd}}
+\index{askStartEnd@{askStartEnd}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{askStartEnd()}{askStartEnd()}}
+{\footnotesize\ttfamily int Menu\+::ask\+Start\+End (\begin{DoxyParamCaption}\item[{string \&}]{stop\+Begin,  }\item[{string \&}]{stop\+End,  }\item[{\mbox{\hyperlink{struct_coordinates}{Coordinates}} \&}]{c\+Begin,  }\item[{\mbox{\hyperlink{struct_coordinates}{Coordinates}} \&}]{c\+End }\end{DoxyParamCaption})}
+
+Asks the user the codes or coordinates of their wanted origin and destination. If the user inserts coordinates that don\textquotesingle{}t belong to any stop and refuses to walk, the system warns them about it. 
+\begin{DoxyParams}{Parameters}
+{\em stop\+Begin} & The origin\textquotesingle{}s code \\
+\hline
+{\em stop\+End} & The destiny\textquotesingle{}s code \\
+\hline
+{\em c\+Begin} & The origin\textquotesingle{}s coordinates \\
+\hline
+{\em c\+End} & The destiny\textquotesingle{}s coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_a29c92a17c6ae2e9b8ea570e5fa0eb81b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_a29c92a17c6ae2e9b8ea570e5fa0eb81b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_aea3fc8c6eb7f6b248237e11e6159e2ac}\label{class_menu_aea3fc8c6eb7f6b248237e11e6159e2ac}} 
+\index{Menu@{Menu}!askSwapDistance@{askSwapDistance}}
+\index{askSwapDistance@{askSwapDistance}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{askSwapDistance()}{askSwapDistance()}}
+{\footnotesize\ttfamily void Menu\+::ask\+Swap\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Asks the user how much they are willing to walk to swap buses in the middle of their journey. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_aea3fc8c6eb7f6b248237e11e6159e2ac_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_aea3fc8c6eb7f6b248237e11e6159e2ac_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_ac80f8448305b145adf74af5e9e571035}\label{class_menu_ac80f8448305b145adf74af5e9e571035}} 
+\index{Menu@{Menu}!askSwapWalkDistance@{askSwapWalkDistance}}
+\index{askSwapWalkDistance@{askSwapWalkDistance}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{askSwapWalkDistance()}{askSwapWalkDistance()}}
+{\footnotesize\ttfamily void Menu\+::ask\+Swap\+Walk\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ask the user which of the two types of walking distances they want to set. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_ac80f8448305b145adf74af5e9e571035_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{class_menu_ac80f8448305b145adf74af5e9e571035_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a9c781d6cd1f320ee3c8010a6ba544695}\label{class_menu_a9c781d6cd1f320ee3c8010a6ba544695}} 
+\index{Menu@{Menu}!askWalkingDistance@{askWalkingDistance}}
+\index{askWalkingDistance@{askWalkingDistance}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{askWalkingDistance()}{askWalkingDistance()}}
+{\footnotesize\ttfamily void Menu\+::ask\+Walking\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Asks the user how much they are willing to walk to either their first stop or from their last stop to destiny if they give coordinates instead of the stops. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{class_menu_a9c781d6cd1f320ee3c8010a6ba544695_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_a9c781d6cd1f320ee3c8010a6ba544695_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_ae66b5ec82ed65a10c2e46a5187602508}\label{class_menu_ae66b5ec82ed65a10c2e46a5187602508}} 
+\index{Menu@{Menu}!bestPathDijkstra@{bestPathDijkstra}}
+\index{bestPathDijkstra@{bestPathDijkstra}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{bestPathDijkstra()}{bestPathDijkstra()}}
+{\footnotesize\ttfamily void Menu\+::best\+Path\+Dijkstra (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method that deals with all the calculations of paths. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_ae66b5ec82ed65a10c2e46a5187602508_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{class_menu_ae66b5ec82ed65a10c2e46a5187602508_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a3630ce145aab68961ec535762d928558}\label{class_menu_a3630ce145aab68961ec535762d928558}} 
+\index{Menu@{Menu}!clear@{clear}}
+\index{clear@{clear}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Menu\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+It clears the console by calling system(). (It might have problems in Clion, but it works well in the terminal) Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{class_menu_a3630ce145aab68961ec535762d928558_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a29b5aba3db445a7e1cdb887284fba957}\label{class_menu_a29b5aba3db445a7e1cdb887284fba957}} 
+\index{Menu@{Menu}!createGraphLine@{createGraphLine}}
+\index{createGraphLine@{createGraphLine}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{createGraphLine()}{createGraphLine()}}
+{\footnotesize\ttfamily void Menu\+::create\+Graph\+Line (\begin{DoxyParamCaption}\item[{string}]{line }\end{DoxyParamCaption})}
+
+Reads a string representing the attributes of a line with them, creates a new line. It also adds this new line to every edges that it passes through. 
+\begin{DoxyParams}{Parameters}
+{\em line} & Attributes of a line \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{class_menu_a29b5aba3db445a7e1cdb887284fba957_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_a29b5aba3db445a7e1cdb887284fba957_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a0f2e1c2f1e50deb9c2c3cace04e9caec}\label{class_menu_a0f2e1c2f1e50deb9c2c3cace04e9caec}} 
+\index{Menu@{Menu}!createGraphLines@{createGraphLines}}
+\index{createGraphLines@{createGraphLines}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{createGraphLines()}{createGraphLines()}}
+{\footnotesize\ttfamily void Menu\+::create\+Graph\+Lines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Read lines.\+csv and for every line on the document calls the method responsible for creating lines. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_a0f2e1c2f1e50deb9c2c3cace04e9caec_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a167c19644a46f74adf52bce8aa7fb329}\label{class_menu_a167c19644a46f74adf52bce8aa7fb329}} 
+\index{Menu@{Menu}!createGraphStops@{createGraphStops}}
+\index{createGraphStops@{createGraphStops}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{createGraphStops()}{createGraphStops()}}
+{\footnotesize\ttfamily void Menu\+::create\+Graph\+Stops (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Reads stops.\+csv and for every line on the document it creates a node and adds it to the graph. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{class_menu_a167c19644a46f74adf52bce8aa7fb329_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a80117d3e6e7adc501358545098f6fdba}\label{class_menu_a80117d3e6e7adc501358545098f6fdba}} 
+\index{Menu@{Menu}!pressEnterToContinue@{pressEnterToContinue}}
+\index{pressEnterToContinue@{pressEnterToContinue}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{pressEnterToContinue()}{pressEnterToContinue()}}
+{\footnotesize\ttfamily void Menu\+::press\+Enter\+To\+Continue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Waits for user to press enter to continue. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{class_menu_a80117d3e6e7adc501358545098f6fdba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a1c473929e003d2ae3a05614029213e69}\label{class_menu_a1c473929e003d2ae3a05614029213e69}} 
+\index{Menu@{Menu}!readDouble@{readDouble}}
+\index{readDouble@{readDouble}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{readDouble()}{readDouble()}}
+{\footnotesize\ttfamily double Menu\+::read\+Double (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Reads double from the user (General use). \begin{DoxyReturn}{Returns}
+Value given by the user 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_a1c473929e003d2ae3a05614029213e69_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a737b112dda7349c6d86d709c14f3462d}\label{class_menu_a737b112dda7349c6d86d709c14f3462d}} 
+\index{Menu@{Menu}!readInputBestAlgorithm@{readInputBestAlgorithm}}
+\index{readInputBestAlgorithm@{readInputBestAlgorithm}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{readInputBestAlgorithm()}{readInputBestAlgorithm()}}
+{\footnotesize\ttfamily int Menu\+::read\+Input\+Best\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Read an input from the user regarding their algorithm of choice. \begin{DoxyReturn}{Returns}
+The chosen algorithm\textquotesingle{}s number 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_a737b112dda7349c6d86d709c14f3462d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a1d4000e0c707fc038343a57f9b43bc45}\label{class_menu_a1d4000e0c707fc038343a57f9b43bc45}} 
+\index{Menu@{Menu}!readInputMenu@{readInputMenu}}
+\index{readInputMenu@{readInputMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{readInputMenu()}{readInputMenu()}}
+{\footnotesize\ttfamily int Menu\+::read\+Input\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Reads input from the user in the main menu. \begin{DoxyReturn}{Returns}
+choice of the user 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{class_menu_a1d4000e0c707fc038343a57f9b43bc45_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_af18e46d45ecd770a26b402c553a3bd94}\label{class_menu_af18e46d45ecd770a26b402c553a3bd94}} 
+\index{Menu@{Menu}!readInputStopsOrLocation@{readInputStopsOrLocation}}
+\index{readInputStopsOrLocation@{readInputStopsOrLocation}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{readInputStopsOrLocation()}{readInputStopsOrLocation()}}
+{\footnotesize\ttfamily int Menu\+::read\+Input\+Stops\+Or\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Reads an input from the user regarding if they want to tell the stops\textquotesingle{} code or coordinates. \begin{DoxyReturn}{Returns}
+The value of the user\textquotesingle{}s choice. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_af18e46d45ecd770a26b402c553a3bd94_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a6e291e64d873000550cee5c9c8125c63}\label{class_menu_a6e291e64d873000550cee5c9c8125c63}} 
+\index{Menu@{Menu}!readInt@{readInt}}
+\index{readInt@{readInt}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{readInt()}{readInt()}}
+{\footnotesize\ttfamily int Menu\+::read\+Int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Reads integer from the user (General use). \begin{DoxyReturn}{Returns}
+Value given by the user 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_a6e291e64d873000550cee5c9c8125c63_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a84a0e7874b733fb95db1606bfe4eefcc}\label{class_menu_a84a0e7874b733fb95db1606bfe4eefcc}} 
+\index{Menu@{Menu}!readString@{readString}}
+\index{readString@{readString}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{readString()}{readString()}}
+{\footnotesize\ttfamily string Menu\+::read\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Reads string from the user (General use). \begin{DoxyReturn}{Returns}
+Value given by the user 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_a84a0e7874b733fb95db1606bfe4eefcc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a35656cd130e24d69383a5c9d0a73a38c}\label{class_menu_a35656cd130e24d69383a5c9d0a73a38c}} 
+\index{Menu@{Menu}!run@{run}}
+\index{run@{run}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Menu\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Takes the user\textquotesingle{}s input to determine which functionality to execute. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_a35656cd130e24d69383a5c9d0a73a38c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_aa85ffbcb05f93485cd20d1c78da8e211}\label{class_menu_aa85ffbcb05f93485cd20d1c78da8e211}} 
+\index{Menu@{Menu}!showAlgorithmOptions@{showAlgorithmOptions}}
+\index{showAlgorithmOptions@{showAlgorithmOptions}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{showAlgorithmOptions()}{showAlgorithmOptions()}}
+{\footnotesize\ttfamily void Menu\+::show\+Algorithm\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Prints the options of the priorities that can define \char`\"{}the best path\char`\"{} for the user. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_aa85ffbcb05f93485cd20d1c78da8e211_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_ab19f32f8deac0f6c6960f04be8612067}\label{class_menu_ab19f32f8deac0f6c6960f04be8612067}} 
+\index{Menu@{Menu}!showMenu@{showMenu}}
+\index{showMenu@{showMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{showMenu()}{showMenu()}}
+{\footnotesize\ttfamily void Menu\+::show\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Prints the main menu showing every functionality that the user can choose. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{class_menu_ab19f32f8deac0f6c6960f04be8612067_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a6261fe20d9de128de80d798842b0ddb9}\label{class_menu_a6261fe20d9de128de80d798842b0ddb9}} 
+\index{Menu@{Menu}!showStopsOrLocation@{showStopsOrLocation}}
+\index{showStopsOrLocation@{showStopsOrLocation}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{showStopsOrLocation()}{showStopsOrLocation()}}
+{\footnotesize\ttfamily void Menu\+::show\+Stops\+Or\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Prints the options to indicate the stops\textquotesingle{} code or coordinates. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_menu_a6261fe20d9de128de80d798842b0ddb9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_menu_a25f924bbbf87f322e3a80ee53fd72169}\label{class_menu_a25f924bbbf87f322e3a80ee53fd72169}} 
+\index{Menu@{Menu}!split@{split}}
+\index{split@{split}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Menu\+::split (\begin{DoxyParamCaption}\item[{string}]{line,  }\item[{string}]{delimeter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+It separates a string in to a vector of strings by the delimiter. 
+\begin{DoxyParams}{Parameters}
+{\em line} & The line\textquotesingle{}s code \\
+\hline
+{\em delimeter} & The expression where the systems splits the string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of strings 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{class_menu_a25f924bbbf87f322e3a80ee53fd72169_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/clion-\/projetos/\+Bus\+Navigation\+Program/\+Bus\+Navigation\+Program/src/Menu.\+h\item 
+C\+:/clion-\/projetos/\+Bus\+Navigation\+Program/\+Bus\+Navigation\+Program/src/Menu.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,60 @@
+\hypertarget{_node_8h_source}{}\doxysection{Node.\+h}
+\label{_node_8h_source}\index{C:/clion-\/projetos/BusNavigationProgram/BusNavigationProgram/src/Node.h@{C:/clion-\/projetos/BusNavigationProgram/BusNavigationProgram/src/Node.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BUSNAVIGATIONPROGRAM\_NODE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BUSNAVIGATIONPROGRAM\_NODE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_coordinates}{Coordinates}} \{}
+\DoxyCodeLine{12     \textcolor{keywordtype}{double} latitude;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{double} longitude;}
+\DoxyCodeLine{14 \};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{19 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_edge}{Edge}} \{}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} dest;   \textcolor{comment}{// Destination node}}
+\DoxyCodeLine{21     \textcolor{keywordtype}{double} weight; \textcolor{comment}{// An integer weight}}
+\DoxyCodeLine{22     \textcolor{keywordtype}{string} line;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{29 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_edge_kruskal}{EdgeKruskal}} \{}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} src;    \textcolor{comment}{// Source node}}
+\DoxyCodeLine{31     \textcolor{keywordtype}{int} dest;   \textcolor{comment}{// Destination node}}
+\DoxyCodeLine{32     \textcolor{keywordtype}{double} weight; \textcolor{comment}{// An integer weight}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{comment}{// For Kruskal's}}
+\DoxyCodeLine{35     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} \mbox{\hyperlink{struct_edge_kruskal}{EdgeKruskal}} \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{36         \textcolor{keywordflow}{return} weight < other.weight;}
+\DoxyCodeLine{37     \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{struct_edge_kruskal}{EdgeKruskal}} \&other)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{40         \textcolor{keywordflow}{return} ((src == other.src \&\& dest == other.dest) ||}
+\DoxyCodeLine{41                 (src == other.dest \&\& dest == other.src)) \&\&}
+\DoxyCodeLine{42                weight == other.weight;}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 \};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{49  \textcolor{keyword}{struct }\mbox{\hyperlink{struct_node}{Node}} \{}
+\DoxyCodeLine{50     list<Edge> adj; \textcolor{comment}{// The list of outgoing edges (to adjacent nodes)}}
+\DoxyCodeLine{51     \textcolor{keywordtype}{double} distance;}
+\DoxyCodeLine{52     \textcolor{keywordtype}{int} parent;  \textcolor{comment}{// previous node of the path}}
+\DoxyCodeLine{53     \textcolor{keywordtype}{bool} visited;}
+\DoxyCodeLine{54     \textcolor{keywordtype}{string} code;  \textcolor{comment}{//unique code of the bus stop}}
+\DoxyCodeLine{55     \textcolor{keywordtype}{string} local;}
+\DoxyCodeLine{56     \textcolor{keywordtype}{string} zone;}
+\DoxyCodeLine{57     \mbox{\hyperlink{struct_coordinates}{Coordinates}} coordinates;}
+\DoxyCodeLine{58     \textcolor{keywordtype}{int} changesOfLine;  \textcolor{comment}{//used in dijkstraLine algorithm calculation}}
+\DoxyCodeLine{59     map<string, pair<double, int>> lines; \textcolor{comment}{// used for dijkstraLine algorithm calculations}}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//BUSNAVIGATIONPROGRAM\_NODE\_H}}
+
+\end{DoxyCode}

@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram
+CMAKE_SOURCE_DIR = C:\clion-projetos\BusNavigationProgram\BusNavigationProgram
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug
+CMAKE_BINARY_DIR = C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,43 +67,43 @@ CMAKE_BINARY_DIR = C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigati
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -113,7 +113,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -131,9 +131,9 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -249,6 +249,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\BusNavigationProgram.dir\build.make CMakeFiles/BusNavigationProgram.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/DisjointSets.obj: src/DisjointSets.cpp.obj
+.PHONY : src/DisjointSets.obj
+
+# target to build an object file
+src/DisjointSets.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BusNavigationProgram.dir\build.make CMakeFiles/BusNavigationProgram.dir/src/DisjointSets.cpp.obj
+.PHONY : src/DisjointSets.cpp.obj
+
+src/DisjointSets.i: src/DisjointSets.cpp.i
+.PHONY : src/DisjointSets.i
+
+# target to preprocess a source file
+src/DisjointSets.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BusNavigationProgram.dir\build.make CMakeFiles/BusNavigationProgram.dir/src/DisjointSets.cpp.i
+.PHONY : src/DisjointSets.cpp.i
+
+src/DisjointSets.s: src/DisjointSets.cpp.s
+.PHONY : src/DisjointSets.s
+
+# target to generate assembly for a file
+src/DisjointSets.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BusNavigationProgram.dir\build.make CMakeFiles/BusNavigationProgram.dir/src/DisjointSets.cpp.s
+.PHONY : src/DisjointSets.cpp.s
+
 src/Graph.obj: src/Graph.cpp.obj
 .PHONY : src/Graph.obj
 
@@ -272,6 +296,30 @@ src/Graph.s: src/Graph.cpp.s
 src/Graph.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\BusNavigationProgram.dir\build.make CMakeFiles/BusNavigationProgram.dir/src/Graph.cpp.s
 .PHONY : src/Graph.cpp.s
+
+src/Menu.obj: src/Menu.cpp.obj
+.PHONY : src/Menu.obj
+
+# target to build an object file
+src/Menu.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BusNavigationProgram.dir\build.make CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.obj
+.PHONY : src/Menu.cpp.obj
+
+src/Menu.i: src/Menu.cpp.i
+.PHONY : src/Menu.i
+
+# target to preprocess a source file
+src/Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BusNavigationProgram.dir\build.make CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.i
+.PHONY : src/Menu.cpp.i
+
+src/Menu.s: src/Menu.cpp.s
+.PHONY : src/Menu.s
+
+# target to generate assembly for a file
+src/Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BusNavigationProgram.dir\build.make CMakeFiles/BusNavigationProgram.dir/src/Menu.cpp.s
+.PHONY : src/Menu.cpp.s
 
 tests/GraphsForTests.obj: tests/GraphsForTests.cpp.obj
 .PHONY : tests/GraphsForTests.obj
@@ -341,9 +389,15 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... src/DisjointSets.obj
+	@echo ... src/DisjointSets.i
+	@echo ... src/DisjointSets.s
 	@echo ... src/Graph.obj
 	@echo ... src/Graph.i
 	@echo ... src/Graph.s
+	@echo ... src/Menu.obj
+	@echo ... src/Menu.i
+	@echo ... src/Menu.s
 	@echo ... tests/GraphsForTests.obj
 	@echo ... tests/GraphsForTests.i
 	@echo ... tests/GraphsForTests.s

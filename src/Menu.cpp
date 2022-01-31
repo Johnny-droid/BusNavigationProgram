@@ -10,7 +10,9 @@ Graph &Menu::getGraph() {
     return this->graph;
 }
 
-
+/**
+ * Takes the user's input to determine which functionality to execute.
+ */
 void Menu::run() {
     int option;
 
@@ -29,14 +31,16 @@ void Menu::run() {
 }
 
 /**
- * Waits for user to press enter to continue
+ * Waits for user to press enter to continue.
  */
 void Menu::pressEnterToContinue() {
     cout << "\n\tPress enter to continue \t" << endl;
     cin.ignore(10000, '\n');
     getchar();
 }
-
+/**
+ * Prints the main menu showing every functionality that the user can choose.
+ */
 void Menu::showMenu() {
     cout << "\n\t\t\t\t Bus Navigation Program " << endl;
     cout << "\tThe best app to help you find the path you are looking for!" << endl;
@@ -47,12 +51,16 @@ void Menu::showMenu() {
     cout << "\t5) Imprimir Paragens" << endl;
     cout << "\t0) Exit " << endl;
 }
-
+/**
+ * Prints the options to indicate the stops' code or coordinates.
+ */
 void Menu::showStopsOrLocation() {
     cout << "\n\n\t1) Indicar paragens de autocarro" << endl;
     cout << "\t2) Indicar coordenadas " << endl;
 }
-
+/**
+ * Prints the options of the priorities that can define "the best path" for the user.
+ */
 void Menu::showAlgorithmOptions() {
     cout << "\n\n\t1) Trajeto mais rápido (menor distância)" << endl;
     cout << "\t2) Trajeto com menos paragens" << endl;
@@ -60,7 +68,7 @@ void Menu::showAlgorithmOptions() {
 }
 
 /**
- * Reads input from the user in the main menu
+ * Reads input from the user in the main menu.
  * @return choice of the user
  */
 int Menu::readInputMenu() {
@@ -82,7 +90,10 @@ int Menu::readInputMenu() {
     cin.ignore(100000, '\n');
     return chosenOption;
 }
-
+/**
+ * Reads an input from the user regarding if they want to tell the stops' code or coordinates.
+ * @return The value of the user's choice.
+ */
 int Menu::readInputStopsOrLocation() {
     int chosenOption;
     bool notValid;
@@ -102,7 +113,10 @@ int Menu::readInputStopsOrLocation() {
     cin.ignore(100000, '\n');
     return chosenOption;
 }
-
+/**
+ * Read an input from the user regarding their algorithm of choice.
+ * @return The chosen algorithm's number
+ */
 int Menu::readInputBestAlgorithm() {
     int chosenOption;
     bool notValid;
@@ -124,7 +138,7 @@ int Menu::readInputBestAlgorithm() {
 }
 
 /**
- * It clears the console by calling system()
+ * It clears the console by calling system().
  * (It might have problems in Clion, but it works well in the terminal)
  */
 void Menu::clear() {
@@ -138,8 +152,8 @@ void Menu::clear() {
 }
 
 /**
- * Reads integer from the user (General use)
- * @return value given by the user
+ * Reads integer from the user (General use).
+ * @return Value given by the user
  */
 int Menu::readInt() {
     int x; bool fail;
@@ -158,7 +172,10 @@ int Menu::readInt() {
     } while (fail);
     return x;
 }
-
+/**
+ * Reads double from the user (General use).
+ * @return Value given by the user
+ */
 double Menu::readDouble() {
     double x; bool fail;
     do {
@@ -176,7 +193,10 @@ double Menu::readDouble() {
     } while (fail);
     return x;
 }
-
+/**
+ * Reads string from the user (General use).
+ * @return Value given by the user
+ */
 string Menu::readString() {
     string str; bool fail;
     // para conseguir ler um nome com mais do que uma palavra
@@ -193,7 +213,9 @@ string Menu::readString() {
     } while (fail);
     return str;
 }
-
+/**
+ * Reads stops.csv and for every line on the document it creates a node and adds it to the graph.
+ */
 void Menu::createGraphStops() {
     ifstream fileStops;
     string line;
@@ -224,7 +246,9 @@ void Menu::createGraphStops() {
     this->graph = graph1;
 }
 
-
+/**
+ * Read lines.csv and for every line on the document calls the method responsible for creating lines.
+ */
 void Menu::createGraphLines() {
     ifstream fileLines;
     string str;
@@ -243,7 +267,11 @@ void Menu::createGraphLines() {
 
     fileLines.close();
 }
-
+/**
+ * Reads a string representing the attributes of a line with them, creates a new line.
+ * It also adds this new line to every edges that it passes through.
+ * @param line Attributes of a line
+ */
 void Menu::createGraphLine(string line) {
     ifstream fileLine;
     string str1, str2;
@@ -264,7 +292,15 @@ void Menu::createGraphLine(string line) {
         fileLine.close();
     }
 }
-
+/**
+ * Asks the user the codes or coordinates of their wanted origin and destination.
+ * If the user inserts coordinates that don't belong to any stop and refuses to walk, the system warns them about it.
+ * @param stopBegin The origin's code
+ * @param stopEnd The destiny's code
+ * @param cBegin The origin's coordinates
+ * @param cEnd The destiny's coordinates
+ * @return
+ */
 int Menu::askStartEnd(string &stopBegin, string &stopEnd, Coordinates &cBegin, Coordinates &cEnd) {
     int option;
     showStopsOrLocation();
@@ -288,10 +324,12 @@ int Menu::askStartEnd(string &stopBegin, string &stopEnd, Coordinates &cBegin, C
     return option;
 }
 
-
-
-
-
+/**
+ * It separates a string in to a vector of strings by the delimiter.
+ * @param line The line's code
+ * @param delimeter The expression where the systems splits the string
+ * @return Vector of strings
+ */
 vector<string> Menu::split(string line, string delimeter) {
     vector<string> v;
 
@@ -309,6 +347,9 @@ vector<string> Menu::split(string line, string delimeter) {
     return v;
 }
 
+/**
+ * Method that deals with all the calculations of paths.
+ */
 void Menu::bestPathDijkstra() {
     stack<int> path;
     int option, optionAlgorithm;
@@ -379,19 +420,26 @@ void Menu::bestPathDijkstra() {
     } else {return;}
 }
 
-
+/**
+ * Asks the user how much they are willing to walk to either their first stop or
+ * from their last stop to destiny if they give coordinates instead of the stops.
+ */
 void Menu::askWalkingDistance() {
     double walkDist;
     cout << "\n\tSet a limit to how much you want to walk to/from a stop (kilometers): ";  walkDist = readDouble();
     graph.setWalkingDistance(walkDist);
 }
-
+/**
+ * Asks the user how much they are willing to walk to swap buses in the middle of their journey.
+ */
 void Menu::askSwapDistance() {
     double swapDist;
     cout << "\n\tSet a limit to how much you want to swap between stops (kilometers): ";  swapDist = readDouble();
     graph.setSwapDistance(swapDist);
 }
-
+/**
+ * Ask the user which of the two types of walking distances they want to set.
+ */
 void Menu::askSwapWalkDistance() {
     int option;
     cout << "\n\t1) Definir distância a andar até uma paragem" << endl;
@@ -400,7 +448,10 @@ void Menu::askSwapWalkDistance() {
     if (option == 1) askWalkingDistance();
     else if (option == 2) askSwapDistance();
 }
-
+/**
+ * Asks the user the origin stop to start with Prim' Algorithm.
+ * It also shows the resultant MST from that algorithm.
+ */
 void Menu::askMSTPrim() {
     string stop;
     cout << "\n\tSelect a Bus Stop to start to calculations: "; stop = readString();
@@ -414,7 +465,9 @@ void Menu::askMSTPrim() {
     }
 
 }
-
+/**
+ * Shows the user the resultant MST from Kruskal's Algorithm.
+ */
 void Menu::askMSTKruskal() {
     cout << "\n\tThe MST of this graph of stops is, according to Kruskal's Algorithm: " << graph.kruskal() << " km " << endl;
 }

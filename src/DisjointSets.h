@@ -4,7 +4,6 @@
 
 #ifndef _DISJOINTSETS_H_
 #define _DISJOINTSETS_H_
-
 #include <unordered_map>
 
 template <class T> class DisjointSets {

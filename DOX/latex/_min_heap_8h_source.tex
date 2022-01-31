@@ -1,0 +1,129 @@
+\hypertarget{_min_heap_8h_source}{}\doxysection{Min\+Heap.\+h}
+\label{_min_heap_8h_source}\index{C:/clion-\/projetos/BusNavigationProgram/BusNavigationProgram/src/MinHeap.h@{C:/clion-\/projetos/BusNavigationProgram/BusNavigationProgram/src/MinHeap.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BUSNAVIGATIONPROGRAM\_MINHEAP\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BUSNAVIGATIONPROGRAM\_MINHEAP\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define LEFT(i) (2*(i))}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define RIGHT(i) (2*(i)+1)}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define PARENT(i) ((i)/2)}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{comment}{// Binary min-\/heap to represent integer keys of type K with values (priorities) of type V}}
+\DoxyCodeLine{15 \textcolor{keyword}{template} <\textcolor{keyword}{class} K, \textcolor{keyword}{class} V>}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_min_heap}{MinHeap}} \{}
+\DoxyCodeLine{17     \textcolor{keyword}{struct }Node \{ \textcolor{comment}{// An element of the heap: a pair (key, value)}}
+\DoxyCodeLine{18         K key;}
+\DoxyCodeLine{19         V value;}
+\DoxyCodeLine{20     \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} size;                  \textcolor{comment}{// Number of elements in heap}}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} maxSize;               \textcolor{comment}{// Maximum number of elements in heap}}
+\DoxyCodeLine{24     vector<Node> a;            \textcolor{comment}{// The heap array}}
+\DoxyCodeLine{25     unordered\_map<K, int> pos; \textcolor{comment}{// maps a key into its position on the array a}}
+\DoxyCodeLine{26     \textcolor{keyword}{const} K KEY\_NOT\_FOUND;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} upHeap(\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} downHeap(\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} swap(\textcolor{keywordtype}{int} i1, \textcolor{keywordtype}{int} i2);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_min_heap}{MinHeap}}(\textcolor{keywordtype}{int} n, \textcolor{keyword}{const} K\& notFound); \textcolor{comment}{// Create a min-\/heap for a max of n pairs (K,V) with notFound returned when empty}}
+\DoxyCodeLine{34     \textcolor{keywordtype}{int} getSize();              \textcolor{comment}{// Return number of elements in the heap}}
+\DoxyCodeLine{35     \textcolor{keywordtype}{bool} hasKey(\textcolor{keyword}{const} K\& key);  \textcolor{comment}{// Heap has key?}}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} insert(\textcolor{keyword}{const} K\& key, \textcolor{keyword}{const} V\& value);      \textcolor{comment}{// Insert (key, value) on the heap}}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} decreaseKey(\textcolor{keyword}{const} K\& key, \textcolor{keyword}{const} V\& value); \textcolor{comment}{// Decrease value of key}}
+\DoxyCodeLine{38     K removeMin(); \textcolor{comment}{// remove and return key with smaller value}}
+\DoxyCodeLine{39 \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{comment}{// Make a value go "{}up the tree"{} until it reaches its position}}
+\DoxyCodeLine{44 \textcolor{keyword}{template} <\textcolor{keyword}{class} K, \textcolor{keyword}{class} V>}
+\DoxyCodeLine{45 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_min_heap}{MinHeap<K,V>::upHeap}}(\textcolor{keywordtype}{int} i) \{}
+\DoxyCodeLine{46     \textcolor{keywordflow}{while} (i>1 \&\& a[i].value < a[PARENT(i)].value) \{ \textcolor{comment}{// while pos smaller than parent, keep swapping to upper position}}
+\DoxyCodeLine{47         swap(i, PARENT(i));}
+\DoxyCodeLine{48         i = PARENT(i);}
+\DoxyCodeLine{49     \}}
+\DoxyCodeLine{50 \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{comment}{// Make a value go "{}down the tree"{} until it reaches its position}}
+\DoxyCodeLine{53 \textcolor{keyword}{template} <\textcolor{keyword}{class} K, \textcolor{keyword}{class} V>}
+\DoxyCodeLine{54 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_min_heap}{MinHeap<K,V>::downHeap}}(\textcolor{keywordtype}{int} i) \{}
+\DoxyCodeLine{55     \textcolor{keywordflow}{while} (LEFT(i) <= size) \{ \textcolor{comment}{// while within heap limits}}
+\DoxyCodeLine{56         \textcolor{keywordtype}{int} j = LEFT(i);}
+\DoxyCodeLine{57         \textcolor{keywordflow}{if} (RIGHT(i)<=size \&\& a[RIGHT(i)].value < a[j].value) j = RIGHT(i); \textcolor{comment}{// choose smaller child}}
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} (a[i].value < a[j].value) \textcolor{keywordflow}{break};   \textcolor{comment}{// node already smaller than children, stop}}
+\DoxyCodeLine{59         swap(i, j);                    \textcolor{comment}{// otherwise, swap with smaller child}}
+\DoxyCodeLine{60         i = j;}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62 \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{comment}{// Swap two positions of the heap (update their positions)}}
+\DoxyCodeLine{65 \textcolor{keyword}{template} <\textcolor{keyword}{class} K, \textcolor{keyword}{class} V>}
+\DoxyCodeLine{66 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_min_heap}{MinHeap<K,V>::swap}}(\textcolor{keywordtype}{int} i1, \textcolor{keywordtype}{int} i2) \{}
+\DoxyCodeLine{67     \mbox{\hyperlink{struct_node}{Node}} tmp = a[i1]; a[i1] = a[i2]; a[i2] = tmp;}
+\DoxyCodeLine{68     pos[a[i1].key] = i1;}
+\DoxyCodeLine{69     pos[a[i2].key] = i2;}
+\DoxyCodeLine{70 \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{comment}{// Create a min-\/heap for a max of n pairs (K,V) with notFound returned when empty}}
+\DoxyCodeLine{75 \textcolor{keyword}{template} <\textcolor{keyword}{class} K, \textcolor{keyword}{class} V>}
+\DoxyCodeLine{76 \mbox{\hyperlink{class_min_heap}{MinHeap<K,V>::MinHeap}}(\textcolor{keywordtype}{int} n, \textcolor{keyword}{const} K\& notFound) : KEY\_NOT\_FOUND(notFound), size(0), maxSize(n), a(n+1) \{}
+\DoxyCodeLine{77 \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{comment}{// Return number of elements in the heap}}
+\DoxyCodeLine{80 \textcolor{keyword}{template} <\textcolor{keyword}{class} K, \textcolor{keyword}{class} V>}
+\DoxyCodeLine{81 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_min_heap}{MinHeap<K,V>::getSize}}() \{}
+\DoxyCodeLine{82     \textcolor{keywordflow}{return} size;}
+\DoxyCodeLine{83 \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{comment}{// Heap has key?}}
+\DoxyCodeLine{87 \textcolor{keyword}{template} <\textcolor{keyword}{class} K, \textcolor{keyword}{class} V>}
+\DoxyCodeLine{88 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_min_heap}{MinHeap<K, V>::hasKey}}(\textcolor{keyword}{const} K\& key) \{}
+\DoxyCodeLine{89     \textcolor{keywordflow}{return} pos.find(key) != pos.end();}
+\DoxyCodeLine{90 \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{comment}{// Insert (key, value) on the heap}}
+\DoxyCodeLine{93 \textcolor{keyword}{template} <\textcolor{keyword}{class} K, \textcolor{keyword}{class} V>}
+\DoxyCodeLine{94 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_min_heap}{MinHeap<K,V>::insert}}(\textcolor{keyword}{const} K\& key, \textcolor{keyword}{const} V\& value) \{}
+\DoxyCodeLine{95     \textcolor{keywordflow}{if} (size == maxSize) \textcolor{keywordflow}{return}; \textcolor{comment}{// heap is full, do nothing}}
+\DoxyCodeLine{96     \textcolor{keywordflow}{if} (hasKey(key)) \textcolor{keywordflow}{return};     \textcolor{comment}{// key already exists, do nothing}}
+\DoxyCodeLine{97     a[++size] = \{key, value\};}
+\DoxyCodeLine{98     pos[key] = size;}
+\DoxyCodeLine{99     upHeap(size);}
+\DoxyCodeLine{100 \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{comment}{// Decrease value of key to the indicated value}}
+\DoxyCodeLine{103 \textcolor{keyword}{template} <\textcolor{keyword}{class} K, \textcolor{keyword}{class} V>}
+\DoxyCodeLine{104 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_min_heap}{MinHeap<K,V>::decreaseKey}}(\textcolor{keyword}{const} K\& key, \textcolor{keyword}{const} V\& value) \{}
+\DoxyCodeLine{105     \textcolor{keywordflow}{if} (!hasKey(key)) \textcolor{keywordflow}{return}; \textcolor{comment}{// key does not exist, do nothing}}
+\DoxyCodeLine{106     \textcolor{keywordtype}{int} i = pos[key];}
+\DoxyCodeLine{107     \textcolor{keywordflow}{if} (value > a[i].value) \textcolor{keywordflow}{return}; \textcolor{comment}{// value would increase, do nothing}}
+\DoxyCodeLine{108     a[i].value = value;}
+\DoxyCodeLine{109     upHeap(i);}
+\DoxyCodeLine{110 \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{comment}{// remove and return key with smaller value}}
+\DoxyCodeLine{113 \textcolor{keyword}{template} <\textcolor{keyword}{class} K, \textcolor{keyword}{class} V>}
+\DoxyCodeLine{114 K \mbox{\hyperlink{class_min_heap}{MinHeap<K,V>::removeMin}}() \{}
+\DoxyCodeLine{115     \textcolor{keywordflow}{if} (size == 0) \textcolor{keywordflow}{return} KEY\_NOT\_FOUND;}
+\DoxyCodeLine{116     K min = a[1].key;}
+\DoxyCodeLine{117     pos.erase(min);}
+\DoxyCodeLine{118     a[1] = a[size-\/-\/];}
+\DoxyCodeLine{119     downHeap(1);}
+\DoxyCodeLine{120     \textcolor{keywordflow}{return} min;}
+\DoxyCodeLine{121 \}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//BUSNAVIGATIONPROGRAM\_MINHEAP\_H}}
+
+\end{DoxyCode}

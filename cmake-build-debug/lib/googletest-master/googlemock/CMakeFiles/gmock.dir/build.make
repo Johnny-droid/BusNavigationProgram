@@ -43,19 +43,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram
+CMAKE_SOURCE_DIR = C:\clion-projetos\BusNavigationProgram\BusNavigationProgram
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug
+CMAKE_BINARY_DIR = C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include lib/googletest-master/googlemock/CMakeFiles/gmock.dir/depend.make
@@ -68,16 +68,16 @@ include lib/googletest-master/googlemock/CMakeFiles/gmock.dir/flags.make
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: lib/googletest-master/googlemock/CMakeFiles/gmock.dir/flags.make
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: lib/googletest-master/googlemock/CMakeFiles/gmock.dir/includes_CXX.rsp
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: ../lib/googletest-master/googlemock/src/gmock-all.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj"
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\gmock.dir\src\gmock-all.cc.obj -c C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googlemock\src\gmock-all.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj"
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\gmock.dir\src\gmock-all.cc.obj -c C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googlemock\src\gmock-all.cc
 
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gmock.dir/src/gmock-all.cc.i"
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googlemock\src\gmock-all.cc > CMakeFiles\gmock.dir\src\gmock-all.cc.i
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googlemock\src\gmock-all.cc > CMakeFiles\gmock.dir\src\gmock-all.cc.i
 
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gmock.dir/src/gmock-all.cc.s"
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googlemock\src\gmock-all.cc -o CMakeFiles\gmock.dir\src\gmock-all.cc.s
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock && C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googlemock\src\gmock-all.cc -o CMakeFiles\gmock.dir\src\gmock-all.cc.s
 
 # Object files for target gmock
 gmock_OBJECTS = \
@@ -89,19 +89,19 @@ gmock_EXTERNAL_OBJECTS =
 lib/libgmockd.a: lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj
 lib/libgmockd.a: lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build.make
 lib/libgmockd.a: lib/googletest-master/googlemock/CMakeFiles/gmock.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ..\..\libgmockd.a"
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock && $(CMAKE_COMMAND) -P CMakeFiles\gmock.dir\cmake_clean_target.cmake
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\gmock.dir\link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ..\..\libgmockd.a"
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock && $(CMAKE_COMMAND) -P CMakeFiles\gmock.dir\cmake_clean_target.cmake
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\gmock.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build: lib/libgmockd.a
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build
 
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/clean:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock && $(CMAKE_COMMAND) -P CMakeFiles\gmock.dir\cmake_clean.cmake
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock && $(CMAKE_COMMAND) -P CMakeFiles\gmock.dir\cmake_clean.cmake
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock.dir/clean
 
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googlemock C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock\CMakeFiles\gmock.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\clion-projetos\BusNavigationProgram\BusNavigationProgram C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\lib\googletest-master\googlemock C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock\CMakeFiles\gmock.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock.dir/depend
 

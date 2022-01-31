@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram
+CMAKE_SOURCE_DIR = C:\clion-projetos\BusNavigationProgram\BusNavigationProgram
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug
+CMAKE_BINARY_DIR = C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,31 +67,31 @@ CMAKE_BINARY_DIR = C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigati
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -P cmake_install.cmake
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -101,7 +101,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -120,25 +120,25 @@ list_install_components/fast: list_install_components
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	C:\Users\anton\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\212.5457.51\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock\\CMakeFiles\progress.marks
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib/googletest-master/googlemock/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles 0
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\lib\googletest-master\googlemock\\CMakeFiles\progress.marks
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib/googletest-master/googlemock/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib/googletest-master/googlemock/clean
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib/googletest-master/googlemock/clean
 .PHONY : clean
 
 # The main clean target
@@ -147,22 +147,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib/googletest-master/googlemock/preinstall
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib/googletest-master/googlemock/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib/googletest-master/googlemock/preinstall
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib/googletest-master/googlemock/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/rule:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/rule
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/rule
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/rule
 
 # Convenience name for target.
@@ -171,12 +171,12 @@ gmock_main: lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/rule
 
 # fast build rule for target.
 gmock_main/fast:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock_main.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock_main.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build
 .PHONY : gmock_main/fast
 
 # Convenience name for target.
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/rule:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/rule
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/rule
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock.dir/rule
 
 # Convenience name for target.
@@ -185,7 +185,7 @@ gmock: lib/googletest-master/googlemock/CMakeFiles/gmock.dir/rule
 
 # fast build rule for target.
 gmock/fast:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build
 .PHONY : gmock/fast
 
 src/gmock-all.obj: src/gmock-all.cc.obj
@@ -193,7 +193,7 @@ src/gmock-all.obj: src/gmock-all.cc.obj
 
 # target to build an object file
 src/gmock-all.cc.obj:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj
 .PHONY : src/gmock-all.cc.obj
 
 src/gmock-all.i: src/gmock-all.cc.i
@@ -201,7 +201,7 @@ src/gmock-all.i: src/gmock-all.cc.i
 
 # target to preprocess a source file
 src/gmock-all.cc.i:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.i
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.i
 .PHONY : src/gmock-all.cc.i
 
 src/gmock-all.s: src/gmock-all.cc.s
@@ -209,7 +209,7 @@ src/gmock-all.s: src/gmock-all.cc.s
 
 # target to generate assembly for a file
 src/gmock-all.cc.s:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.s
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.s
 .PHONY : src/gmock-all.cc.s
 
 src/gmock_main.obj: src/gmock_main.cc.obj
@@ -217,7 +217,7 @@ src/gmock_main.obj: src/gmock_main.cc.obj
 
 # target to build an object file
 src/gmock_main.cc.obj:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock_main.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock_main.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj
 .PHONY : src/gmock_main.cc.obj
 
 src/gmock_main.i: src/gmock_main.cc.i
@@ -225,7 +225,7 @@ src/gmock_main.i: src/gmock_main.cc.i
 
 # target to preprocess a source file
 src/gmock_main.cc.i:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock_main.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.i
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock_main.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.i
 .PHONY : src/gmock_main.cc.i
 
 src/gmock_main.s: src/gmock_main.cc.s
@@ -233,7 +233,7 @@ src/gmock_main.s: src/gmock_main.cc.s
 
 # target to generate assembly for a file
 src/gmock_main.cc.s:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock_main.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.s
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib\googletest-master\googlemock\CMakeFiles\gmock_main.dir\build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.s
 .PHONY : src/gmock_main.cc.s
 
 # Help Target
@@ -267,6 +267,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d C:\Users\spark\CLionProjects\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d C:\clion-projetos\BusNavigationProgram\BusNavigationProgram\cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

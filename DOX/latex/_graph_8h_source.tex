@@ -1,0 +1,72 @@
+\hypertarget{_graph_8h_source}{}\doxysection{Graph.\+h}
+\label{_graph_8h_source}\index{C:/clion-\/projetos/BusNavigationProgram/BusNavigationProgram/src/Graph.h@{C:/clion-\/projetos/BusNavigationProgram/BusNavigationProgram/src/Graph.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef BUSNAVIGATIONPROGRAM\_GRAPH\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stack>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Node.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}MinHeap.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}DisjointSets.h"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_graph}{Graph}} \{}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} n;              \textcolor{comment}{// Graph size (vertices are numbered from 1 to n)}}
+\DoxyCodeLine{18     \textcolor{keywordtype}{double} walkingDistance = 0.001; \textcolor{comment}{//km}}
+\DoxyCodeLine{19     \textcolor{keywordtype}{double} swapDistance = 0.0;}
+\DoxyCodeLine{20     \textcolor{keywordtype}{bool} hasDir;        \textcolor{comment}{// false: undirect; true: directed}}
+\DoxyCodeLine{21     vector<Node> nodes; \textcolor{comment}{// The list of nodes being represented}}
+\DoxyCodeLine{22     unordered\_map<string, int> positions;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     \textcolor{comment}{// Constructor: nr nodes and direction (default: directed)}}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_graph}{Graph}}(\textcolor{keywordtype}{int} nodes = 0, \textcolor{keywordtype}{bool} dir = \textcolor{keyword}{true});}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_graph}{Graph}}(vector<Node> nodes, unordered\_map<string, int> positions, \textcolor{keywordtype}{bool} dir = \textcolor{keyword}{true});}
+\DoxyCodeLine{29     vector<Node>\& getNodes();}
+\DoxyCodeLine{30     \textcolor{keywordtype}{double} getWalkingDistance();}
+\DoxyCodeLine{31     \textcolor{keywordtype}{double} getSwapDistance();}
+\DoxyCodeLine{32     unordered\_map<string, int> getPositions();}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} setWalkingDistance(\textcolor{keywordtype}{double} walkingDist);}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_aedb02ac5403b70a0fe6ef2346b22030e}{setSwapDistance}}(\textcolor{keywordtype}{double} swapDist);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{// Add edge from source to destination with a certain weight}}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a6330e190e5d03e7486523a24f2007dcf}{addEdge}}(\textcolor{keywordtype}{string} src, \textcolor{keywordtype}{string} dest, \textcolor{keywordtype}{string} line);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a6330e190e5d03e7486523a24f2007dcf}{addEdge}}(\textcolor{keywordtype}{int} src, \textcolor{keywordtype}{int} dest, \textcolor{keywordtype}{string} line);}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a6330e190e5d03e7486523a24f2007dcf}{addEdge}}(\textcolor{keywordtype}{int} src, \textcolor{keywordtype}{int} dest, \textcolor{keywordtype}{double} weight = 1.0);}
+\DoxyCodeLine{40     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_ab7ab1f49dcb5d8970a048d168c0ec9f2}{calculateDistance}}(\mbox{\hyperlink{struct_coordinates}{Coordinates}} c1, \mbox{\hyperlink{struct_coordinates}{Coordinates}} c2);}
+\DoxyCodeLine{41     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_ab7ab1f49dcb5d8970a048d168c0ec9f2}{calculateDistance}}(\textcolor{keywordtype}{int} src, \textcolor{keywordtype}{int} dest);}
+\DoxyCodeLine{42     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_graph_a9b37c1fd4074558bfc813342906997ce}{calculateChangesOfLine}}(map<\textcolor{keywordtype}{string}, pair<double, int>> lines, \textcolor{keywordtype}{int} numPrevChangesOfLines, \textcolor{keywordtype}{string} newLine);}
+\DoxyCodeLine{43     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_a711b5e72f64e63a01601e28576543402}{calculateWeightDijkstraLine}}(\textcolor{keywordtype}{int} min, \textcolor{keywordtype}{double} edgeWeight, \textcolor{keywordtype}{string} newLine);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{long} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_a407d3118abd6dbd345bb1382cc9603d3}{prim}}(\textcolor{keywordtype}{int} r);}
+\DoxyCodeLine{46     \textcolor{keywordtype}{long} \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_ad77f6744a69bd9c5ee1b6ee2ef9071f5}{kruskal}}();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_ad4890945c57ebfcab65628b00c7b045f}{bfs}}(\textcolor{keywordtype}{string} src, \textcolor{keywordtype}{string} dest);}
+\DoxyCodeLine{49     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_ad4890945c57ebfcab65628b00c7b045f}{bfs}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b);}
+\DoxyCodeLine{50     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_a757523ec50ef2b9caed078821c9809b8}{dijkstra}}(\textcolor{keywordtype}{string} src, \textcolor{keywordtype}{string} dest);}
+\DoxyCodeLine{51     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_a757523ec50ef2b9caed078821c9809b8}{dijkstra}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_abbd595bc1d0763d111feb906442c9d45}{dijkstraLine}}(\textcolor{keywordtype}{string} src, \textcolor{keywordtype}{string} dest);}
+\DoxyCodeLine{53     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_graph_abbd595bc1d0763d111feb906442c9d45}{dijkstraLine}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     stack<int> \mbox{\hyperlink{class_graph_ac20eb20ca85c2c870c28e69405a0b0cb}{getPathFromGraph}}(\textcolor{keywordtype}{string} src, \textcolor{keywordtype}{string} dest);}
+\DoxyCodeLine{56     stack<int> \mbox{\hyperlink{class_graph_ac20eb20ca85c2c870c28e69405a0b0cb}{getPathFromGraph}}(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a4dd5d569fad52520e6f2962637b956eb}{printPath}}(stack<int> path);}
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_aa0605aed3d1f52fc184084ccb1532e35}{printPathLinesAlgorithm}}(stack<int> path);}
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_ac83f6a4edf0d503d387f59093692d719}{printNodes}}();}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_a1a5836deb8bfa4124caf584e8a9ab1ff}{insertTemporaryNode}}(\mbox{\hyperlink{struct_coordinates}{Coordinates}} c, \textcolor{keywordtype}{bool} startType);}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_graph_ad5172b4ad9a6121adffed3b669eb952b}{removeTemporaryNodes}}();}
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//BUSNAVIGATIONPROGRAM\_GRAPH\_H}}
+
+\end{DoxyCode}

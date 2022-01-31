@@ -10,8 +10,11 @@ using testing::Eq;
 
 
 
-
-TEST(SmallMapDistances, travelling1stop) {
+/**
+ * Tests if dijkstra can determine the distance between adjacent nodes.
+ * This test is done on the small map.
+ */
+TEST(SmallMapDistances, travelling2stops) {
     Menu menu("dataset-small");
     Graph graphS1 = menu.getGraph();
     //graphS1.printNodes();
@@ -25,8 +28,11 @@ TEST(SmallMapDistances, travelling1stop) {
     EXPECT_EQ(14622, round(graphS1.dijkstra("J", "I") * 100000));
     EXPECT_EQ(16414, round(graphS1.dijkstra("I", "B") * 100000));
 }
-
-TEST(SmallMapDistances, travelling2stops) {
+/**
+ * Tests if dijkstra can determine the distance two nodes with a path that is 2 edges long.
+ * This test is done on the small map.
+ */
+TEST(SmallMapDistances, travelling3stops) {
     Menu menu("dataset-small");
     Graph graphS1 = menu.getGraph();
     //graphS1.printNodes();
@@ -34,16 +40,22 @@ TEST(SmallMapDistances, travelling2stops) {
     EXPECT_EQ(35427, round(graphS1.dijkstra("P", "I") * 100000));
     EXPECT_EQ(31036, round(graphS1.dijkstra("J", "B") * 100000));
 }
-
-TEST(SmallMapDistances, travelling3stops) {
+/**
+ * Tests if dijkstra can determine the distance two nodes with a path that is 3 edges long.
+ * This test is done on the small map.
+ */
+TEST(SmallMapDistances, travelling4stops) {
     Menu menu("dataset-small");
     Graph graphS1 = menu.getGraph();
     //graphS1.printNodes();
     EXPECT_EQ(50170, round(graphS1.dijkstra("G", "J") * 100000));
     EXPECT_EQ(51840, round(graphS1.dijkstra("P", "B") * 100000));
 }
-
-TEST(SmallMapDistances, travelling4stops) {
+/**
+ * Tests if dijkstra can determine the distance two nodes with a path that is 4 edges long.
+ * This test is done on the small map.
+ */
+TEST(SmallMapDistances, travelling5stops) {
     Menu menu("dataset-small");
     Graph graphS1 = menu.getGraph();
     //graphS1.printNodes();
@@ -63,7 +75,10 @@ bool compareStacks(stack<int> stack1, stack<int> stack2, Graph& g1) {
     }
     return true;
 }
-
+/**
+ * Tests if dijkstra can determine the best path between two nodes.
+ * This test is done on the small map.
+ */
 TEST(SmallMapPaths, itineraries) {
     Menu menu("dataset-small");
     Graph graphS1 = menu.getGraph();
@@ -264,15 +279,6 @@ TEST(SmallMapPaths, itineraries) {
     EXPECT_EQ(true, compareStacks(testStack, graphS1.getPathFromGraph("C", "T"), graphS1));
     while (!testStack.empty()) testStack.pop();
 }
-
-TEST(SmallMapPaths, bfs) {
-    Menu menu("dataset-small");
-    Graph graphS1 = menu.getGraph();
-    //graphS1.printNodes();
-    //graphS1.bfs();
-    //EXPECT_EQ();
-}
-
 
 TEST(test1, Dijkstra) {
     std::cout << "Testing 'dijkstra'" << std::endl;
