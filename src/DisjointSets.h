@@ -1,7 +1,3 @@
-//
-// Created by johnny on 29/01/22.
-//
-
 #ifndef _DISJOINTSETS_H_
 #define _DISJOINTSETS_H_
 #include <unordered_map>

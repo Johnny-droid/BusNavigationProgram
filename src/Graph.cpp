@@ -167,7 +167,7 @@ long double Graph::kruskal() {
     set<EdgeKruskal> edges;
     long double total = 0;
 
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i < nodes.size(); i++) {
         disjoinSets.makeSet(i);
     }
 
